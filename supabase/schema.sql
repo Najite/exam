@@ -49,8 +49,10 @@ CREATE TABLE IF NOT EXISTS submissions (
 -- 3. ANNOUNCEMENTS TABLE
 CREATE TABLE IF NOT EXISTS announcements (
     id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
-    title TEXT NOT NULL,
+    sender TEXT NOT NULL DEFAULT 'Youth Examiner',
+    title TEXT NOT NULL DEFAULT 'Broadcast Notice',
     message TEXT NOT NULL,
+    type TEXT NOT NULL DEFAULT 'info' CHECK (type IN ('info', 'warning', 'urgent')),
     created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
     target_exam_id TEXT REFERENCES exams(id) ON DELETE SET NULL
 );

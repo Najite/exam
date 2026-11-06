@@ -68,3 +68,4 @@ The platform will immediately detect the Supabase credentials and start querying
 The backend data service in [`src/lib/db.ts`](../src/lib/db.ts) is architected with a hybrid resilience pattern:
 - **When Supabase is configured**: All reads and writes target Supabase PostgreSQL. A local backup is also preserved in `data/` for maximum fault tolerance.
 - **When Supabase credentials are missing**: The platform automatically and gracefully falls back to local storage (`data/exams.json` and `data/submissions.json`), ensuring zero downtime or startup failures.
+

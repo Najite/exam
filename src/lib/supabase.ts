@@ -142,3 +142,4 @@ export function mapSubmissionToDbSubmission(sub: Submission) {
     ai_analytics: sub.aiAnalytics,
   };
 }
+

@@ -14,6 +14,17 @@ import {
 const DATA_DIR = path.join(process.cwd(), 'data');
 const EXAMS_FILE = path.join(DATA_DIR, 'exams.json');
 const SUBMISSIONS_FILE = path.join(DATA_DIR, 'submissions.json');
+const ANNOUNCEMENTS_FILE = path.join(DATA_DIR, 'announcements.json');
+
+export interface Announcement {
+  id: string;
+  sender: string;
+  title?: string;
+  message: string;
+  type: 'info' | 'warning' | 'urgent';
+  timestamp: string;
+  targetExamId?: string;
+}
 
 function ensureDataDir() {
   if (!fs.existsSync(DATA_DIR)) {
