@@ -30,35 +30,35 @@ export async function generateExamWithAI(params: GenerateExamParams): Promise<Ex
 }
 
 async function callGeminiExamGeneration(params: GenerateExamParams, apiKey: string): Promise<Exam> {
-  const prompt = `You are an expert psychometrician and test design authority.
-Create a rigorous, high-stakes Computer-Based Test (CBT) examination in JSON format on the topic: "${params.topic}".
-Category: ${params.category || 'General Assessment'}
+  const prompt = `You are an expert biblical scholar, theologian, and psychometric test design authority.
+Create a rigorous, high-stakes Computer-Based Test (CBT) examination in JSON format focusing on Biblical Studies, Scripture, Exegesis, or Christian Theology on the topic: "${params.topic}".
+Category: ${params.category || 'Biblical Studies'}
 Target Difficulty: ${params.difficulty}
 Number of Questions: ${params.questionCount}
 Allowed Question Types: ${params.questionTypes.join(', ')}
-${params.contextMaterial ? `Source Reference Material:\n"""${params.contextMaterial}"""\n` : ''}
+${params.contextMaterial ? `Source Scripture / Reference Material:\n"""${params.contextMaterial}"""\n` : ''}
 
 CRITICAL: Return ONLY valid, raw JSON (no markdown formatting, no \`\`\`json code blocks).
+Include specific biblical citations (book, chapter, verse), original language concepts where appropriate (Hebrew/Greek), and clear theological justifications in the explanations.
 The JSON must adhere strictly to this schema:
 {
-  "title": "Clear exam title",
-  "description": "Comprehensive description of scope and learning objectives",
-  "category": "${params.category || 'Technology'}",
+  "title": "Clear biblical exam title",
+  "description": "Comprehensive description of biblical scope and learning objectives",
+  "category": "${params.category || 'Biblical Studies'}",
   "difficulty": "${params.difficulty}",
   "durationMinutes": ${params.durationMinutes},
   "passingScore": 70,
   "instructions": [
-    "Read all instructions carefully before starting.",
-    "Calculators and formula sheet are available in the toolbar.",
-    "Full screen lock is enforced."
+    "Read all biblical texts and question stems carefully before answering.",
+    "Biblical reference sheet and scratchpad are accessible from the top toolbar.",
+    "Full-screen lock and AI proctoring are enforced."
   ],
   "questions": [
     {
       "id": "q1",
-      "type": "mcq_single" | "mcq_multiple" | "true_false" | "short_answer" | "code",
-      "text": "Detailed question prompt",
-      "codeSnippet": "Optional code block or null",
-      "topic": "Specific subtopic name",
+      "type": "mcq_single" | "mcq_multiple" | "true_false" | "short_answer",
+      "text": "Detailed question prompt with scriptural context",
+      "topic": "Specific subtopic or biblical book",
       "bloomLevel": "knowledge" | "comprehension" | "application" | "analysis" | "evaluation",
       "marks": 5,
       "options": [
@@ -67,8 +67,8 @@ The JSON must adhere strictly to this schema:
         { "id": "opt_c", "text": "Option C text" },
         { "id": "opt_d", "text": "Option D text" }
       ],
-      "correctAnswer": "opt_b", // or array ["opt_a", "opt_c"] for mcq_multiple, or string text for short_answer
-      "explanation": "Thorough justification of why the answer is correct and why distractors are incorrect",
+      "correctAnswer": "opt_b",
+      "explanation": "Thorough theological and scriptural justification with relevant verses",
       "evaluationRubric": "Rubric criteria for short answer evaluation"
     }
   ]
@@ -135,79 +135,156 @@ The JSON must adhere strictly to this schema:
 // Built-in smart generator when external key is not supplied
 function generateSmartLocalExam(params: GenerateExamParams): Exam {
   const topicsMap: Record<string, { title: string; subtopics: string[]; sampleQuestions: Partial<Question>[] }> = {
-    cybersecurity: {
-      title: 'Advanced Cybersecurity & Threat Modeling',
-      subtopics: ['Network Security', 'Cryptography', 'Zero Trust Architecture', 'Incident Response'],
+    old_testament: {
+      title: 'Old Testament Literature, Torah & Biblical Covenants',
+      subtopics: ['Abrahamic Covenant', 'Yom Kippur Rituals', 'Tabernacle Theology', 'Prophetic Literature & Isaiah 53'],
       sampleQuestions: [
         {
           type: 'mcq_single',
-          text: 'Which cryptographic principle guarantees that sender and recipient derive a shared secret over an insecure channel without transmitting the secret itself?',
+          text: 'In Genesis 15, during the formal ratification of the Abrahamic covenant, what was the theological significance of the smoking fire pot and flaming torch passing between the divided animal pieces while Abram slept?',
           options: [
-            { id: 'opt_a', text: 'RSA asymmetric signature' },
-            { id: 'opt_b', text: 'Diffie-Hellman Key Exchange' },
-            { id: 'opt_c', text: 'AES-GCM Authenticated Encryption' },
-            { id: 'opt_d', text: 'SHA-256 HMAC digest' },
+            { id: 'opt_a', text: 'It signified a bilateral conditional treaty where both parties were equally bound to death penalties' },
+            { id: 'opt_b', text: 'It demonstrated Yahweh taking sole unilateral responsibility for the covenant oath upon Himself' },
+            { id: 'opt_c', text: 'It indicated Abram’s priestly ordination before Melchizedek' },
+            { id: 'opt_d', text: 'It represented the collective tribal elders of Israel consecrating the land grant' },
           ],
           correctAnswer: 'opt_b',
-          explanation: 'Diffie-Hellman key exchange enables two parties to negotiate a shared cryptographic secret over an untrusted channel using modular exponentiation or elliptic curves without exposing the key.',
-          topic: 'Cryptography',
-          bloomLevel: 'comprehension',
+          explanation: 'In ancient Near Eastern covenant-cutting ceremonies, passing between halves invoked a self-maledictory oath. In Genesis 15:17-18, God alone in the theophanic torch and pot passed through, unilaterally binding Himself to fulfill the promise.',
+          topic: 'Torah & Covenants',
+          bloomLevel: 'analysis',
           marks: 5,
         },
         {
           type: 'short_answer',
-          text: 'Explain the three core tenets of Zero Trust Architecture ("Never Trust, Always Verify") and how micro-segmentation reinforces them.',
-          correctAnswer: 'Zero Trust assumes breach and treats all network traffic as untrusted. Its core principles are: 1) Verify explicitly (continuous authentication and authorization), 2) Least privilege access (Just-In-Time and Just-Enough-Access), and 3) Assume breach (encrypt all data, minimize blast radius). Micro-segmentation reinforces this by creating granular network perimeters around individual workloads, preventing lateral movement by attackers.',
-          evaluationRubric: 'Candidate must explain: 1) Verify explicitly, 2) Least privilege, 3) Assume breach, and 4) How microsegmentation isolates workloads to stop lateral movement.',
-          explanation: 'Zero trust shifts perimeter security to identity and granular data-plane enforcement, where micro-segmentation isolates east-west lateral traffic.',
-          topic: 'Zero Trust Architecture',
+          text: 'Explain the dual-goat ceremony prescribed on the Day of Atonement (Yom Kippur) in Leviticus 16. Detail the distinct symbolic function of the sacrificial goat versus the scapegoat (Azazel).',
+          correctAnswer: 'In Leviticus 16, the first goat is slaughtered as a sin offering for the sanctuary and people, with its blood sprinkled upon the Mercy Seat (Kapporeth) to accomplish expiation and propitiation. The second goat (the scapegoat for Azazel) has the sins and iniquities of Israel confessed over its head by the High Priest, and is then led into the uninhabited wilderness, symbolizing the total removal and expiation of guilt away from the camp.',
+          evaluationRubric: 'Candidate must identify: 1) First goat slaughtered for blood purification/propitiation on the Mercy Seat, 2) Second goat (Azazel) receiving confessed sins, and 3) The removal of sin into the wilderness representing expiation/forgiveness.',
+          explanation: 'The two goats work in tandem: the slaughtered goat addresses the blood atonement required by holy justice, while the scapegoat demonstrates the complete removal of sin’s penalty and presence.',
+          topic: 'Levitical Atonement',
           bloomLevel: 'analysis',
           marks: 10,
         },
         {
           type: 'mcq_multiple',
-          text: 'Which of the following headers defend modern web applications against Cross-Site Scripting (XSS) and Clickjacking? (Select all that apply)',
+          text: 'Which of the following furniture pieces were placed strictly inside the Holy Place (Hekhal) of the Tabernacle, rather than the Outer Court or Holy of Holies? (Select all that apply)',
           options: [
-            { id: 'opt_a', text: 'Content-Security-Policy (CSP)' },
-            { id: 'opt_b', text: 'X-Frame-Options' },
-            { id: 'opt_c', text: 'Access-Control-Allow-Origin: *' },
-            { id: 'opt_d', text: 'Strict-Transport-Security (HSTS)' },
+            { id: 'opt_a', text: 'The Golden Lampstand (Menorah)' },
+            { id: 'opt_b', text: 'The Table of Showbread (Bread of the Presence)' },
+            { id: 'opt_c', text: 'The Altar of Incense' },
+            { id: 'opt_d', text: 'The Bronze Laver of Washing' },
           ],
-          correctAnswer: ['opt_a', 'opt_b'],
-          explanation: 'CSP prevents unauthorized script execution mitigating XSS; X-Frame-Options forbids unauthorized iframe embedding, preventing Clickjacking. HSTS enforces HTTPS, and wildcard CORS allows cross-origin reads without protecting against XSS.',
-          topic: 'Network Security',
-          bloomLevel: 'application',
+          correctAnswer: ['opt_a', 'opt_b', 'opt_c'],
+          explanation: 'The Holy Place contained the Golden Lampstand (south), Table of Showbread (north), and Altar of Incense (before the veil). The Bronze Laver was outside in the Outer Court, and the Ark of the Covenant was in the Holy of Holies (Exodus 40).',
+          topic: 'Tabernacle Sanctuary',
+          bloomLevel: 'knowledge',
           marks: 5,
         },
       ],
     },
-    data_science: {
-      title: 'Applied Data Science & Statistical Inference',
-      subtopics: ['Hypothesis Testing', 'Regression & Classification', 'Feature Engineering', 'Model Evaluation'],
+    new_testament: {
+      title: 'New Testament Gospels, Pauline Epistles & Early Church',
+      subtopics: ['Pauline Soteriology', 'Johannine Christology', 'Synoptic Gospels', 'Apostolic Council of Jerusalem'],
       sampleQuestions: [
         {
           type: 'mcq_single',
-          text: 'In statistical hypothesis testing, committing a Type I error corresponds to which condition?',
+          text: 'In Romans 3:21-26, what theological term describes Christ’s sacrifice as the satisfaction or appeasement of God’s holy wrath against sin through faith in His blood?',
           options: [
-            { id: 'opt_a', text: 'Failing to reject a false null hypothesis (False Negative)' },
-            { id: 'opt_b', text: 'Rejecting a true null hypothesis (False Positive)' },
-            { id: 'opt_c', text: 'Incorrect sample size calculation leading to low statistical power' },
-            { id: 'opt_d', text: 'Confounding dependent variables with collinear predictors' },
+            { id: 'opt_a', text: 'Propitiation (Hilasterion)' },
+            { id: 'opt_b', text: 'Moral Influence' },
+            { id: 'opt_c', text: 'Recapitulation' },
+            { id: 'opt_d', text: 'Apotheosis' },
+          ],
+          correctAnswer: 'opt_a',
+          explanation: 'Paul uses the Greek term hilasterion (Romans 3:25), referring to a propitiatory sacrifice that satisfies the demands of God’s holy righteousness and turns away wrath, echoing the Mercy Seat of the Old Testament.',
+          topic: 'Pauline Epistles',
+          bloomLevel: 'comprehension',
+          marks: 5,
+        },
+        {
+          type: 'short_answer',
+          text: 'Analyze the Christological hymn in Philippians 2:5-11 (the Carmen Christi). Explain the meaning of the "Kenosis" (self-emptying) and how it relates to Christ’s pre-existence, incarnation, and exaltation.',
+          correctAnswer: 'Philippians 2:5-11 articulates that Christ existed eternally in the form of God (en morphe Theou) without considering equality with God something to be grasped for selfish gain. He "emptied Himself" (ekenosen) by taking the form of a servant in human likeness, humbling Himself to death on a cross. Consequently, God hyper-exalted Him and bestowed the name above every name, so that every knee will bow and tongue confess Jesus Christ is Lord (Kurios).',
+          evaluationRubric: 'Answer must articulate: 1) Eternal pre-existence in divine nature, 2) Kenosis as voluntary self-humiliation/taking human servant form without forfeiting deity, and 3) Subsequent divine exaltation and universal lordship.',
+          explanation: 'Kenosis does not mean divesting deity, but veiling divine glory and voluntarily submitting to the servant role and suffering of the cross.',
+          topic: 'Christology',
+          bloomLevel: 'analysis',
+          marks: 10,
+        },
+        {
+          type: 'mcq_multiple',
+          text: 'Which of the following are among the seven iconic "I AM" (Ego Eimi) declarations uttered by Jesus in the Gospel of John? (Select all that apply)',
+          options: [
+            { id: 'opt_a', text: 'I am the Bread of Life (John 6:35)' },
+            { id: 'opt_b', text: 'I am the Good Shepherd (John 10:11)' },
+            { id: 'opt_c', text: 'I am the True Vine (John 15:1)' },
+            { id: 'opt_d', text: 'I am the King of the Earth (John 18:37)' },
+          ],
+          correctAnswer: ['opt_a', 'opt_b', 'opt_c'],
+          explanation: 'The 7 Johannine I AM sayings are: Bread of Life (6:35), Light of the World (8:12), Door of the Sheep (10:7), Good Shepherd (10:11), Resurrection and Life (11:25), Way, Truth, and Life (14:6), and True Vine (15:1). "King of the Earth" is not one of them.',
+          topic: 'Johannine Literature',
+          bloomLevel: 'knowledge',
+          marks: 5,
+        },
+      ],
+    },
+    hermeneutics: {
+      title: 'Biblical Hermeneutics, Exegesis & Systematic Theology',
+      subtopics: ['Grammatical-Historical Exegesis', 'Analogy of Faith', 'Trinitarian Theology', 'Pneumatology'],
+      sampleQuestions: [
+        {
+          type: 'mcq_single',
+          text: 'Which hermeneutical rule asserts that Scripture is its own best interpreter, requiring unclear or ambiguous passages to be interpreted in light of clearer, explicit passages?',
+          options: [
+            { id: 'opt_a', text: 'Sensus Plenior' },
+            { id: 'opt_b', text: 'The Analogy of Faith (Analogia Fidei / Scriptura Sacra Sui Ipsius Interpres)' },
+            { id: 'opt_c', text: 'The Allegorical Quadriga' },
+            { id: 'opt_d', text: 'Historical-Critical Demythologization' },
           ],
           correctAnswer: 'opt_b',
-          explanation: 'A Type I error (α) occurs when the null hypothesis is true, but is incorrectly rejected (a false positive finding).',
-          topic: 'Hypothesis Testing',
+          explanation: 'The Analogy of Faith (analogia fidei) affirms that because all Scripture is inspired by the Holy Spirit and cannot contradict itself, clear didactic passages govern the interpretation of obscure or apocalyptic passages.',
+          topic: 'Hermeneutical Methods',
+          bloomLevel: 'comprehension',
+          marks: 5,
+        },
+        {
+          type: 'short_answer',
+          text: 'Differentiate between biblical "Exegesis" and "Eisegesis", explaining the methodological consequences of each approach to scriptural interpretation.',
+          correctAnswer: 'Exegesis (drawing out) is the rigorous process of extracting the original authorial intent and meaning of a biblical text using grammatical, historical, literary, and canonical context. In contrast, Eisegesis (reading into) imposes the interpreter’s preconceived theological notions, modern cultural biases, or personal agenda onto the text, leading to distortion of scripture.',
+          evaluationRubric: 'Candidate must clearly define: 1) Exegesis as drawing meaning out from authorial intent and historical-grammatical context, 2) Eisegesis as reading external biases into the text, and 3) The danger of doctrinal corruption caused by eisegesis.',
+          explanation: 'Sound biblical hermeneutics demands exegesis to honor the divine and human authors’ intended message.',
+          topic: 'Biblical Exegesis',
+          bloomLevel: 'analysis',
+          marks: 10,
+        },
+      ],
+    },
+    biblical_languages: {
+      title: 'Biblical Hebrew & Koine Greek Linguistic Analysis',
+      subtopics: ['Hebrew Covenant Vocabulary', 'Koine Greek Syntax', 'Semantic Field Analysis', 'Biblical Lexicography'],
+      sampleQuestions: [
+        {
+          type: 'mcq_single',
+          text: 'What Hebrew theological term encapsulates Yahweh’s steadfast, unfailing, loyal covenant love and enduring faithfulness toward His people (prominent in Psalm 136 and Exodus 34:6)?',
+          options: [
+            { id: 'opt_a', text: 'Hesed (חֶסֶד)' },
+            { id: 'opt_b', text: 'Shalom (שָׁלוֹם)' },
+            { id: 'opt_c', text: 'Tzedakah (צְדָקָה)' },
+            { id: 'opt_d', text: 'Qodesh (קֹדֶשׁ)' },
+          ],
+          correctAnswer: 'opt_a',
+          explanation: 'Hesed (חֶסֶד) is the quintessential biblical Hebrew covenant term denoting loyal love, mercy, and unconditional covenant fidelity.',
+          topic: 'Biblical Hebrew Lexicography',
           bloomLevel: 'knowledge',
           marks: 5,
         },
         {
           type: 'short_answer',
-          text: 'Define the bias-variance tradeoff in machine learning, and describe how increasing model complexity affects both components.',
-          correctAnswer: 'The bias-variance tradeoff describes the tension between two sources of error: Bias (error from erroneous assumptions / underfitting) and Variance (error from sensitivity to small fluctuations in training data / overfitting). As model complexity increases, training bias decreases because the model fits intricate patterns, but variance increases because it begins memorizing noise, resulting in poor generalizability.',
-          evaluationRubric: 'Must state: 1) Bias error / underfitting, 2) Variance error / overfitting, 3) Higher complexity lowers bias but raises variance.',
-          explanation: 'Total generalization error = Bias² + Variance + Irreducible Error. Optimal model complexity minimizes this sum at the sweet spot between underfitting and overfitting.',
-          topic: 'Model Evaluation',
-          bloomLevel: 'comprehension',
+          text: 'Examine the theological significance of the Greek title "Logos" in John 1:1-14. How does John bridge Hebrew Old Testament concepts (Dabar Yahweh) and Greek philosophical concepts to reveal Jesus Christ?',
+          correctAnswer: 'In John 1, "Logos" bridges both Jewish and Greco-Roman worlds. To the Hebrew mind, the Word (Dabar) was God’s active agent in creation, prophetic revelation, and deliverance (Gen 1, Ps 33:6). To Greek thought, Logos was the rational principle ordering the cosmos. John transforms both by declaring that the eternal Logos, who was with God and was God, "became flesh and dwelt among us" (John 1:14), revealing the personal incarnation of the Son of God.',
+          evaluationRubric: 'Answer must address: 1) Hebrew background of Dabar Yahweh (creation and revelation), 2) Greek concept of Logos (rational cosmic order), and 3) John’s revolutionary synthesis of the Incarnation (Logos became flesh in Jesus Christ).',
+          explanation: 'John’s prologue establishes Christ’s eternal deity, distinct personhood within the Godhead, and genuine human incarnation.',
+          topic: 'Koine Greek & Johannine Theology',
+          bloomLevel: 'analysis',
           marks: 10,
         },
       ],
@@ -215,7 +292,14 @@ function generateSmartLocalExam(params: GenerateExamParams): Exam {
   };
 
   const normalizedTopic = params.topic.toLowerCase().replace(/[^a-z0-9]/g, '');
-  let matched = Object.entries(topicsMap).find(([k]) => normalizedTopic.includes(k) || k.includes(normalizedTopic))?.[1];
+  let matched = Object.entries(topicsMap).find(([k]) => {
+    if (normalizedTopic.includes(k) || k.includes(normalizedTopic)) return true;
+    if (k === 'old_testament' && (normalizedTopic.includes('old') || normalizedTopic.includes('torah') || normalizedTopic.includes('genesis') || normalizedTopic.includes('exodus') || normalizedTopic.includes('prophet') || normalizedTopic.includes('covenant') || normalizedTopic.includes('ot'))) return true;
+    if (k === 'new_testament' && (normalizedTopic.includes('new') || normalizedTopic.includes('gospel') || normalizedTopic.includes('paul') || normalizedTopic.includes('romans') || normalizedTopic.includes('christ') || normalizedTopic.includes('nt') || normalizedTopic.includes('jesus'))) return true;
+    if (k === 'hermeneutics' && (normalizedTopic.includes('hermeneutic') || normalizedTopic.includes('exegesis') || normalizedTopic.includes('theology') || normalizedTopic.includes('doctrine') || normalizedTopic.includes('trinity'))) return true;
+    if (k === 'biblical_languages' && (normalizedTopic.includes('greek') || normalizedTopic.includes('hebrew') || normalizedTopic.includes('language') || normalizedTopic.includes('syntax') || normalizedTopic.includes('lexicon'))) return true;
+    return false;
+  })?.[1];
 
   const questions: Question[] = [];
   const count = Math.max(3, params.questionCount || 5);
@@ -224,23 +308,23 @@ function generateSmartLocalExam(params: GenerateExamParams): Exam {
     questions.push(...(matched.sampleQuestions as Question[]));
   }
 
-  // Generate dynamic questions to reach target count
+  // Generate dynamic biblical questions to reach target count
   while (questions.length < count) {
     const idx = questions.length + 1;
     const qType: QuestionType = params.questionTypes[idx % params.questionTypes.length] || 'mcq_single';
-    const subtopic = `${params.topic} Core Principles Part ${idx}`;
+    const subtopic = `${params.topic} Biblical Exegesis Section ${idx}`;
 
     if (qType === 'true_false') {
       questions.push({
         id: `gen_q_${idx}`,
         type: 'true_false',
-        text: `In ${params.topic}, is it considered best practice to decouple monolithic dependencies into modular components to optimize testability and scalability?`,
+        text: `In sound biblical hermeneutics, must interpretations of ${params.topic} be grounded in the authorial intent, grammatical syntax, and historical-cultural context of the original biblical text rather than subjective eisegesis?`,
         options: [
           { id: 'opt_true', text: 'True' },
           { id: 'opt_false', text: 'False' },
         ],
         correctAnswer: 'opt_true',
-        explanation: 'Modularity and high cohesion with low coupling allow independent testing, maintainability, and horizontal scaling.',
+        explanation: 'Grammatical-historical exegesis demands determining what the text meant to the original recipients under the human and divine authors before deriving contemporary theological application.',
         topic: subtopic,
         bloomLevel: 'application',
         marks: 5,
@@ -249,10 +333,10 @@ function generateSmartLocalExam(params: GenerateExamParams): Exam {
       questions.push({
         id: `gen_q_${idx}`,
         type: 'short_answer',
-        text: `Synthesize the primary operational challenges encountered when implementing ${params.topic} in production environments, and provide two mitigation strategies.`,
-        correctAnswer: `Common operational challenges in ${params.topic} include observability gaps, scalability bottlenecks, and data drift or concurrency conflicts. Standard mitigations involve implementing end-to-end telemetry (metrics, logs, traces), automated automated regression testing, and resilient fallback mechanisms with circuit breakers.`,
-        evaluationRubric: `Candidate must identify at least 2 distinct operational challenges (e.g., latency, state consistency, monitoring, security) and provide realistic, concrete mitigations.`,
-        explanation: `Production resilience requires continuous monitoring, automated health probes, and graceful degradation paths when anomalies occur.`,
+        text: `Synthesize the primary theological and canonical significance of ${params.topic}. Cite relevant scripture cross-references and discuss how this doctrine impacts Christian theology.`,
+        correctAnswer: `The study of ${params.topic} holds central canonical significance across Scripture. It must be understood in light of redemptive history, demonstrating harmony across Old and New Testaments. Crucial cross-references illuminate God’s redemptive plan and call believers to faithful obedience and sound doctrine.`,
+        evaluationRubric: `Candidate must articulate: 1) The core scriptural foundations of ${params.topic}, 2) Key biblical cross-references, and 3) Practical and doctrinal implications for Christian theology.`,
+        explanation: `A comprehensive biblical synthesis links historical revelation with canonical theology and personal transformation.`,
         topic: subtopic,
         bloomLevel: 'analysis',
         marks: 10,
@@ -261,15 +345,15 @@ function generateSmartLocalExam(params: GenerateExamParams): Exam {
       questions.push({
         id: `gen_q_${idx}`,
         type: 'mcq_single',
-        text: `Which architectural pattern is most effective for ensuring high reliability and fault isolation in modern ${params.topic} systems?`,
+        text: `When analyzing ${params.topic} across the biblical canon, which theological principle best ensures fidelity to scriptural revelation?`,
         options: [
-          { id: 'opt_a', text: 'Monolithic single-process execution with synchronous cascading calls' },
-          { id: 'opt_b', text: 'Event-driven asynchronous messaging with circuit breakers and dead-letter queues' },
-          { id: 'opt_c', text: 'Shared database state with unconstrained cross-table transactions' },
-          { id: 'opt_d', text: 'Client-side orchestration with hardcoded endpoint IPs' },
+          { id: 'opt_a', text: 'Interpreting difficult passages in light of clear, explicit scripture (The Analogy of Faith)' },
+          { id: 'opt_b', text: 'Treating Old Testament historical narratives as detached from Christological fulfillment' },
+          { id: 'opt_c', text: 'Subordinating apostolic didactic teaching to cultural relativism' },
+          { id: 'opt_d', text: 'Relying exclusively on allegorical speculation without grammatical foundation' },
         ],
-        correctAnswer: 'opt_b',
-        explanation: 'Event-driven architectures decouple producers from consumers, while circuit breakers isolate failures and prevent cascading system outages.',
+        correctAnswer: 'opt_a',
+        explanation: 'The Analogy of Faith (analogia fidei) ensures that Scripture interprets Scripture harmoniously without contradictions, grounding doctrinal truth in the unified revelation of God.',
         topic: subtopic,
         bloomLevel: 'application',
         marks: 5,
@@ -283,7 +367,7 @@ function generateSmartLocalExam(params: GenerateExamParams): Exam {
     id: `exam-ai-${Date.now()}`,
     title: matched?.title || `${params.topic} Master Certification`,
     description: `Rigorous AI-synthesized Computer-Based Testing module assessing key competencies in ${params.topic}.`,
-    category: params.category || 'Technology',
+    category: params.category || 'Biblical Studies',
     difficulty: params.difficulty,
     durationMinutes: params.durationMinutes,
     passingScore: 70,
@@ -483,19 +567,18 @@ export async function askAITutor(
 
   if (key) {
     try {
-      const prompt = `You are a patient, encouraging, and brilliant AI Socratic tutor on a computer-based exam platform.
-The student took an exam and is reviewing this question:
+      const prompt = `You are a patient, encouraging, and scholarly AI Biblical Socratic tutor on a computer-based theological testing platform.
+The student took an exam and is reviewing this biblical question:
 
 Question: "${question.text}"
-${question.codeSnippet ? `Code Snippet:\n${question.codeSnippet}\n` : ''}
 ${question.options ? `Options:\n${question.options.map((o) => `${o.id}: ${o.text}`).join('\n')}\n` : ''}
 Correct Answer: ${Array.isArray(question.correctAnswer) ? question.correctAnswer.join(', ') : question.correctAnswer}
-Official Explanation: ${question.explanation}
+Official Theological Explanation: ${question.explanation}
 Student's Chosen Answer: ${userAnswer ? (Array.isArray(userAnswer) ? userAnswer.join(', ') : userAnswer) : 'None'}
 
 Student's inquiry to you: "${userQuestion}"
 
-Explain clearly, step-by-step, using intuitive examples. If they made a mistake, gently explain why the distractor was tempting and why the correct concept applies.`;
+Provide a rich, pastoral, and academically rigorous explanation. Cite relevant scripture verses (book, chapter, verse), original language roots (Hebrew/Greek) if helpful, and gently explain why distractors fall short while upholding orthodox biblical interpretation.`;
 
       const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
         method: 'POST',
@@ -516,7 +599,7 @@ Explain clearly, step-by-step, using intuitive examples. If they made a mistake,
     }
   }
 
-  // Fallback intelligent tutor response
-  return `### AI Tutor Explanation\n\n**Key Concept:** ${question.topic}\n\n${question.explanation}\n\n**Why the correct answer holds:** In ${question.topic}, the fundamental principle requires strict adherence to ${Array.isArray(question.correctAnswer) ? question.correctAnswer.join(', ') : question.correctAnswer}. When analyzing this problem, notice that distractors often invert the causality or overlook edge cases.\n\n*Pro-tip:* When encountering similar problems, identify the core invariant or definition first before evaluating the choices!`;
+  // Fallback intelligent biblical tutor response
+  return `### AI Socratic Scripture Tutor\n\n**Biblical Topic:** ${question.topic}\n\n**Exegesis & Explanation:**\n${question.explanation}\n\n**Theological Synthesis:**\nIn biblical theology, the correct understanding reflects **${Array.isArray(question.correctAnswer) ? question.correctAnswer.join(', ') : question.correctAnswer}**. Sound hermeneutics reminds us to interpret scripture with scripture (*analogia scripturae*). When examining biblical passages, common distractors frequently isolate verses out of their literary, historical, or covenantal framework.\n\n*Exegetical Tip:* Always examine the immediate literary context, parallel texts in the canon, and the overarching redemptive-historical narrative!`;
 }
 

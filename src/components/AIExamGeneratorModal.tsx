@@ -14,7 +14,7 @@ interface AIExamGeneratorModalProps {
 export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamGeneratorModalProps) {
   const router = useRouter();
   const [topic, setTopic] = useState('');
-  const [category, setCategory] = useState('Computer Science');
+  const [category, setCategory] = useState('Old Testament Literature & Torah');
   const [difficulty, setDifficulty] = useState<DifficultyLevel>('intermediate');
   const [questionCount, setQuestionCount] = useState<number>(5);
   const [durationMinutes, setDurationMinutes] = useState<number>(15);
@@ -123,7 +123,7 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
               required
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
-              placeholder="e.g. Distributed Database Concurrency & Sharding, USMLE Cardiology, or Docker DevOps"
+              placeholder="e.g. The Abrahamic Covenant & Genesis 15, Johannine Christology, or Justification in Romans"
               className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-hidden focus:border-indigo-500 transition"
             />
           </div>
@@ -139,13 +139,13 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
                 onChange={(e) => setCategory(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-hidden focus:border-indigo-500"
               >
-                <option value="Computer Science">Computer Science & Engineering</option>
-                <option value="Artificial Intelligence">Artificial Intelligence & ML</option>
-                <option value="Cloud Architecture">Cloud Architecture & DevOps</option>
-                <option value="Mathematics">Mathematics & Quantitative Reasoning</option>
-                <option value="Cybersecurity">Cybersecurity & Forensics</option>
-                <option value="Medical & Health">Medical & Health Sciences</option>
-                <option value="Business & Finance">Business & Economics</option>
+                <option value="Old Testament Literature & Torah">Old Testament Literature & Torah</option>
+                <option value="New Testament Gospels & Epistles">New Testament Gospels & Epistles</option>
+                <option value="Pauline Theology & Early Church">Pauline Theology & Early Church</option>
+                <option value="Biblical Hermeneutics & Exegesis">Biblical Hermeneutics & Exegesis</option>
+                <option value="Systematic Theology & Doctrines">Systematic Theology & Doctrines</option>
+                <option value="Biblical Languages (Hebrew & Greek)">Biblical Languages (Hebrew & Greek)</option>
+                <option value="Church History & Patristics">Church History & Patristics</option>
               </select>
             </div>
 
@@ -249,13 +249,13 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
           {/* Optional Syllabus or Reference Material */}
           <div>
             <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-              Optional Reference Text / Syllabus Notes
+              Scripture Passage / Reference Material (Optional)
             </label>
             <textarea
               rows={2}
               value={contextMaterial}
               onChange={(e) => setContextMaterial(e.target.value)}
-              placeholder="Paste custom study notes, syllabus outline, or textbook excerpts to anchor question generation..."
+              placeholder="Paste scripture passages (e.g. Genesis 15:1-21, Romans 3:21-31), theological notes, or syllabus excerpts..."
               className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-hidden focus:border-indigo-500 resize-none"
             />
           </div>

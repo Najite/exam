@@ -1,5 +1,332 @@
 [
   {
+    "id": "sub-1793966596090",
+    "examId": "exam-languages-004",
+    "examTitle": "Biblical Languages: Hebrew & Koine Greek Exegesis",
+    "candidateName": "Alex Rivers",
+    "candidateEmail": "alex.rivers@university.edu",
+    "candidatePhoto": "data:image/jpeg;base64,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",
+    "startedAt": "2026-11-06T12:00:41.664Z",
+    "submittedAt": "2026-11-06T12:03:16.090Z",
+    "timeSpentSeconds": 154,
+    "answers": {
+      "lang_q1": "opt_b",
+      "lang_q3": [
+        "opt_a",
+        "opt_b",
+        "opt_d"
+      ],
+      "lang_q4": "opt_false"
+    },
+    "score": 25,
+    "totalPossibleScore": 40,
+    "percentage": 63,
+    "passed": false,
+    "questionResults": [
+      {
+        "questionId": "lang_q1",
+        "userAnswer": "opt_b",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "Hesed (חֶסֶד) is the covenantal love and unconditional loyalty of God toward His covenant people, expressing faithfulness that perseveres through human failure (Exodus 34:6, Psalm 136)."
+      },
+      {
+        "questionId": "lang_q2",
+        "userAnswer": "",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 15,
+        "explanation": "The grammatical contrast between ēn (eternal continuous being) in John 1:1 and egeneto (point-in-time historical becoming) in John 1:14 is a cornerstone of New Testament Christology.",
+        "aiEvaluation": {
+          "score": 0,
+          "maxScore": 15,
+          "accuracy": "none",
+          "strengths": [],
+          "improvements": [
+            "No substantial answer was provided.",
+            "Review foundational concepts for this topic."
+          ],
+          "reasoning": "The response was empty or too brief to demonstrate understanding."
+        }
+      },
+      {
+        "questionId": "lang_q3",
+        "userAnswer": [
+          "opt_a",
+          "opt_b",
+          "opt_d"
+        ],
+        "isCorrect": true,
+        "scoreAwarded": 10,
+        "maxScore": 10,
+        "explanation": "Throughout the Hebrew Bible, bara (בָּרָא) in the Qal stem has only God as its subject, never humans, signifying divine creation ex nihilo and effortless sovereign power. Human craftsmanship uses verbs like asah or yatsar."
+      },
+      {
+        "questionId": "lang_q4",
+        "userAnswer": "opt_false",
+        "isCorrect": true,
+        "scoreAwarded": 10,
+        "maxScore": 10,
+        "explanation": "False. The Aorist tense in Greek represents \"perfective\" verbal aspect—viewing an action as a complete whole or snapshot (\"summary\" aspect), whereas the Present and Imperfect tenses convey imperfective (continuous, ongoing, linear) aspect."
+      }
+    ],
+    "proctorLogs": [
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966442461-n8e5",
+        "timestamp": "2026-11-06T12:00:42.461Z",
+        "secondsIntoExam": 0
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966448462-i6wi",
+        "timestamp": "2026-11-06T12:00:48.462Z",
+        "secondsIntoExam": 6
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966454478-0yj8",
+        "timestamp": "2026-11-06T12:00:54.478Z",
+        "secondsIntoExam": 12
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966460488-5wcp",
+        "timestamp": "2026-11-06T12:01:00.488Z",
+        "secondsIntoExam": 18
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966466494-hq2d",
+        "timestamp": "2026-11-06T12:01:06.494Z",
+        "secondsIntoExam": 24
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966472511-yy6g",
+        "timestamp": "2026-11-06T12:01:12.512Z",
+        "secondsIntoExam": 30
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966478517-6ng5",
+        "timestamp": "2026-11-06T12:01:18.517Z",
+        "secondsIntoExam": 36
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966484518-2m6p",
+        "timestamp": "2026-11-06T12:01:24.518Z",
+        "secondsIntoExam": 42
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966490528-g3pq",
+        "timestamp": "2026-11-06T12:01:30.528Z",
+        "secondsIntoExam": 48
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966496534-f428",
+        "timestamp": "2026-11-06T12:01:36.534Z",
+        "secondsIntoExam": 54
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966502552-jvjr",
+        "timestamp": "2026-11-06T12:01:42.552Z",
+        "secondsIntoExam": 60
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966508560-rcob",
+        "timestamp": "2026-11-06T12:01:48.560Z",
+        "secondsIntoExam": 66
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966514578-vhfk",
+        "timestamp": "2026-11-06T12:01:54.578Z",
+        "secondsIntoExam": 72
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966520595-eyc5",
+        "timestamp": "2026-11-06T12:02:00.596Z",
+        "secondsIntoExam": 78
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966526596-x17s",
+        "timestamp": "2026-11-06T12:02:06.596Z",
+        "secondsIntoExam": 84
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966532601-k1yj",
+        "timestamp": "2026-11-06T12:02:12.601Z",
+        "secondsIntoExam": 90
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966538603-dlyg",
+        "timestamp": "2026-11-06T12:02:18.603Z",
+        "secondsIntoExam": 96
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966544604-ll1o",
+        "timestamp": "2026-11-06T12:02:24.604Z",
+        "secondsIntoExam": 102
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966550624-04o3",
+        "timestamp": "2026-11-06T12:02:30.624Z",
+        "secondsIntoExam": 108
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966556625-8yvp",
+        "timestamp": "2026-11-06T12:02:36.625Z",
+        "secondsIntoExam": 114
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966562641-h6ju",
+        "timestamp": "2026-11-06T12:02:42.641Z",
+        "secondsIntoExam": 120
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966568655-h2hv",
+        "timestamp": "2026-11-06T12:02:48.655Z",
+        "secondsIntoExam": 126
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966574673-rcq9",
+        "timestamp": "2026-11-06T12:02:54.673Z",
+        "secondsIntoExam": 132
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966580677-pqh3",
+        "timestamp": "2026-11-06T12:03:00.677Z",
+        "secondsIntoExam": 138
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966586692-zx22",
+        "timestamp": "2026-11-06T12:03:06.692Z",
+        "secondsIntoExam": 144
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966592701-8nom",
+        "timestamp": "2026-11-06T12:03:12.701Z",
+        "secondsIntoExam": 150
+      }
+    ],
+    "integrityScore": 0,
+    "integrityVerdict": "high_risk",
+    "aiAnalytics": {
+      "topicBreakdown": [
+        {
+          "topic": "Biblical Hebrew Lexicography",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "Koine Greek Syntax & Christology",
+          "score": 0,
+          "total": 15,
+          "percentage": 0
+        },
+        {
+          "topic": "Biblical Hebrew Grammar",
+          "score": 10,
+          "total": 10,
+          "percentage": 100
+        },
+        {
+          "topic": "Koine Greek Grammar",
+          "score": 10,
+          "total": 10,
+          "percentage": 100
+        }
+      ],
+      "strengths": [
+        "Biblical Hebrew Lexicography",
+        "Biblical Hebrew Grammar",
+        "Koine Greek Grammar"
+      ],
+      "weaknesses": [
+        "Koine Greek Syntax & Christology"
+      ],
+      "recommendations": [
+        "Prioritize targeted revision on: Koine Greek Syntax & Christology.",
+        "Work through practice problem sets with step-by-step Socratic walkthroughs."
+      ],
+      "summary": "Candidate scored 63%, falling short of the 75% passing threshold. Recommended focused review on highlighted areas of improvement.",
+      "estimatedPercentile": 60
+    }
+  },
+  {
     "id": "sub-1793964588326",
     "examId": "exam-fullstack-001",
     "examTitle": "Full-Stack Software Engineering & Distributed Systems",

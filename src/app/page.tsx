@@ -88,20 +88,20 @@ export default function HomePage() {
             {/* Pill */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold mb-6 shadow-lg shadow-indigo-950/50">
               <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Next-Gen Computer-Based Testing System</span>
+              <span>Biblical Studies CBT & AI Examination System</span>
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
-              <span className="text-emerald-400">AI Proctoring & Auto-Grading</span>
+              <span className="text-emerald-400">Scripture Exegesis & AI Proctoring</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-              AI-Powered Examination & <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">
-                Integrity Assessment Platform
+              AI-Powered Biblical & <br className="hidden sm:inline" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-indigo-300 to-purple-400">
+                Theological Examination Platform
               </span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Standardized CBT testing environment equipped with automated question generation, real-time computer vision proctoring, semantic short-answer auto-grading, and post-exam AI Socratic tutoring.
+              Standardized Computer-Based Testing environment for Old Testament literature, New Testament epistles, scriptural exegesis, and Christian theology. Equipped with AI exam generation, real-time proctoring, semantic short-answer auto-grading, and post-exam Socratic tutoring.
             </p>
 
             {/* CTAs */}
@@ -111,7 +111,7 @@ export default function HomePage() {
                 className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-sm shadow-xl shadow-indigo-600/30 flex items-center gap-2.5 transition active:scale-95 cursor-pointer"
               >
                 <Sparkles className="w-4 h-4" />
-                <span>Create Exam with AI</span>
+                <span>Generate Bible Exam with AI</span>
               </button>
 
               <Link
@@ -130,8 +130,8 @@ export default function HomePage() {
               <div className="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-3">
                 <BrainCircuit className="w-4 h-4" />
               </div>
-              <h2 className="text-sm font-bold text-white mb-1">Instant AI Generation</h2>
-              <p className="text-xs text-slate-400">Generate calibrated psychometric exams from any topic, syllabus, or prompt.</p>
+              <h2 className="text-sm font-bold text-white mb-1">Biblical AI Synthesis</h2>
+              <p className="text-xs text-slate-400">Calibrated exam generation across Torah, Gospels, Pauline Epistles, and Hebrew/Greek.</p>
             </div>
 
             <div className="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80">
@@ -147,15 +147,15 @@ export default function HomePage() {
                 <CheckCircle2 className="w-4 h-4" />
               </div>
               <h2 className="text-sm font-bold text-white mb-1">Semantic Auto-Grading</h2>
-              <p className="text-xs text-slate-400">AI evaluates short answers and essays against technical rubrics with strengths and gaps.</p>
+              <p className="text-xs text-slate-400">AI grades theological essays and exegetical answers against marking rubrics and scripture citations.</p>
             </div>
 
             <div className="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80">
               <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-3">
                 <Award className="w-4 h-4" />
               </div>
-              <h2 className="text-sm font-bold text-white mb-1">Post-Exam Socratic Tutor</h2>
-              <p className="text-xs text-slate-400">Interactive step-by-step Q&A explanations on missed questions and certified credentials.</p>
+              <h2 className="text-sm font-bold text-white mb-1">Socratic Bible Tutor</h2>
+              <p className="text-xs text-slate-400">Interactive step-by-step Q&A explanations on missed passages, Greek/Hebrew roots, and doctrines.</p>
             </div>
           </div>
         </div>

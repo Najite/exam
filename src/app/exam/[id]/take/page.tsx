@@ -496,9 +496,10 @@ function ExamTakeContent() {
           <button
             onClick={() => setIsFormulaOpen(true)}
             className="flex items-center gap-1.5 hover:text-white px-2 py-1 rounded-lg hover:bg-slate-800 transition"
+            title="Open Scripture & Biblical Reference Sheet"
           >
             <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
-            <span className="hidden sm:inline">Formula Sheet</span>
+            <span className="hidden sm:inline">Scripture Sheet</span>
           </button>
 
           <button
@@ -616,7 +617,7 @@ function ExamTakeContent() {
                     rows={6}
                     value={answers[currentQ.id] || ''}
                     onChange={(e) => handleAnswerChange(currentQ.id, e.target.value)}
-                    placeholder="Provide a comprehensive technical response adhering to key conceptual criteria..."
+                    placeholder="Provide a comprehensive theological response citing scriptural cross-references, exegetical principles, and key conceptual criteria..."
                     className="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-2xl p-4 text-xs sm:text-sm text-white placeholder-slate-600 focus:outline-hidden resize-none leading-relaxed"
                   />
                   <div className="text-right text-[11px] text-slate-500 font-mono">

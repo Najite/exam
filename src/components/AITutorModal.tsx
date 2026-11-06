@@ -149,24 +149,31 @@ export function AITutorModal({ isOpen, onClose, question, userAnswer }: AITutorM
         <div className="px-6 py-2 bg-slate-900 border-t border-slate-800/80 flex gap-2 overflow-x-auto text-[11px]">
           <button
             type="button"
-            onClick={() => handleQuickPrompt("Why is the chosen answer incorrect?")}
+            onClick={() => handleQuickPrompt("Why is my answer incorrect from an exegetical perspective?")}
             className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 shrink-0 transition"
           >
             Why is my answer wrong?
           </button>
           <button
             type="button"
-            onClick={() => handleQuickPrompt("Give me a real-world intuitive analogy.")}
+            onClick={() => handleQuickPrompt("Can you provide key Scripture cross-references to substantiate this?")}
             className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 shrink-0 transition"
           >
-            Give an analogy
+            Scripture cross-references
           </button>
           <button
             type="button"
-            onClick={() => handleQuickPrompt("How do I remember this for the real exam?")}
+            onClick={() => handleQuickPrompt("Explain any relevant Hebrew or Greek terms in this passage.")}
             className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 shrink-0 transition"
           >
-            Exam mnemonic
+            Original Greek/Hebrew terms
+          </button>
+          <button
+            type="button"
+            onClick={() => handleQuickPrompt("How do I remember this covenant or theological principle for exams?")}
+            className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 shrink-0 transition"
+          >
+            Theological mnemonic
           </button>
         </div>
 
