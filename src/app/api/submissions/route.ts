@@ -41,7 +41,20 @@ export async function POST(req: Request) {
       totalPossible += q.marks;
 
       if (q.type === 'short_answer') {
-        const aiEval = await evaluateShortAnswerWithAI(q, String(userAnswer), apiKey);
+        let aiEval;
+        try {
+          aiEval = await evaluateShortAnswerWithAI(q, String(userAnswer), apiKey);
+        } catch (err: any) {
+          console.error(`AI Evaluation failed on question ${q.id}:`, err);
+          aiEval = {
+            score: 0,
+            maxScore: q.marks,
+            accuracy: 'none' as const,
+            strengths: [],
+            improvements: [`Evaluation error: ${err.message}`],
+            reasoning: `AI Evaluation Error: ${err.message}. Submitted for instructor review.`,
+          };
+        }
         const scoreAwarded = aiEval.score;
         totalScore += scoreAwarded;
 

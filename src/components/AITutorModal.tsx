@@ -54,13 +54,13 @@ export function AITutorModal({ isOpen, onClose, question, userAnswer }: AITutorM
       } else {
         setMessages((prev) => [
           ...prev,
-          { role: 'tutor', text: "I'm having a slight hitch connecting to the knowledge base, but let's review: " + question.explanation },
+          { role: 'tutor', text: `⚠️ AI Tutor Error: ${data.error || 'Failed to generate response.'}` },
         ]);
       }
-    } catch {
+    } catch (err: any) {
       setMessages((prev) => [
         ...prev,
-        { role: 'tutor', text: 'Error connecting to AI Tutor. Please review the official solution: ' + question.explanation },
+        { role: 'tutor', text: `⚠️ Connection Error: ${err.message || 'Failed to reach AI Tutor service.'}` },
       ]);
     } finally {
       setIsLoading(false);

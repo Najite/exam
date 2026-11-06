@@ -23,7 +23,8 @@ import {
   Volume2,
   VolumeX,
   Sparkles,
-  BookMarked
+  BookMarked,
+  Megaphone
 } from 'lucide-react';
 import { Exam, Question, ProctorIncident, ProctorIncidentType } from '@/types';
 import { WebcamProctor } from '@/components/WebcamProctor';
@@ -127,6 +128,40 @@ function ExamTakeContent() {
     }
 
     loadExam();
+  }, [examId]);
+
+  // Poll for Chief Invigilator Live Announcements
+  const lastAnnouncementIdRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    const pollAnnouncements = async () => {
+      try {
+        const res = await fetch(`/api/announcements?examId=${examId}`);
+        const data = await res.json();
+        if (data.success && Array.isArray(data.announcements) && data.announcements.length > 0) {
+          const latest = data.announcements[0];
+          if (!lastAnnouncementIdRef.current) {
+            // First run, record latest ID without disturbing with historic announcement
+            lastAnnouncementIdRef.current = latest.id;
+          } else if (latest.id !== lastAnnouncementIdRef.current) {
+            lastAnnouncementIdRef.current = latest.id;
+            setActiveToast({
+              type: `invigilator (${latest.sender})`,
+              message: latest.message,
+            });
+            setTimeout(() => {
+              setActiveToast((curr) => (curr?.message === latest.message ? null : curr));
+            }, 8000);
+          }
+        }
+      } catch (err) {
+        // Silently ignore background polling glitches
+      }
+    };
+
+    pollAnnouncements();
+    const interval = setInterval(pollAnnouncements, 8000);
+    return () => clearInterval(interval);
   }, [examId]);
 
   // Log Proctor Incident (Stable callback with throttled notifications)
@@ -399,13 +434,25 @@ function ExamTakeContent() {
     <div className={`min-h-screen bg-slate-950 text-white flex flex-col font-sans select-none ${
       fontSize === 'large' ? 'text-base' : 'text-sm'
     }`}>
-      {/* Real-time Floating Proctor Toast Notification */}
+      {/* Real-time Floating Proctor or Invigilator Toast Notification */}
       {activeToast && (
-        <div className="fixed top-20 right-6 z-50 max-w-sm bg-slate-900 border-2 border-amber-500/80 rounded-2xl p-3.5 shadow-2xl text-white flex items-start gap-3 animate-in slide-in-from-top-4 duration-200">
-          <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+        <div className={`fixed top-20 right-6 z-50 max-w-sm rounded-2xl p-3.5 shadow-2xl text-white flex items-start gap-3 animate-in slide-in-from-top-4 duration-200 border-2 ${
+          activeToast.type.includes('invigilator')
+            ? 'bg-slate-900/95 border-indigo-500 shadow-indigo-950/60'
+            : 'bg-slate-900/95 border-amber-500/80 shadow-amber-950/40'
+        }`}>
+          {activeToast.type.includes('invigilator') ? (
+            <Megaphone className="w-5 h-5 text-indigo-400 shrink-0 mt-0.5 animate-bounce" />
+          ) : (
+            <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+          )}
           <div className="flex-1 text-xs">
-            <div className="font-bold text-amber-300 capitalize mb-0.5">
-              AI Proctor Notice: {activeToast.type.replace('_', ' ')}
+            <div className={`font-bold capitalize mb-0.5 ${
+              activeToast.type.includes('invigilator') ? 'text-indigo-300' : 'text-amber-300'
+            }`}>
+              {activeToast.type.includes('invigilator')
+                ? '📢 Invigilator Broadcast'
+                : `AI Proctor Notice: ${activeToast.type.replace('_', ' ')}`}
             </div>
             <p className="text-slate-300 leading-snug">{activeToast.message}</p>
           </div>
