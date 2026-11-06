@@ -1,5 +1,502 @@
 [
   {
+    "id": "sub-1793967051854",
+    "examId": "exam-ai-1793967019777",
+    "examTitle": "basic bible questions Master Certification",
+    "candidateName": "Alex Rivers",
+    "candidateEmail": "alex.rivers@university.edu",
+    "candidatePhoto": "data:image/jpeg;base64,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",
+    "startedAt": "2026-11-06T12:10:24.374Z",
+    "submittedAt": "2026-11-06T12:10:51.854Z",
+    "timeSpentSeconds": 27,
+    "answers": {
+      "gen_q_1": "now in ot",
+      "gen_q_2": "opt_a",
+      "gen_q_3": "opt_true",
+      "gen_q_4": "opt_b",
+      "gen_q_5": "nnnn"
+    },
+    "score": 10.2,
+    "totalPossibleScore": 35,
+    "percentage": 29,
+    "passed": false,
+    "questionResults": [
+      {
+        "questionId": "gen_q_1",
+        "userAnswer": "now in ot",
+        "isCorrect": false,
+        "scoreAwarded": 0.2,
+        "maxScore": 10,
+        "explanation": "A comprehensive biblical synthesis links historical revelation with canonical theology and personal transformation.",
+        "aiEvaluation": {
+          "score": 0.2,
+          "maxScore": 10,
+          "accuracy": "low",
+          "strengths": [
+            "Provided relevant contextual response.",
+            "Direct and concise response."
+          ],
+          "improvements": [
+            "Could incorporate more specific terminology and concrete examples.",
+            "Review the model answer explanation for additional nuances."
+          ],
+          "reasoning": "Awarded 0.2/10 marks based on alignment with key concepts in the marking rubric and depth of explanation."
+        }
+      },
+      {
+        "questionId": "gen_q_2",
+        "userAnswer": "opt_a",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "The Analogy of Faith (analogia fidei) ensures that Scripture interprets Scripture harmoniously without contradictions, grounding doctrinal truth in the unified revelation of God."
+      },
+      {
+        "questionId": "gen_q_3",
+        "userAnswer": "opt_true",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "Grammatical-historical exegesis demands determining what the text meant to the original recipients under the human and divine authors before deriving contemporary theological application."
+      },
+      {
+        "questionId": "gen_q_4",
+        "userAnswer": "opt_b",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 5,
+        "explanation": "The Analogy of Faith (analogia fidei) ensures that Scripture interprets Scripture harmoniously without contradictions, grounding doctrinal truth in the unified revelation of God."
+      },
+      {
+        "questionId": "gen_q_5",
+        "userAnswer": "nnnn",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 10,
+        "explanation": "A comprehensive biblical synthesis links historical revelation with canonical theology and personal transformation.",
+        "aiEvaluation": {
+          "score": 0,
+          "maxScore": 10,
+          "accuracy": "none",
+          "strengths": [],
+          "improvements": [
+            "No substantial answer was provided.",
+            "Review foundational concepts for this topic."
+          ],
+          "reasoning": "The response was empty or too brief to demonstrate understanding."
+        }
+      }
+    ],
+    "proctorLogs": [
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793967025489-an4m",
+        "timestamp": "2026-11-06T12:10:25.489Z",
+        "secondsIntoExam": 1
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793967031504-9aaz",
+        "timestamp": "2026-11-06T12:10:31.504Z",
+        "secondsIntoExam": 7
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793967037508-jom7",
+        "timestamp": "2026-11-06T12:10:37.508Z",
+        "secondsIntoExam": 13
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793967043524-rmx8",
+        "timestamp": "2026-11-06T12:10:43.524Z",
+        "secondsIntoExam": 19
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793967049539-onfr",
+        "timestamp": "2026-11-06T12:10:49.539Z",
+        "secondsIntoExam": 25
+      }
+    ],
+    "integrityScore": 50,
+    "integrityVerdict": "high_risk",
+    "aiAnalytics": {
+      "topicBreakdown": [
+        {
+          "topic": "basic bible questions Biblical Exegesis Section 1",
+          "score": 0.2,
+          "total": 10,
+          "percentage": 2
+        },
+        {
+          "topic": "basic bible questions Biblical Exegesis Section 2",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "basic bible questions Biblical Exegesis Section 3",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "basic bible questions Biblical Exegesis Section 4",
+          "score": 0,
+          "total": 5,
+          "percentage": 0
+        },
+        {
+          "topic": "basic bible questions Biblical Exegesis Section 5",
+          "score": 0,
+          "total": 10,
+          "percentage": 0
+        }
+      ],
+      "strengths": [
+        "basic bible questions Biblical Exegesis Section 2",
+        "basic bible questions Biblical Exegesis Section 3"
+      ],
+      "weaknesses": [
+        "basic bible questions Biblical Exegesis Section 1",
+        "basic bible questions Biblical Exegesis Section 4",
+        "basic bible questions Biblical Exegesis Section 5"
+      ],
+      "recommendations": [
+        "Prioritize targeted revision on: basic bible questions Biblical Exegesis Section 1, basic bible questions Biblical Exegesis Section 4, basic bible questions Biblical Exegesis Section 5.",
+        "Work through practice problem sets with step-by-step Socratic walkthroughs."
+      ],
+      "summary": "Candidate scored 29%, falling short of the 70% passing threshold. Recommended focused review on highlighted areas of improvement.",
+      "estimatedPercentile": 28
+    }
+  },
+  {
+    "id": "sub-1793966898116",
+    "examId": "exam-nt-002",
+    "examTitle": "New Testament Gospels, Pauline Epistles & Early Church",
+    "candidateName": "Alex Rivers",
+    "candidateEmail": "alex.rivers@university.edu",
+    "candidatePhoto": "data:image/jpeg;base64,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",
+    "startedAt": "2026-11-06T12:06:22.724Z",
+    "submittedAt": "2026-11-06T12:08:18.116Z",
+    "timeSpentSeconds": 115,
+    "answers": {
+      "nt_q1": "opt_a",
+      "nt_q2": "by ensuring that everybody made money",
+      "nt_q3": [
+        "opt_a",
+        "opt_c",
+        "opt_d",
+        "opt_b"
+      ],
+      "nt_q4": "opt_false",
+      "nt_q5": "no idea but willing to make amends if required"
+    },
+    "score": 17.2,
+    "totalPossibleScore": 50,
+    "percentage": 34,
+    "passed": false,
+    "questionResults": [
+      {
+        "questionId": "nt_q1",
+        "userAnswer": "opt_a",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 5,
+        "explanation": "In Matthew 5:17, Jesus explicitly declares: \"Do not think that I have come to abolish the Law or the Prophets; I have not come to abolish them but to fulfill them.\" He fulfills the Law’s moral demands, prophecies, and sacrificial typology."
+      },
+      {
+        "questionId": "nt_q2",
+        "userAnswer": "by ensuring that everybody made money",
+        "isCorrect": false,
+        "scoreAwarded": 1,
+        "maxScore": 15,
+        "explanation": "Justification by faith alone (sola fide) through grace alone (sola gratia) in Christ alone is the cornerstone of Pauline theology. Righteousness is imputed to the believer through faith in Jesus who satisfied the Law’s demands.",
+        "aiEvaluation": {
+          "score": 1,
+          "maxScore": 15,
+          "accuracy": "low",
+          "strengths": [
+            "Provided relevant contextual response.",
+            "Direct and concise response."
+          ],
+          "improvements": [
+            "Could incorporate more specific terminology and concrete examples.",
+            "Review the model answer explanation for additional nuances."
+          ],
+          "reasoning": "Awarded 1/15 marks based on alignment with key concepts in the marking rubric and depth of explanation."
+        }
+      },
+      {
+        "questionId": "nt_q3",
+        "userAnswer": [
+          "opt_a",
+          "opt_c",
+          "opt_d",
+          "opt_b"
+        ],
+        "isCorrect": true,
+        "scoreAwarded": 10,
+        "maxScore": 10,
+        "explanation": "All four statements are among the 7 distinct \"I AM\" sayings with predicates found exclusively in the Gospel of John, echoing the divine name revealed to Moses in Exodus 3:14 (\"I AM WHO I AM\")."
+      },
+      {
+        "questionId": "nt_q4",
+        "userAnswer": "opt_false",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "False. The Jerusalem Council in Acts 15 concluded that Gentile believers are saved by grace through faith just as Jewish believers are, without the yoke of circumcision. They were only asked to abstain from food polluted by idols, sexual immorality, meat of strangled animals, and blood."
+      },
+      {
+        "questionId": "nt_q5",
+        "userAnswer": "no idea but willing to make amends if required",
+        "isCorrect": false,
+        "scoreAwarded": 1.2,
+        "maxScore": 15,
+        "explanation": "Philippians 2:5-11 is one of the earliest and most elevated Christological passages in the New Testament, grounding Christian humility and ethics in the incarnation, cross, and cosmic lordship of Jesus.",
+        "aiEvaluation": {
+          "score": 1.2,
+          "maxScore": 15,
+          "accuracy": "low",
+          "strengths": [
+            "Provided relevant contextual response.",
+            "Direct and concise response."
+          ],
+          "improvements": [
+            "Could incorporate more specific terminology and concrete examples.",
+            "Review the model answer explanation for additional nuances."
+          ],
+          "reasoning": "Awarded 1.2/15 marks based on alignment with key concepts in the marking rubric and depth of explanation."
+        }
+      }
+    ],
+    "proctorLogs": [
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966783523-12t0",
+        "timestamp": "2026-11-06T12:06:23.523Z",
+        "secondsIntoExam": 0
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966789537-x2h7",
+        "timestamp": "2026-11-06T12:06:29.537Z",
+        "secondsIntoExam": 6
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966795553-r5hp",
+        "timestamp": "2026-11-06T12:06:35.553Z",
+        "secondsIntoExam": 12
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966801570-tv3i",
+        "timestamp": "2026-11-06T12:06:41.570Z",
+        "secondsIntoExam": 18
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966807586-vmrn",
+        "timestamp": "2026-11-06T12:06:47.586Z",
+        "secondsIntoExam": 24
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966813603-v334",
+        "timestamp": "2026-11-06T12:06:53.603Z",
+        "secondsIntoExam": 30
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966819619-tdyc",
+        "timestamp": "2026-11-06T12:06:59.619Z",
+        "secondsIntoExam": 36
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966825620-4tqe",
+        "timestamp": "2026-11-06T12:07:05.620Z",
+        "secondsIntoExam": 42
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966831637-m4z4",
+        "timestamp": "2026-11-06T12:07:11.637Z",
+        "secondsIntoExam": 48
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966837652-pan2",
+        "timestamp": "2026-11-06T12:07:17.652Z",
+        "secondsIntoExam": 54
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966843669-n41z",
+        "timestamp": "2026-11-06T12:07:23.669Z",
+        "secondsIntoExam": 60
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966849670-7dbl",
+        "timestamp": "2026-11-06T12:07:29.670Z",
+        "secondsIntoExam": 66
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966855687-hsvs",
+        "timestamp": "2026-11-06T12:07:35.687Z",
+        "secondsIntoExam": 72
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966861702-6phe",
+        "timestamp": "2026-11-06T12:07:41.702Z",
+        "secondsIntoExam": 78
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966867703-31bs",
+        "timestamp": "2026-11-06T12:07:47.703Z",
+        "secondsIntoExam": 84
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966873721-ndv8",
+        "timestamp": "2026-11-06T12:07:53.721Z",
+        "secondsIntoExam": 90
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966879737-g33n",
+        "timestamp": "2026-11-06T12:07:59.737Z",
+        "secondsIntoExam": 96
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966885754-rzqb",
+        "timestamp": "2026-11-06T12:08:05.754Z",
+        "secondsIntoExam": 102
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966891770-tz7o",
+        "timestamp": "2026-11-06T12:08:11.770Z",
+        "secondsIntoExam": 108
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793966897773-b3lx",
+        "timestamp": "2026-11-06T12:08:17.773Z",
+        "secondsIntoExam": 114
+      }
+    ],
+    "integrityScore": 0,
+    "integrityVerdict": "high_risk",
+    "aiAnalytics": {
+      "topicBreakdown": [
+        {
+          "topic": "Gospels & Jesus Ministry",
+          "score": 0,
+          "total": 5,
+          "percentage": 0
+        },
+        {
+          "topic": "Pauline Soteriology",
+          "score": 1,
+          "total": 15,
+          "percentage": 7
+        },
+        {
+          "topic": "Johannine Literature",
+          "score": 10,
+          "total": 10,
+          "percentage": 100
+        },
+        {
+          "topic": "Early Church & Acts",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "Christology",
+          "score": 1.2,
+          "total": 15,
+          "percentage": 8
+        }
+      ],
+      "strengths": [
+        "Johannine Literature",
+        "Early Church & Acts"
+      ],
+      "weaknesses": [
+        "Gospels & Jesus Ministry",
+        "Pauline Soteriology",
+        "Christology"
+      ],
+      "recommendations": [
+        "Prioritize targeted revision on: Gospels & Jesus Ministry, Pauline Soteriology, Christology.",
+        "Work through practice problem sets with step-by-step Socratic walkthroughs."
+      ],
+      "summary": "Candidate scored 34%, falling short of the 75% passing threshold. Recommended focused review on highlighted areas of improvement.",
+      "estimatedPercentile": 32
+    }
+  },
+  {
     "id": "sub-1793966596090",
     "examId": "exam-languages-004",
     "examTitle": "Biblical Languages: Hebrew & Koine Greek Exegesis",
@@ -324,351 +821,6 @@
       ],
       "summary": "Candidate scored 63%, falling short of the 75% passing threshold. Recommended focused review on highlighted areas of improvement.",
       "estimatedPercentile": 60
-    }
-  },
-  {
-    "id": "sub-1793964588326",
-    "examId": "exam-fullstack-001",
-    "examTitle": "Full-Stack Software Engineering & Distributed Systems",
-    "candidateName": "Elena Vance",
-    "candidateEmail": "elena.vance@mit.edu",
-    "startedAt": "2026-11-06T11:00:00.000Z",
-    "submittedAt": "2026-11-06T11:29:48.326Z",
-    "timeSpentSeconds": 480,
-    "answers": {
-      "q1": "opt_b",
-      "q2": "opt_c",
-      "q3": [
-        "opt_a",
-        "opt_d"
-      ],
-      "q4": "opt_true",
-      "q5": "A Bloom filter is a space-efficient probabilistic data structure that tests set membership using a bit array and hash functions. It can yield false positives due to hash collisions, but it can never produce false negatives.",
-      "q6": "opt_b",
-      "q7": "Optimistic Concurrency Control verifies version numbers at commit time without holding long locks, while pessimistic locking blocks rows with locks. OCC is preferred in low contention web environments."
-    },
-    "score": 50,
-    "totalPossibleScore": 50,
-    "percentage": 100,
-    "passed": true,
-    "questionResults": [
-      {
-        "questionId": "q1",
-        "userAnswer": "opt_b",
-        "isCorrect": true,
-        "scoreAwarded": 5,
-        "maxScore": 5,
-        "explanation": "According to Eric Brewer’s CAP theorem, when a network partition (P) occurs, a distributed system must sacrifice either Availability (A) to guarantee strong Consistency, or Consistency (C) to guarantee that every non-failing node returns a response."
-      },
-      {
-        "questionId": "q2",
-        "userAnswer": "opt_c",
-        "isCorrect": true,
-        "scoreAwarded": 5,
-        "maxScore": 5,
-        "explanation": "Synchronous statements execute first (1, then 4). Then, microtasks (Promise callback 3) run before macrotasks (setTimeout callback 2) in the event loop cycle."
-      },
-      {
-        "questionId": "q3",
-        "userAnswer": [
-          "opt_a",
-          "opt_d"
-        ],
-        "isCorrect": true,
-        "scoreAwarded": 5,
-        "maxScore": 5,
-        "explanation": "In Write-Through caching, data is simultaneously written to both cache and database before confirming success. Write-Around writes directly to DB bypassing cache, while Write-Behind writes to cache first and asynchronously syncs to DB later."
-      },
-      {
-        "questionId": "q4",
-        "userAnswer": "opt_true",
-        "isCorrect": true,
-        "scoreAwarded": 5,
-        "maxScore": 5,
-        "explanation": "True. React Server Components (RSC) execute strictly on the server and stream serialized React flight data / HTML to the client without shipping their component code to the client bundle."
-      },
-      {
-        "questionId": "q5",
-        "userAnswer": "A Bloom filter is a space-efficient probabilistic data structure that tests set membership using a bit array and hash functions. It can yield false positives due to hash collisions, but it can never produce false negatives.",
-        "isCorrect": true,
-        "scoreAwarded": 10,
-        "maxScore": 10,
-        "explanation": "Bloom filters use multiple hash functions mapped to a bit array. Because hashes can collide, all bits for a query might be set to 1 even if the element was never inserted (false positive). However, if any mapped bit is 0, the element definitely does not exist (no false negatives).",
-        "aiEvaluation": {
-          "score": 10,
-          "maxScore": 10,
-          "accuracy": "high",
-          "strengths": [
-            "Accurately incorporated essential technical domain terminology.",
-            "Good depth of explanation provided."
-          ],
-          "improvements": [
-            "Well-rounded explanation that meets the core rubric expectations."
-          ],
-          "reasoning": "Awarded 10/10 marks based on alignment with key concepts in the marking rubric and depth of explanation."
-        }
-      },
-      {
-        "questionId": "q6",
-        "userAnswer": "opt_b",
-        "isCorrect": true,
-        "scoreAwarded": 5,
-        "maxScore": 5,
-        "explanation": "HTTP 422 Unprocessable Content indicates that the server understands the content type and syntax of the request entity, but was unable to process the contained instructions due to semantic validation failures."
-      },
-      {
-        "questionId": "q7",
-        "userAnswer": "Optimistic Concurrency Control verifies version numbers at commit time without holding long locks, while pessimistic locking blocks rows with locks. OCC is preferred in low contention web environments.",
-        "isCorrect": true,
-        "scoreAwarded": 15,
-        "maxScore": 15,
-        "explanation": "Pessimistic locks protect against high contention at the cost of throughput and potential deadlocks. OCC maximizes concurrency by checking record version numbers at commit time, ideal for low write contention environments.",
-        "aiEvaluation": {
-          "score": 15,
-          "maxScore": 15,
-          "accuracy": "high",
-          "strengths": [
-            "Accurately incorporated essential technical domain terminology.",
-            "Good depth of explanation provided."
-          ],
-          "improvements": [
-            "Well-rounded explanation that meets the core rubric expectations."
-          ],
-          "reasoning": "Awarded 15/15 marks based on alignment with key concepts in the marking rubric and depth of explanation."
-        }
-      }
-    ],
-    "proctorLogs": [
-      {
-        "id": "inc-1",
-        "timestamp": "2026-11-06T11:04:12.000Z",
-        "secondsIntoExam": 252,
-        "type": "tab_switch",
-        "severity": "medium",
-        "description": "Candidate switched tabs to check background window"
-      }
-    ],
-    "integrityScore": 90,
-    "integrityVerdict": "flagged",
-    "aiAnalytics": {
-      "topicBreakdown": [
-        {
-          "topic": "System Design",
-          "score": 5,
-          "total": 5,
-          "percentage": 100
-        },
-        {
-          "topic": "JavaScript & Node.js",
-          "score": 5,
-          "total": 5,
-          "percentage": 100
-        },
-        {
-          "topic": "Databases & Caching",
-          "score": 20,
-          "total": 20,
-          "percentage": 100
-        },
-        {
-          "topic": "Frontend Architecture",
-          "score": 5,
-          "total": 5,
-          "percentage": 100
-        },
-        {
-          "topic": "Data Structures",
-          "score": 10,
-          "total": 10,
-          "percentage": 100
-        },
-        {
-          "topic": "API Design",
-          "score": 5,
-          "total": 5,
-          "percentage": 100
-        }
-      ],
-      "strengths": [
-        "System Design",
-        "JavaScript & Node.js",
-        "Databases & Caching",
-        "Frontend Architecture",
-        "Data Structures",
-        "API Design"
-      ],
-      "weaknesses": [
-        "None identified; consistent performance across tested subtopics."
-      ],
-      "recommendations": [
-        "Demonstrated strong mastery across all tested domains. Consider advancing to expert-level modules."
-      ],
-      "summary": "Candidate passed successfully with 100% score (99th percentile estimate). Demonstrates strong grasp of core competencies.",
-      "estimatedPercentile": 99
-    }
-  },
-  {
-    "id": "sub-1793964424115",
-    "examId": "exam-fullstack-001",
-    "examTitle": "Full-Stack Software Engineering & Distributed Systems",
-    "candidateName": "Alex Rivers",
-    "candidateEmail": "alex.rivers@university.edu",
-    "candidatePhoto": "data:image/jpeg;base64,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",
-    "startedAt": "2026-11-06T11:26:34.840Z",
-    "submittedAt": "2026-11-06T11:27:04.115Z",
-    "timeSpentSeconds": 28,
-    "answers": {
-      "q1": "opt_a",
-      "q2": "opt_a",
-      "q3": [
-        "opt_d"
-      ]
-    },
-    "score": 0,
-    "totalPossibleScore": 50,
-    "percentage": 0,
-    "passed": false,
-    "questionResults": [
-      {
-        "questionId": "q1",
-        "userAnswer": "opt_a",
-        "isCorrect": false,
-        "scoreAwarded": 0,
-        "maxScore": 5,
-        "explanation": "According to Eric Brewer’s CAP theorem, when a network partition (P) occurs, a distributed system must sacrifice either Availability (A) to guarantee strong Consistency, or Consistency (C) to guarantee that every non-failing node returns a response."
-      },
-      {
-        "questionId": "q2",
-        "userAnswer": "opt_a",
-        "isCorrect": false,
-        "scoreAwarded": 0,
-        "maxScore": 5,
-        "explanation": "Synchronous statements execute first (1, then 4). Then, microtasks (Promise callback 3) run before macrotasks (setTimeout callback 2) in the event loop cycle."
-      },
-      {
-        "questionId": "q3",
-        "userAnswer": [
-          "opt_d"
-        ],
-        "isCorrect": false,
-        "scoreAwarded": 0,
-        "maxScore": 5,
-        "explanation": "In Write-Through caching, data is simultaneously written to both cache and database before confirming success. Write-Around writes directly to DB bypassing cache, while Write-Behind writes to cache first and asynchronously syncs to DB later."
-      },
-      {
-        "questionId": "q4",
-        "userAnswer": "",
-        "isCorrect": false,
-        "scoreAwarded": 0,
-        "maxScore": 5,
-        "explanation": "True. React Server Components (RSC) execute strictly on the server and stream serialized React flight data / HTML to the client without shipping their component code to the client bundle."
-      },
-      {
-        "questionId": "q5",
-        "userAnswer": "",
-        "isCorrect": false,
-        "scoreAwarded": 0,
-        "maxScore": 10,
-        "explanation": "Bloom filters use multiple hash functions mapped to a bit array. Because hashes can collide, all bits for a query might be set to 1 even if the element was never inserted (false positive). However, if any mapped bit is 0, the element definitely does not exist (no false negatives).",
-        "aiEvaluation": {
-          "score": 0,
-          "maxScore": 10,
-          "accuracy": "none",
-          "strengths": [],
-          "improvements": [
-            "No substantial answer was provided.",
-            "Review foundational concepts for this topic."
-          ],
-          "reasoning": "The response was empty or too brief to demonstrate understanding."
-        }
-      },
-      {
-        "questionId": "q6",
-        "userAnswer": "",
-        "isCorrect": false,
-        "scoreAwarded": 0,
-        "maxScore": 5,
-        "explanation": "HTTP 422 Unprocessable Content indicates that the server understands the content type and syntax of the request entity, but was unable to process the contained instructions due to semantic validation failures."
-      },
-      {
-        "questionId": "q7",
-        "userAnswer": "",
-        "isCorrect": false,
-        "scoreAwarded": 0,
-        "maxScore": 15,
-        "explanation": "Pessimistic locks protect against high contention at the cost of throughput and potential deadlocks. OCC maximizes concurrency by checking record version numbers at commit time, ideal for low write contention environments.",
-        "aiEvaluation": {
-          "score": 0,
-          "maxScore": 15,
-          "accuracy": "none",
-          "strengths": [],
-          "improvements": [
-            "No substantial answer was provided.",
-            "Review foundational concepts for this topic."
-          ],
-          "reasoning": "The response was empty or too brief to demonstrate understanding."
-        }
-      }
-    ],
-    "proctorLogs": [],
-    "integrityScore": 100,
-    "integrityVerdict": "clean",
-    "aiAnalytics": {
-      "topicBreakdown": [
-        {
-          "topic": "System Design",
-          "score": 0,
-          "total": 5,
-          "percentage": 0
-        },
-        {
-          "topic": "JavaScript & Node.js",
-          "score": 0,
-          "total": 5,
-          "percentage": 0
-        },
-        {
-          "topic": "Databases & Caching",
-          "score": 0,
-          "total": 20,
-          "percentage": 0
-        },
-        {
-          "topic": "Frontend Architecture",
-          "score": 0,
-          "total": 5,
-          "percentage": 0
-        },
-        {
-          "topic": "Data Structures",
-          "score": 0,
-          "total": 10,
-          "percentage": 0
-        },
-        {
-          "topic": "API Design",
-          "score": 0,
-          "total": 5,
-          "percentage": 0
-        }
-      ],
-      "strengths": [
-        "Completed the full examination under timed conditions."
-      ],
-      "weaknesses": [
-        "System Design",
-        "JavaScript & Node.js",
-        "Databases & Caching",
-        "Frontend Architecture",
-        "Data Structures",
-        "API Design"
-      ],
-      "recommendations": [
-        "Prioritize targeted revision on: System Design, JavaScript & Node.js, Databases & Caching, Frontend Architecture, Data Structures, API Design.",
-        "Work through practice problem sets with step-by-step Socratic walkthroughs."
-      ],
-      "summary": "Candidate scored 0%, falling short of the 70% passing threshold. Recommended focused review on highlighted areas of improvement.",
-      "estimatedPercentile": 10
     }
   }
 ]

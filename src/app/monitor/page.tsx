@@ -48,8 +48,8 @@ export default function LiveMonitorPage() {
       id: 'cand-1',
       name: 'Alex Rivers',
       email: 'alex.rivers@university.edu',
-      examTitle: 'Full-Stack Software Engineering & Distributed Systems',
-      examId: 'exam-fullstack-001',
+      examTitle: 'Old Testament Literature, Torah & Biblical Covenants',
+      examId: 'exam-ot-001',
       startedAt: '12:30 PM',
       timeRemainingSeconds: 540,
       strikes: 0,
@@ -64,9 +64,9 @@ export default function LiveMonitorPage() {
     {
       id: 'cand-2',
       name: 'Maya Chen',
-      email: 'm.chen@stanford.edu',
-      examTitle: 'Artificial Intelligence & Machine Learning Fundamentals',
-      examId: 'exam-ai-ml-002',
+      email: 'm.chen@seminary.edu',
+      examTitle: 'New Testament Gospels, Pauline Epistles & Early Church',
+      examId: 'exam-nt-002',
       startedAt: '12:35 PM',
       timeRemainingSeconds: 420,
       strikes: 1,
@@ -81,9 +81,9 @@ export default function LiveMonitorPage() {
     {
       id: 'cand-3',
       name: 'Devon Patel',
-      email: 'devon.patel@oxford.ac.uk',
-      examTitle: 'Quantitative Reasoning & Mathematical Logic',
-      examId: 'exam-sat-quant-003',
+      email: 'devon.patel@theology.ac.uk',
+      examTitle: 'Biblical Hermeneutics, Theology & Scriptural Doctrines',
+      examId: 'exam-hermeneutics-003',
       startedAt: '12:40 PM',
       timeRemainingSeconds: 310,
       strikes: 2,
@@ -98,9 +98,9 @@ export default function LiveMonitorPage() {
     {
       id: 'cand-4',
       name: 'Sarah Connor',
-      email: 'sarah.c@tech.io',
-      examTitle: 'Kubernetes & Cloud Native Architecture',
-      examId: 'exam-k8s-004',
+      email: 'sarah.c@biblicalstudies.org',
+      examTitle: 'Biblical Languages: Hebrew & Koine Greek Exegesis',
+      examId: 'exam-languages-004',
       startedAt: '12:42 PM',
       timeRemainingSeconds: 780,
       strikes: 0,
@@ -622,3 +622,4 @@ export default function LiveMonitorPage() {
     </div>
   );
 }
+

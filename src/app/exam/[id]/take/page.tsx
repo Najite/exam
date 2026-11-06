@@ -22,15 +22,17 @@ import {
   Code2,
   Volume2,
   VolumeX,
-  Sparkles
+  Sparkles,
+  BookMarked
 } from 'lucide-react';
 import { Exam, Question, ProctorIncident, ProctorIncidentType } from '@/types';
 import { WebcamProctor } from '@/components/WebcamProctor';
 import { QuestionPalette } from '@/components/QuestionPalette';
 import { CalculatorModal } from '@/components/CalculatorModal';
 import { FormulaSheetModal } from '@/components/FormulaSheetModal';
+import { ConcordanceModal } from '@/components/ConcordanceModal';
 import { ScratchpadModal } from '@/components/ScratchpadModal';
-import { CodeRunner } from '@/components/CodeRunner';
+import { ScriptureWorkbench } from '@/components/ScriptureWorkbench';
 
 function ExamTakeContent() {
   const params = useParams();
@@ -72,6 +74,7 @@ function ExamTakeContent() {
   // Utility modals
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
   const [isFormulaOpen, setIsFormulaOpen] = useState(false);
+  const [isConcordanceOpen, setIsConcordanceOpen] = useState(false);
   const [isScratchpadOpen, setIsScratchpadOpen] = useState(false);
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -503,6 +506,15 @@ function ExamTakeContent() {
           </button>
 
           <button
+            onClick={() => setIsConcordanceOpen(true)}
+            className="flex items-center gap-1.5 hover:text-white px-2 py-1 rounded-lg hover:bg-slate-800 transition"
+            title="Open Scripture Concordance & Topical Cross-References"
+          >
+            <BookMarked className="w-3.5 h-3.5 text-amber-400" />
+            <span className="hidden sm:inline">Concordance</span>
+          </button>
+
+          <button
             onClick={() => setIsScratchpadOpen(true)}
             className="flex items-center gap-1.5 hover:text-white px-2 py-1 rounded-lg hover:bg-slate-800 transition"
           >
@@ -591,12 +603,13 @@ function ExamTakeContent() {
                 {currentQ.text}
               </h2>
 
-              {/* Interactive Code Runner if code question or snippet */}
+              {/* Interactive Scripture Workbench if question has biblical passage or linguistic snippet */}
               {(currentQ.type === 'code' || currentQ.codeSnippet) && (
-                <CodeRunner
-                  initialCode={currentQ.codeSnippet || '// Write solution here'}
-                  onApplyToAnswer={(code) => {
-                    handleAnswerChange(currentQ.id, code);
+                <ScriptureWorkbench
+                  passageText={currentQ.codeSnippet || currentQ.text}
+                  onApplyToAnswer={(citedText) => {
+                    const current = answers[currentQ.id] || '';
+                    handleAnswerChange(currentQ.id, current ? `${current}\n\n${citedText}` : citedText);
                   }}
                 />
               )}
@@ -845,6 +858,16 @@ function ExamTakeContent() {
       <FormulaSheetModal
         isOpen={isFormulaOpen}
         onClose={() => setIsFormulaOpen(false)}
+      />
+      <ConcordanceModal
+        isOpen={isConcordanceOpen}
+        onClose={() => setIsConcordanceOpen(false)}
+        onInsertVerse={(verse) => {
+          if (currentQ) {
+            const current = answers[currentQ.id] || '';
+            handleAnswerChange(currentQ.id, current ? `${current}\n\n${verse}` : verse);
+          }
+        }}
       />
       <ScratchpadModal
         isOpen={isScratchpadOpen}

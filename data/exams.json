@@ -1,5 +1,130 @@
 [
   {
+    "id": "exam-ai-1793967019777",
+    "title": "basic bible questions Master Certification",
+    "description": "Rigorous AI-synthesized Computer-Based Testing module assessing key competencies in basic bible questions.",
+    "category": "Old Testament Literature & Torah",
+    "difficulty": "beginner",
+    "durationMinutes": 15,
+    "passingScore": 70,
+    "totalMarks": 35,
+    "isPublished": true,
+    "createdAt": "2026-11-06T12:10:19.777Z",
+    "proctoringSettings": {
+      "enableWebcam": true,
+      "enableMic": true,
+      "enableFullscreen": true,
+      "maxTabSwitches": 3,
+      "aiFaceDetection": true,
+      "blockCopyPaste": true
+    },
+    "instructions": [
+      "Welcome to the AI-Proctored testing terminal.",
+      "Maintain an active camera feed and remain within screen boundaries throughout the session.",
+      "Unscheduled tab switches or window unfocus will be flagged on your integrity audit report."
+    ],
+    "questions": [
+      {
+        "id": "gen_q_1",
+        "type": "short_answer",
+        "text": "Synthesize the primary theological and canonical significance of basic bible questions. Cite relevant scripture cross-references and discuss how this doctrine impacts Christian theology.",
+        "correctAnswer": "The study of basic bible questions holds central canonical significance across Scripture. It must be understood in light of redemptive history, demonstrating harmony across Old and New Testaments. Crucial cross-references illuminate God’s redemptive plan and call believers to faithful obedience and sound doctrine.",
+        "evaluationRubric": "Candidate must articulate: 1) The core scriptural foundations of basic bible questions, 2) Key biblical cross-references, and 3) Practical and doctrinal implications for Christian theology.",
+        "explanation": "A comprehensive biblical synthesis links historical revelation with canonical theology and personal transformation.",
+        "topic": "basic bible questions Biblical Exegesis Section 1",
+        "bloomLevel": "analysis",
+        "marks": 10
+      },
+      {
+        "id": "gen_q_2",
+        "type": "mcq_single",
+        "text": "When analyzing basic bible questions across the biblical canon, which theological principle best ensures fidelity to scriptural revelation?",
+        "options": [
+          {
+            "id": "opt_a",
+            "text": "Interpreting difficult passages in light of clear, explicit scripture (The Analogy of Faith)"
+          },
+          {
+            "id": "opt_b",
+            "text": "Treating Old Testament historical narratives as detached from Christological fulfillment"
+          },
+          {
+            "id": "opt_c",
+            "text": "Subordinating apostolic didactic teaching to cultural relativism"
+          },
+          {
+            "id": "opt_d",
+            "text": "Relying exclusively on allegorical speculation without grammatical foundation"
+          }
+        ],
+        "correctAnswer": "opt_a",
+        "explanation": "The Analogy of Faith (analogia fidei) ensures that Scripture interprets Scripture harmoniously without contradictions, grounding doctrinal truth in the unified revelation of God.",
+        "topic": "basic bible questions Biblical Exegesis Section 2",
+        "bloomLevel": "application",
+        "marks": 5
+      },
+      {
+        "id": "gen_q_3",
+        "type": "true_false",
+        "text": "In sound biblical hermeneutics, must interpretations of basic bible questions be grounded in the authorial intent, grammatical syntax, and historical-cultural context of the original biblical text rather than subjective eisegesis?",
+        "options": [
+          {
+            "id": "opt_true",
+            "text": "True"
+          },
+          {
+            "id": "opt_false",
+            "text": "False"
+          }
+        ],
+        "correctAnswer": "opt_true",
+        "explanation": "Grammatical-historical exegesis demands determining what the text meant to the original recipients under the human and divine authors before deriving contemporary theological application.",
+        "topic": "basic bible questions Biblical Exegesis Section 3",
+        "bloomLevel": "application",
+        "marks": 5
+      },
+      {
+        "id": "gen_q_4",
+        "type": "mcq_single",
+        "text": "When analyzing basic bible questions across the biblical canon, which theological principle best ensures fidelity to scriptural revelation?",
+        "options": [
+          {
+            "id": "opt_a",
+            "text": "Interpreting difficult passages in light of clear, explicit scripture (The Analogy of Faith)"
+          },
+          {
+            "id": "opt_b",
+            "text": "Treating Old Testament historical narratives as detached from Christological fulfillment"
+          },
+          {
+            "id": "opt_c",
+            "text": "Subordinating apostolic didactic teaching to cultural relativism"
+          },
+          {
+            "id": "opt_d",
+            "text": "Relying exclusively on allegorical speculation without grammatical foundation"
+          }
+        ],
+        "correctAnswer": "opt_a",
+        "explanation": "The Analogy of Faith (analogia fidei) ensures that Scripture interprets Scripture harmoniously without contradictions, grounding doctrinal truth in the unified revelation of God.",
+        "topic": "basic bible questions Biblical Exegesis Section 4",
+        "bloomLevel": "application",
+        "marks": 5
+      },
+      {
+        "id": "gen_q_5",
+        "type": "short_answer",
+        "text": "Synthesize the primary theological and canonical significance of basic bible questions. Cite relevant scripture cross-references and discuss how this doctrine impacts Christian theology.",
+        "correctAnswer": "The study of basic bible questions holds central canonical significance across Scripture. It must be understood in light of redemptive history, demonstrating harmony across Old and New Testaments. Crucial cross-references illuminate God’s redemptive plan and call believers to faithful obedience and sound doctrine.",
+        "evaluationRubric": "Candidate must articulate: 1) The core scriptural foundations of basic bible questions, 2) Key biblical cross-references, and 3) Practical and doctrinal implications for Christian theology.",
+        "explanation": "A comprehensive biblical synthesis links historical revelation with canonical theology and personal transformation.",
+        "topic": "basic bible questions Biblical Exegesis Section 5",
+        "bloomLevel": "analysis",
+        "marks": 10
+      }
+    ]
+  },
+  {
     "id": "exam-ot-001",
     "title": "Old Testament Literature, Torah & Biblical Covenants",
     "description": "Comprehensive certification examination testing the Pentateuch (Torah), Abrahamic & Mosaic Covenants, Tabernacle typology, Wisdom Literature, and Major Prophets.",

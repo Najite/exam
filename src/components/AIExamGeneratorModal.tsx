@@ -91,9 +91,12 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
             </div>
             <div>
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
-                AI CBT Exam Generator
+                <span>AI CBT Exam Generator</span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800">
+                  google/gemma-4-31b-it
+                </span>
               </h2>
-              <p className="text-xs text-slate-400">Synthesize psychometric question sets and marking rubrics in seconds</p>
+              <p className="text-xs text-slate-400">Synthesize psychometric question sets via OpenRouter & Gemma AI</p>
             </div>
           </div>
           <button
@@ -260,22 +263,22 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
             />
           </div>
 
-          {/* Optional Gemini API Key */}
+          {/* Optional API Key */}
           <div className="pt-2 border-t border-slate-800">
             <details className="text-xs text-slate-400">
               <summary className="cursor-pointer hover:text-slate-200 font-medium flex items-center gap-1.5">
-                <span>Advanced: Custom Gemini API Key (Optional)</span>
+                <span>Advanced: Custom OpenRouter / Gemini API Key (Optional)</span>
               </summary>
               <div className="mt-2 space-y-1">
                 <input
                   type="password"
                   value={apiKey}
                   onChange={(e) => setApiKey(e.target.value)}
-                  placeholder="Paste your GEMINI_API_KEY (leave empty to use high-fidelity built-in engine)"
+                  placeholder="Paste your OPENROUTER_API_KEY (leave empty to use .env key)"
                   className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-hidden focus:border-indigo-500 font-mono"
                 />
                 <p className="text-[11px] text-slate-500">
-                  If left blank, the platform automatically uses its high-fidelity internal AI generator.
+                  Default: OpenRouter using <code className="text-amber-300">google/gemma-4-31b-it:free</code> configured in <code className="text-indigo-300">.env</code>.
                 </p>
               </div>
             </details>

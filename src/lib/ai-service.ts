@@ -11,12 +11,92 @@ interface GenerateExamParams {
   apiKey?: string;
 }
 
-export async function generateExamWithAI(params: GenerateExamParams): Promise<Exam> {
-  const apiKey = params.apiKey || process.env.GEMINI_API_KEY;
+// OpenRouter LLM Gateway
+async function callOpenRouter(
+  messages: { role: 'system' | 'user' | 'assistant'; content: string }[],
+  options: { apiKey?: string; jsonMode?: boolean; temperature?: number } = {}
+): Promise<string> {
+  const key = options.apiKey || process.env.OPENROUTER_API_KEY;
+  if (!key) throw new Error('No OpenRouter API key found');
 
-  if (apiKey) {
+  const targetModel = process.env.OPENROUTER_MODEL || 'google/gemma-4-31b-it:free';
+  // Try target model (google/gemma-4-31b-it:free) first, fallback to openrouter/free if temporarily rate-limited
+  const candidateModels = [targetModel];
+  if (targetModel !== 'openrouter/free') {
+    candidateModels.push('openrouter/free');
+  }
+
+  let lastError: any = null;
+
+  for (const model of candidateModels) {
     try {
-      const generated = await callGeminiExamGeneration(params, apiKey);
+      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${key}`,
+          'Content-Type': 'application/json',
+          'HTTP-Referer': 'http://localhost:3000',
+          'X-Title': 'Cognita CBT Platform',
+        },
+        body: JSON.stringify({
+          model,
+          messages,
+          temperature: options.temperature ?? 0.6,
+        }),
+        signal: AbortSignal.timeout(18000),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        const content = data.choices?.[0]?.message?.content;
+        if (content) return content;
+      } else {
+        const errText = await res.text();
+        console.warn(`OpenRouter model ${model} returned ${res.status}:`, errText);
+        lastError = new Error(`OpenRouter (${model}) status ${res.status}: ${errText}`);
+      }
+    } catch (err) {
+      console.warn(`OpenRouter network error on model ${model}:`, err);
+      lastError = err;
+    }
+  }
+
+  throw lastError || new Error('All OpenRouter candidate models failed');
+}
+
+function extractJsonFromText(rawText: string): any {
+  let cleaned = (rawText || '').trim();
+  cleaned = cleaned.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/\s*```$/i, '').trim();
+
+  const firstBrace = cleaned.indexOf('{');
+  const lastBrace = cleaned.lastIndexOf('}');
+  if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+    cleaned = cleaned.substring(firstBrace, lastBrace + 1);
+  }
+
+  return JSON.parse(cleaned);
+}
+
+export async function generateExamWithAI(params: GenerateExamParams): Promise<Exam> {
+  const openRouterKey = params.apiKey?.startsWith('sk-or-') ? params.apiKey : process.env.OPENROUTER_API_KEY;
+  const geminiKey = params.apiKey || process.env.GEMINI_API_KEY;
+
+  // 1. Try OpenRouter (google/gemma-4-31b-it:free)
+  if (openRouterKey) {
+    try {
+      const generated = await callOpenRouterExamGeneration(params, openRouterKey);
+      if (generated && generated.questions?.length > 0) {
+        return generated;
+      }
+    } catch (err) {
+      console.warn('OpenRouter exam generation error, attempting fallback:', err);
+    }
+  }
+
+  // 2. Try Gemini API if key is available
+  if (geminiKey && geminiKey !== openRouterKey) {
+    try {
+      const generated = await callGeminiExamGeneration(params, geminiKey);
       if (generated && generated.questions?.length > 0) {
         return generated;
       }
@@ -25,8 +105,96 @@ export async function generateExamWithAI(params: GenerateExamParams): Promise<Ex
     }
   }
 
-  // Fallback to high-fidelity built-in smart AI generator
+  // 3. Fallback to high-fidelity built-in smart AI generator
   return generateSmartLocalExam(params);
+}
+
+async function callOpenRouterExamGeneration(params: GenerateExamParams, apiKey: string): Promise<Exam> {
+  const prompt = `You are an expert biblical scholar, theologian, and psychometric test design authority.
+Create a rigorous, high-stakes Computer-Based Test (CBT) examination in JSON format focusing on Biblical Studies, Scripture, Exegesis, or Christian Theology on the topic: "${params.topic}".
+Category: ${params.category || 'Biblical Studies'}
+Target Difficulty: ${params.difficulty}
+Number of Questions: ${params.questionCount}
+Allowed Question Types: ${params.questionTypes.join(', ')}
+${params.contextMaterial ? `Source Scripture / Reference Material:\n"""${params.contextMaterial}"""\n` : ''}
+
+CRITICAL: Return ONLY valid, raw JSON (no markdown formatting, no \`\`\`json code blocks).
+Include specific biblical citations (book, chapter, verse), original language concepts where appropriate (Hebrew/Greek), and clear theological justifications in the explanations.
+The JSON must adhere strictly to this schema:
+{
+  "title": "Clear biblical exam title",
+  "description": "Comprehensive description of biblical scope and learning objectives",
+  "category": "${params.category || 'Biblical Studies'}",
+  "difficulty": "${params.difficulty}",
+  "durationMinutes": ${params.durationMinutes},
+  "passingScore": 70,
+  "instructions": [
+    "Read all biblical texts and question stems carefully before answering.",
+    "Biblical reference sheet and scratchpad are accessible from the top toolbar.",
+    "Full-screen lock and AI proctoring are enforced."
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "type": "mcq_single" | "mcq_multiple" | "true_false" | "short_answer",
+      "text": "Detailed question prompt with scriptural context",
+      "topic": "Specific subtopic or biblical book",
+      "bloomLevel": "knowledge" | "comprehension" | "application" | "analysis" | "evaluation",
+      "marks": 5,
+      "options": [
+        { "id": "opt_a", "text": "Option A text" },
+        { "id": "opt_b", "text": "Option B text" },
+        { "id": "opt_c", "text": "Option C text" },
+        { "id": "opt_d", "text": "Option D text" }
+      ],
+      "correctAnswer": "opt_b",
+      "explanation": "Thorough theological and scriptural justification with relevant verses",
+      "evaluationRubric": "Rubric criteria for short answer evaluation"
+    }
+  ]
+}`;
+
+  const rawText = await callOpenRouter([
+    {
+      role: 'system',
+      content: 'You are an authoritative psychometrician and biblical scholar. Always output valid JSON strictly adhering to the requested schema without conversational filler.',
+    },
+    { role: 'user', content: prompt },
+  ], { apiKey, temperature: 0.5 });
+
+  const parsed = extractJsonFromText(rawText);
+  const totalMarks = (parsed.questions || []).reduce((acc: number, q: any) => acc + (q.marks || 5), 0);
+
+  return {
+    id: `exam-ai-${Date.now()}`,
+    title: parsed.title || `${params.topic} Assessment`,
+    description: parsed.description || `AI-generated assessment for ${params.topic}`,
+    category: parsed.category || params.category || 'Biblical Studies',
+    difficulty: params.difficulty,
+    durationMinutes: params.durationMinutes,
+    passingScore: parsed.passingScore || 70,
+    totalMarks: totalMarks || (params.questionCount * 5),
+    isPublished: true,
+    createdAt: new Date().toISOString(),
+    proctoringSettings: {
+      enableWebcam: true,
+      enableMic: true,
+      enableFullscreen: true,
+      maxTabSwitches: 3,
+      aiFaceDetection: true,
+      blockCopyPaste: true,
+    },
+    instructions: parsed.instructions || [
+      'Proctored CBT environment active.',
+      'Answer all questions to the best of your ability.',
+      'Auto-save is enabled.',
+    ],
+    questions: (parsed.questions || []).map((q: any, i: number) => ({
+      ...q,
+      id: q.id || `gen_q_${i + 1}`,
+      marks: q.marks || 5,
+    })),
+  };
 }
 
 async function callGeminiExamGeneration(params: GenerateExamParams, apiKey: string): Promise<Exam> {
@@ -396,20 +564,20 @@ export async function evaluateShortAnswerWithAI(
   userAnswer: string,
   apiKey?: string
 ): Promise<AIEvaluation> {
-  const key = apiKey || process.env.GEMINI_API_KEY;
+  const openRouterKey = apiKey?.startsWith('sk-or-') ? apiKey : process.env.OPENROUTER_API_KEY;
+  const geminiKey = apiKey || process.env.GEMINI_API_KEY;
 
-  if (key && userAnswer.trim().length > 5) {
-    try {
-      const prompt = `You are a fair, objective exam evaluator grading a student's answer to a CBT question.
+  if (userAnswer && userAnswer.trim().length > 5) {
+    const prompt = `You are a fair, objective exam evaluator grading a student's answer to a CBT question.
 Question: "${question.text}"
 Total Available Marks: ${question.marks}
 Model Answer: "${question.correctAnswer}"
-Evaluation Rubric: "${question.evaluationRubric || 'Assess factual correctness, technical precision, and completeness.'}"
+Evaluation Rubric: "${question.evaluationRubric || 'Assess factual correctness, scriptural precision, and completeness.'}"
 
 Student's Answer: "${userAnswer}"
 
 Grade the student response strictly based on the rubric.
-Return ONLY valid JSON matching this structure (no markdown fences):
+Return ONLY valid JSON matching this structure (no markdown fences, no conversational filler):
 {
   "score": number (between 0 and ${question.marks}),
   "maxScore": ${question.marks},
@@ -419,36 +587,62 @@ Return ONLY valid JSON matching this structure (no markdown fences):
   "reasoning": "Clear explanation of how the score was calculated based on the rubric"
 }`;
 
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { responseMimeType: 'application/json', temperature: 0.2 },
-        }),
-      });
+    // 1. Try OpenRouter (google/gemma-4-31b-it:free)
+    if (openRouterKey) {
+      try {
+        const rawText = await callOpenRouter([
+          { role: 'system', content: 'You are an objective academic evaluator. Return raw JSON only.' },
+          { role: 'user', content: prompt },
+        ], { apiKey: openRouterKey, temperature: 0.2 });
 
-      if (res.ok) {
-        const data = await res.json();
-        const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-        if (rawText) {
-          const parsed = JSON.parse(rawText.trim().replace(/^```json/i, '').replace(/```$/i, '').trim());
-          return {
-            score: Math.min(question.marks, Math.max(0, Number(parsed.score) || 0)),
-            maxScore: question.marks,
-            accuracy: parsed.accuracy || 'moderate',
-            strengths: parsed.strengths || ['Good attempt at addressing the core prompt.'],
-            improvements: parsed.improvements || [],
-            reasoning: parsed.reasoning || 'Evaluated based on technical accuracy and rubric alignment.',
-          };
-        }
+        const parsed = extractJsonFromText(rawText);
+        return {
+          score: Math.min(question.marks, Math.max(0, Number(parsed.score) || 0)),
+          maxScore: question.marks,
+          accuracy: parsed.accuracy || 'moderate',
+          strengths: parsed.strengths || ['Demonstrated relevant theological context.'],
+          improvements: parsed.improvements || [],
+          reasoning: parsed.reasoning || 'Evaluated based on theological precision and rubric alignment via Gemma AI.',
+        };
+      } catch (err) {
+        console.warn('OpenRouter evaluation failed, attempting fallback:', err);
       }
-    } catch (err) {
-      console.warn('AI evaluation API failed, falling back to heuristic grading:', err);
+    }
+
+    // 2. Try Gemini API
+    if (geminiKey && geminiKey !== openRouterKey) {
+      try {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: { responseMimeType: 'application/json', temperature: 0.2 },
+          }),
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (rawText) {
+            const parsed = extractJsonFromText(rawText);
+            return {
+              score: Math.min(question.marks, Math.max(0, Number(parsed.score) || 0)),
+              maxScore: question.marks,
+              accuracy: parsed.accuracy || 'moderate',
+              strengths: parsed.strengths || ['Good attempt at addressing the core prompt.'],
+              improvements: parsed.improvements || [],
+              reasoning: parsed.reasoning || 'Evaluated based on technical accuracy and rubric alignment.',
+            };
+          }
+        }
+      } catch (err) {
+        console.warn('AI evaluation API failed, falling back to heuristic grading:', err);
+      }
     }
   }
 
-  // Heuristic semantic grader
+  // 3. Fallback to heuristic semantic grader
   return evaluateShortAnswerHeuristically(question, userAnswer);
 }
 
@@ -563,11 +757,10 @@ export async function askAITutor(
   userAnswer?: string | string[],
   apiKey?: string
 ): Promise<string> {
-  const key = apiKey || process.env.GEMINI_API_KEY;
+  const openRouterKey = apiKey?.startsWith('sk-or-') ? apiKey : process.env.OPENROUTER_API_KEY;
+  const geminiKey = apiKey || process.env.GEMINI_API_KEY;
 
-  if (key) {
-    try {
-      const prompt = `You are a patient, encouraging, and scholarly AI Biblical Socratic tutor on a computer-based theological testing platform.
+  const prompt = `You are a patient, encouraging, and scholarly AI Biblical Socratic tutor on a computer-based theological testing platform.
 The student took an exam and is reviewing this biblical question:
 
 Question: "${question.text}"
@@ -580,7 +773,24 @@ Student's inquiry to you: "${userQuestion}"
 
 Provide a rich, pastoral, and academically rigorous explanation. Cite relevant scripture verses (book, chapter, verse), original language roots (Hebrew/Greek) if helpful, and gently explain why distractors fall short while upholding orthodox biblical interpretation.`;
 
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
+  // 1. Try OpenRouter (google/gemma-4-31b-it:free)
+  if (openRouterKey) {
+    try {
+      const text = await callOpenRouter([
+        { role: 'system', content: 'You are an encouraging, scholarly Biblical Socratic tutor.' },
+        { role: 'user', content: prompt },
+      ], { apiKey: openRouterKey, temperature: 0.6 });
+
+      if (text) return text;
+    } catch (err) {
+      console.warn('OpenRouter tutor error, attempting fallback:', err);
+    }
+  }
+
+  // 2. Try Gemini API
+  if (geminiKey && geminiKey !== openRouterKey) {
+    try {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -599,7 +809,7 @@ Provide a rich, pastoral, and academically rigorous explanation. Cite relevant s
     }
   }
 
-  // Fallback intelligent biblical tutor response
+  // 3. Fallback intelligent biblical tutor response
   return `### AI Socratic Scripture Tutor\n\n**Biblical Topic:** ${question.topic}\n\n**Exegesis & Explanation:**\n${question.explanation}\n\n**Theological Synthesis:**\nIn biblical theology, the correct understanding reflects **${Array.isArray(question.correctAnswer) ? question.correctAnswer.join(', ') : question.correctAnswer}**. Sound hermeneutics reminds us to interpret scripture with scripture (*analogia scripturae*). When examining biblical passages, common distractors frequently isolate verses out of their literary, historical, or covenantal framework.\n\n*Exegetical Tip:* Always examine the immediate literary context, parallel texts in the canon, and the overarching redemptive-historical narrative!`;
 }
 
