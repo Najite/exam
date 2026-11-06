@@ -1,0 +1,347 @@
+[
+  {
+    "id": "sub-1793964588326",
+    "examId": "exam-fullstack-001",
+    "examTitle": "Full-Stack Software Engineering & Distributed Systems",
+    "candidateName": "Elena Vance",
+    "candidateEmail": "elena.vance@mit.edu",
+    "startedAt": "2026-11-06T11:00:00.000Z",
+    "submittedAt": "2026-11-06T11:29:48.326Z",
+    "timeSpentSeconds": 480,
+    "answers": {
+      "q1": "opt_b",
+      "q2": "opt_c",
+      "q3": [
+        "opt_a",
+        "opt_d"
+      ],
+      "q4": "opt_true",
+      "q5": "A Bloom filter is a space-efficient probabilistic data structure that tests set membership using a bit array and hash functions. It can yield false positives due to hash collisions, but it can never produce false negatives.",
+      "q6": "opt_b",
+      "q7": "Optimistic Concurrency Control verifies version numbers at commit time without holding long locks, while pessimistic locking blocks rows with locks. OCC is preferred in low contention web environments."
+    },
+    "score": 50,
+    "totalPossibleScore": 50,
+    "percentage": 100,
+    "passed": true,
+    "questionResults": [
+      {
+        "questionId": "q1",
+        "userAnswer": "opt_b",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "According to Eric Brewer’s CAP theorem, when a network partition (P) occurs, a distributed system must sacrifice either Availability (A) to guarantee strong Consistency, or Consistency (C) to guarantee that every non-failing node returns a response."
+      },
+      {
+        "questionId": "q2",
+        "userAnswer": "opt_c",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "Synchronous statements execute first (1, then 4). Then, microtasks (Promise callback 3) run before macrotasks (setTimeout callback 2) in the event loop cycle."
+      },
+      {
+        "questionId": "q3",
+        "userAnswer": [
+          "opt_a",
+          "opt_d"
+        ],
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "In Write-Through caching, data is simultaneously written to both cache and database before confirming success. Write-Around writes directly to DB bypassing cache, while Write-Behind writes to cache first and asynchronously syncs to DB later."
+      },
+      {
+        "questionId": "q4",
+        "userAnswer": "opt_true",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "True. React Server Components (RSC) execute strictly on the server and stream serialized React flight data / HTML to the client without shipping their component code to the client bundle."
+      },
+      {
+        "questionId": "q5",
+        "userAnswer": "A Bloom filter is a space-efficient probabilistic data structure that tests set membership using a bit array and hash functions. It can yield false positives due to hash collisions, but it can never produce false negatives.",
+        "isCorrect": true,
+        "scoreAwarded": 10,
+        "maxScore": 10,
+        "explanation": "Bloom filters use multiple hash functions mapped to a bit array. Because hashes can collide, all bits for a query might be set to 1 even if the element was never inserted (false positive). However, if any mapped bit is 0, the element definitely does not exist (no false negatives).",
+        "aiEvaluation": {
+          "score": 10,
+          "maxScore": 10,
+          "accuracy": "high",
+          "strengths": [
+            "Accurately incorporated essential technical domain terminology.",
+            "Good depth of explanation provided."
+          ],
+          "improvements": [
+            "Well-rounded explanation that meets the core rubric expectations."
+          ],
+          "reasoning": "Awarded 10/10 marks based on alignment with key concepts in the marking rubric and depth of explanation."
+        }
+      },
+      {
+        "questionId": "q6",
+        "userAnswer": "opt_b",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "HTTP 422 Unprocessable Content indicates that the server understands the content type and syntax of the request entity, but was unable to process the contained instructions due to semantic validation failures."
+      },
+      {
+        "questionId": "q7",
+        "userAnswer": "Optimistic Concurrency Control verifies version numbers at commit time without holding long locks, while pessimistic locking blocks rows with locks. OCC is preferred in low contention web environments.",
+        "isCorrect": true,
+        "scoreAwarded": 15,
+        "maxScore": 15,
+        "explanation": "Pessimistic locks protect against high contention at the cost of throughput and potential deadlocks. OCC maximizes concurrency by checking record version numbers at commit time, ideal for low write contention environments.",
+        "aiEvaluation": {
+          "score": 15,
+          "maxScore": 15,
+          "accuracy": "high",
+          "strengths": [
+            "Accurately incorporated essential technical domain terminology.",
+            "Good depth of explanation provided."
+          ],
+          "improvements": [
+            "Well-rounded explanation that meets the core rubric expectations."
+          ],
+          "reasoning": "Awarded 15/15 marks based on alignment with key concepts in the marking rubric and depth of explanation."
+        }
+      }
+    ],
+    "proctorLogs": [
+      {
+        "id": "inc-1",
+        "timestamp": "2026-11-06T11:04:12.000Z",
+        "secondsIntoExam": 252,
+        "type": "tab_switch",
+        "severity": "medium",
+        "description": "Candidate switched tabs to check background window"
+      }
+    ],
+    "integrityScore": 90,
+    "integrityVerdict": "flagged",
+    "aiAnalytics": {
+      "topicBreakdown": [
+        {
+          "topic": "System Design",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "JavaScript & Node.js",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "Databases & Caching",
+          "score": 20,
+          "total": 20,
+          "percentage": 100
+        },
+        {
+          "topic": "Frontend Architecture",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "Data Structures",
+          "score": 10,
+          "total": 10,
+          "percentage": 100
+        },
+        {
+          "topic": "API Design",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        }
+      ],
+      "strengths": [
+        "System Design",
+        "JavaScript & Node.js",
+        "Databases & Caching",
+        "Frontend Architecture",
+        "Data Structures",
+        "API Design"
+      ],
+      "weaknesses": [
+        "None identified; consistent performance across tested subtopics."
+      ],
+      "recommendations": [
+        "Demonstrated strong mastery across all tested domains. Consider advancing to expert-level modules."
+      ],
+      "summary": "Candidate passed successfully with 100% score (99th percentile estimate). Demonstrates strong grasp of core competencies.",
+      "estimatedPercentile": 99
+    }
+  },
+  {
+    "id": "sub-1793964424115",
+    "examId": "exam-fullstack-001",
+    "examTitle": "Full-Stack Software Engineering & Distributed Systems",
+    "candidateName": "Alex Rivers",
+    "candidateEmail": "alex.rivers@university.edu",
+    "candidatePhoto": "data:image/jpeg;base64,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",
+    "startedAt": "2026-11-06T11:26:34.840Z",
+    "submittedAt": "2026-11-06T11:27:04.115Z",
+    "timeSpentSeconds": 28,
+    "answers": {
+      "q1": "opt_a",
+      "q2": "opt_a",
+      "q3": [
+        "opt_d"
+      ]
+    },
+    "score": 0,
+    "totalPossibleScore": 50,
+    "percentage": 0,
+    "passed": false,
+    "questionResults": [
+      {
+        "questionId": "q1",
+        "userAnswer": "opt_a",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 5,
+        "explanation": "According to Eric Brewer’s CAP theorem, when a network partition (P) occurs, a distributed system must sacrifice either Availability (A) to guarantee strong Consistency, or Consistency (C) to guarantee that every non-failing node returns a response."
+      },
+      {
+        "questionId": "q2",
+        "userAnswer": "opt_a",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 5,
+        "explanation": "Synchronous statements execute first (1, then 4). Then, microtasks (Promise callback 3) run before macrotasks (setTimeout callback 2) in the event loop cycle."
+      },
+      {
+        "questionId": "q3",
+        "userAnswer": [
+          "opt_d"
+        ],
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 5,
+        "explanation": "In Write-Through caching, data is simultaneously written to both cache and database before confirming success. Write-Around writes directly to DB bypassing cache, while Write-Behind writes to cache first and asynchronously syncs to DB later."
+      },
+      {
+        "questionId": "q4",
+        "userAnswer": "",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 5,
+        "explanation": "True. React Server Components (RSC) execute strictly on the server and stream serialized React flight data / HTML to the client without shipping their component code to the client bundle."
+      },
+      {
+        "questionId": "q5",
+        "userAnswer": "",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 10,
+        "explanation": "Bloom filters use multiple hash functions mapped to a bit array. Because hashes can collide, all bits for a query might be set to 1 even if the element was never inserted (false positive). However, if any mapped bit is 0, the element definitely does not exist (no false negatives).",
+        "aiEvaluation": {
+          "score": 0,
+          "maxScore": 10,
+          "accuracy": "none",
+          "strengths": [],
+          "improvements": [
+            "No substantial answer was provided.",
+            "Review foundational concepts for this topic."
+          ],
+          "reasoning": "The response was empty or too brief to demonstrate understanding."
+        }
+      },
+      {
+        "questionId": "q6",
+        "userAnswer": "",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 5,
+        "explanation": "HTTP 422 Unprocessable Content indicates that the server understands the content type and syntax of the request entity, but was unable to process the contained instructions due to semantic validation failures."
+      },
+      {
+        "questionId": "q7",
+        "userAnswer": "",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 15,
+        "explanation": "Pessimistic locks protect against high contention at the cost of throughput and potential deadlocks. OCC maximizes concurrency by checking record version numbers at commit time, ideal for low write contention environments.",
+        "aiEvaluation": {
+          "score": 0,
+          "maxScore": 15,
+          "accuracy": "none",
+          "strengths": [],
+          "improvements": [
+            "No substantial answer was provided.",
+            "Review foundational concepts for this topic."
+          ],
+          "reasoning": "The response was empty or too brief to demonstrate understanding."
+        }
+      }
+    ],
+    "proctorLogs": [],
+    "integrityScore": 100,
+    "integrityVerdict": "clean",
+    "aiAnalytics": {
+      "topicBreakdown": [
+        {
+          "topic": "System Design",
+          "score": 0,
+          "total": 5,
+          "percentage": 0
+        },
+        {
+          "topic": "JavaScript & Node.js",
+          "score": 0,
+          "total": 5,
+          "percentage": 0
+        },
+        {
+          "topic": "Databases & Caching",
+          "score": 0,
+          "total": 20,
+          "percentage": 0
+        },
+        {
+          "topic": "Frontend Architecture",
+          "score": 0,
+          "total": 5,
+          "percentage": 0
+        },
+        {
+          "topic": "Data Structures",
+          "score": 0,
+          "total": 10,
+          "percentage": 0
+        },
+        {
+          "topic": "API Design",
+          "score": 0,
+          "total": 5,
+          "percentage": 0
+        }
+      ],
+      "strengths": [
+        "Completed the full examination under timed conditions."
+      ],
+      "weaknesses": [
+        "System Design",
+        "JavaScript & Node.js",
+        "Databases & Caching",
+        "Frontend Architecture",
+        "Data Structures",
+        "API Design"
+      ],
+      "recommendations": [
+        "Prioritize targeted revision on: System Design, JavaScript & Node.js, Databases & Caching, Frontend Architecture, Data Structures, API Design.",
+        "Work through practice problem sets with step-by-step Socratic walkthroughs."
+      ],
+      "summary": "Candidate scored 0%, falling short of the 70% passing threshold. Recommended focused review on highlighted areas of improvement.",
+      "estimatedPercentile": 10
+    }
+  }
+]
