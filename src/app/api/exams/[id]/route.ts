@@ -7,7 +7,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const exam = getExamById(id);
+    const exam = await getExamById(id);
     if (!exam) {
       return NextResponse.json({ success: false, error: 'Exam not found' }, { status: 404 });
     }
@@ -24,7 +24,7 @@ export async function PUT(
   try {
     const { id } = await params;
     const body = await req.json();
-    const existing = getExamById(id);
+    const existing = await getExamById(id);
     if (!existing) {
       return NextResponse.json({ success: false, error: 'Exam not found' }, { status: 404 });
     }
@@ -34,7 +34,7 @@ export async function PUT(
       ...body,
       id,
     };
-    saveExam(updated);
+    await saveExam(updated);
     return NextResponse.json({ success: true, exam: updated });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
@@ -47,7 +47,7 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const deleted = deleteExam(id);
+    const deleted = await deleteExam(id);
     if (!deleted) {
       return NextResponse.json({ success: false, error: 'Exam not found' }, { status: 404 });
     }

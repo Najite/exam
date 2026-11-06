@@ -65,7 +65,7 @@ export function CertificateModal({ isOpen, onClose, submission }: CertificateMod
           </div>
 
           <div className="text-xs uppercase tracking-widest text-amber-400/80 font-bold mb-1">
-            COGNITA AI &bull; COMPUTER-BASED TESTING ACCREDITATION
+            COGNITA YOUTH &bull; TEEN BIBLE CHALLENGE ACCREDITATION
           </div>
           <h1 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-2 tracking-wide">
             CERTIFICATE OF ACHIEVEMENT
@@ -107,9 +107,9 @@ export function CertificateModal({ isOpen, onClose, submission }: CertificateMod
 
             <div className="text-center">
               <div className="font-serif italic text-base text-amber-400/90 font-bold mb-0.5">
-                Cognita Academic Board
+                Cognita Youth Ministry Board
               </div>
-              <div className="text-[10px] text-slate-500 uppercase tracking-wider">AI Psychometric Certification</div>
+              <div className="text-[10px] text-slate-500 uppercase tracking-wider">Youth Biblical Achievement Certification</div>
             </div>
 
             <div className="sm:text-right">

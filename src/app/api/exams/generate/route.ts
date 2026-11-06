@@ -23,7 +23,7 @@ export async function POST(req: Request) {
     });
 
     if (autoSave !== false) {
-      saveExam(exam);
+      await saveExam(exam);
     }
 
     return NextResponse.json({ success: true, exam });

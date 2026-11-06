@@ -4,7 +4,7 @@ import { Exam } from '@/types';
 
 export async function GET() {
   try {
-    const exams = getExams();
+    const exams = await getExams();
     return NextResponse.json({ success: true, exams });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
@@ -22,10 +22,10 @@ export async function POST(req: Request) {
       id: body.id || `exam-${Date.now()}`,
       title: body.title,
       description: body.description || '',
-      category: body.category || 'General',
+      category: body.category || 'Teen Bible Challenge',
       difficulty: body.difficulty || 'intermediate',
       durationMinutes: Number(body.durationMinutes) || 15,
-      passingScore: Number(body.passingScore) || 70,
+      passingScore: Number(body.passingScore) || 60,
       totalMarks: body.questions.reduce((sum: number, q: any) => sum + (Number(q.marks) || 5), 0),
       isPublished: true,
       createdAt: new Date().toISOString(),
@@ -41,7 +41,7 @@ export async function POST(req: Request) {
       questions: body.questions,
     };
 
-    saveExam(newExam);
+    await saveExam(newExam);
     return NextResponse.json({ success: true, exam: newExam });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });

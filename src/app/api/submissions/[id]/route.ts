@@ -7,7 +7,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const submission = getSubmissionById(id);
+    const submission = await getSubmissionById(id);
     if (!submission) {
       return NextResponse.json({ success: false, error: 'Submission not found' }, { status: 404 });
     }

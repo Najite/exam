@@ -5,7 +5,7 @@ import { Submission, QuestionResult, ProctorIncident } from '@/types';
 
 export async function GET() {
   try {
-    const submissions = getSubmissions();
+    const submissions = await getSubmissions();
     return NextResponse.json({ success: true, submissions });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
       apiKey,
     } = body;
 
-    const exam = getExamById(examId);
+    const exam = await getExamById(examId);
     if (!exam) {
       return NextResponse.json({ success: false, error: 'Exam not found' }, { status: 404 });
     }
@@ -147,7 +147,7 @@ export async function POST(req: Request) {
       aiAnalytics,
     };
 
-    saveSubmission(submission);
+    await saveSubmission(submission);
 
     return NextResponse.json({ success: true, submission });
   } catch (err: any) {

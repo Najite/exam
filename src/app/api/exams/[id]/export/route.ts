@@ -7,7 +7,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const exam = getExamById(id);
+    const exam = await getExamById(id);
     if (!exam) {
       return NextResponse.json({ success: false, error: 'Exam not found' }, { status: 404 });
     }

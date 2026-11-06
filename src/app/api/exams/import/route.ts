@@ -51,7 +51,7 @@ export async function POST(req: Request) {
       })),
     };
 
-    saveExam(importedExam);
+    await saveExam(importedExam);
     return NextResponse.json({ success: true, exam: importedExam });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
