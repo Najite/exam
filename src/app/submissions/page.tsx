@@ -68,15 +68,15 @@ export default function SubmissionsPage() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-800 text-[11px] font-semibold mb-2">
-              <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Examiner Control & Integrity Log</span>
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-800 text-[11px] font-semibold mb-2">
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+              <span>Sunday School Class Record</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold text-white">
-              CBT Sessions & Proctoring Audit
+              Student Submissions & Quiz Results
             </h1>
             <p className="text-xs text-slate-400 mt-1">
-              Review completed student submissions, security flags, and AI auto-grading transcripts.
+              Review completed Sunday School quizzes, student scores, and Teacher Grace AI evaluations.
             </p>
           </div>
 

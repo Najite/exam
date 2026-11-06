@@ -20,7 +20,7 @@ export function AITutorModal({ isOpen, onClose, question, userAnswer }: AITutorM
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'tutor',
-      text: `Hello! I'm your AI Socratic Tutor. I'm here to help you deeply understand **"${question.topic}"** and this specific problem.\n\n${question.explanation}\n\nWhat would you like me to clarify or break down further?`,
+      text: `Hello! I'm Teacher Grace, your Sunday School Bible Assistant. Let's look at this Bible story together: **"${question.topic}"**.\n\n${question.explanation}\n\nWhat would you like to know more about or discuss from this story?`,
     },
   ]);
   const [input, setInput] = useState('');
@@ -82,12 +82,12 @@ export function AITutorModal({ isOpen, onClose, question, userAnswer }: AITutorM
             </div>
             <div>
               <h2 className="text-base font-bold text-white flex items-center gap-2">
-                <span>AI Socratic Tutor</span>
-                <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-800">
+                <span>Teacher Grace (Sunday School AI)</span>
+                <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-800">
                   {question.topic}
                 </span>
               </h2>
-              <p className="text-xs text-slate-400">Step-by-step guidance & conceptual reinforcement</p>
+              <p className="text-xs text-slate-400">Friendly Bible story explanation & encouraging guidance</p>
             </div>
           </div>
           <button

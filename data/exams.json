@@ -1,153 +1,15 @@
 [
   {
-    "id": "exam-ai-1793973213597",
-    "title": "Biblical Foundations: The Story of Jesus",
-    "description": "This high‑stakes CBT examines core knowledge of the Gospel narrative, key theological concepts, and exegetical skills relevant to the story of Jesus as presented in the New Testament Gospels and Epistles. Examinees will be asked to recall factual details, interpret crucial terms and passages, and apply biblical principles to theological questions. The exam targets beginner‑level proficiency and aligns with standard introductory curricula in Biblical Studies.",
-    "category": "New Testament Gospels & Epistles",
-    "difficulty": "beginner",
+    "id": "exam-ai-1793974319595",
+    "title": "Noah and the Ark: A Sunday School Adventure",
+    "description": "Welcome to our fun Bible quiz about Noah and the Ark! In this inspiring story from Genesis, we learn about obedience, faith, and God's amazing promises. Let's explore how Noah trusted God and built the ark, and discover how we can follow God's plan in our own lives.",
+    "category": "Sunday School",
+    "difficulty": "easy",
     "durationMinutes": 15,
-    "passingScore": 70,
-    "totalMarks": 25,
-    "isPublished": true,
-    "createdAt": "2026-11-06T13:53:33.597Z",
-    "proctoringSettings": {
-      "enableWebcam": true,
-      "enableMic": true,
-      "enableFullscreen": true,
-      "maxTabSwitches": 3,
-      "aiFaceDetection": true,
-      "blockCopyPaste": true
-    },
-    "instructions": [
-      "Read all biblical texts and question stems carefully before answering.",
-      "Biblical reference sheet and concordance are accessible from the top toolbar.",
-      "Full‑screen lock and AI proctoring are enforced."
-    ],
-    "questions": [
-      {
-        "id": "q1",
-        "type": "mcq_single",
-        "text": "Which of the following correctly lists the four Gospels in the canonical order as they appear in most modern Bibles?",
-        "topic": "Gospel Order",
-        "bloomLevel": "knowledge",
-        "marks": 5,
-        "options": [
-          {
-            "id": "opt_a",
-            "text": "Mark, Matthew, Luke, John"
-          },
-          {
-            "id": "opt_b",
-            "text": "Matthew, Mark, Luke, John"
-          },
-          {
-            "id": "opt_c",
-            "text": "Luke, Matthew, John, Mark"
-          },
-          {
-            "id": "opt_d",
-            "text": "John, Luke, Mark, Matthew"
-          }
-        ],
-        "correctAnswer": "opt_b",
-        "explanation": "The canonical order of the Gospels is Matthew, Mark, Luke, and John. This arrangement is attested in early church tradition (e.g., Irenaeus, *Against Heresies* 3.1.1) and reflects the historical priority given to Matthew as the first evangelist. The sequence is preserved in the majority of Christian Bibles and liturgical lectionaries, underscoring the unified witness of the four Gospel accounts to the life and ministry of Jesus Christ.",
-        "evaluationRubric": "Correct identification of the canonical order (5 marks). Partial credit may be awarded for naming three of the four Gospels in correct sequence (3 marks). No credit for incorrect ordering or missing Gospels."
-      },
-      {
-        "id": "q2",
-        "type": "short_answer",
-        "text": "Explain the theological significance of the Greek term *Logos* (λόγος) as used in John 1:1 and how it informs Christological doctrine.",
-        "topic": "Christology – John 1:1",
-        "bloomLevel": "analysis",
-        "marks": 5,
-        "options": [],
-        "correctAnswer": "",
-        "explanation": "John 1:1 opens with *En arché Λογος*, \"In the beginning was the *Logos*.\" The Greek *logos* carries dual meaning: (1) \"Word\" as the divine expression of God’s thought and creative power (cf. Genesis 1:3, \"Let there be light”), and (2) the pre‑existent Son who is both with God and is God (John 1:1c). This language directly supports the high Christology of the Gospel, later articulated in Philippians 2:6‑07 where Christ is described as being \"in the form of God\" and \"equal with God.\" The *Logos* theology thus bridges the Old Testament’s concept of God’s spoken word (Hebrew *dabar*) and the New Testament’s revelation that Jesus is the incarnate Word, fully divine and fully human. This doctrine underpins the Christian understanding of the Trinity and the unity of divine revelation through Christ.",
-        "evaluationRubric": "Full credit (5 marks) for a comprehensive explanation that includes the Greek lexical meaning, its Old Testament background (*dabar*), and its Christological implications (e.g., pre‑existence, divinity, incarnation). Partial credit (3 marks) for correct mention of either the lexical meaning or the Christological connection. No credit for irrelevant or incomplete responses."
-      },
-      {
-        "id": "q3",
-        "type": "true_false",
-        "text": "The Sermon on the Mount is recorded verbatim in both Matthew (chapters 5–7) and Luke (chapters 6‐9).",
-        "topic": "Sermon on the Mount",
-        "bloomLevel": "comprehension",
-        "marks": 5,
-        "options": [
-          {
-            "id": "opt_a",
-            "text": "True"
-          },
-          {
-            "id": "opt_b",
-            "text": "False"
-          },
-          {
-            "id": "opt_c",
-            "text": "The sermon appears only in Matthew."
-          },
-          {
-            "id": "opt_d",
-            "text": "Luke records a similar but not identical sermon."
-          }
-        ],
-        "correctAnswer": "opt_b",
-        "explanation": "The statement is false. The Sermon on the Mount is found in Matthew 5–7, while Luke records a parallel sermon known as the Sermon on the Plain in Luke 6:17–20. Although both contain similar themes and sayings of Jesus, the wording, structure, and specific discourses differ. This distinction is evident in scholarly comparisons (e.g., France, *The Gospel of Matthew*, 2007). The unique presentation in Matthew underscores his emphasis on Jesus as the fulfillment of the Law, while Luke’s version highlights Jesus’ outreach to the marginalized. Thus, the sermon is not verbatim across the two Gospels.",
-        "evaluationRubric": "Correct identification of \"False\" (5 marks). Partial credit (3 marks) for indicating that the sermon appears in both Gospels but with differences. No credit for selecting \"True.\""
-      },
-      {
-        "id": "q4",
-        "type": "mcq_multiple",
-        "text": "Which of the following events are mentioned in all four Gospels? (Select all that apply.)",
-        "topic": "Gospel Harmony",
-        "bloomLevel": "application",
-        "marks": 5,
-        "options": [
-          {
-            "id": "opt_a",
-            "text": "The feeding of the 5,000"
-          },
-          {
-            "id": "opt_b",
-            "text": "The resurrection of Lazarus"
-          },
-          {
-            "id": "opt_c",
-            "text": "The crucifixion of Jesus"
-          },
-          {
-            "id": "opt_d",
-            "text": "The baptism of Jesus by John the Baptist"
-          }
-        ],
-        "correctAnswer": "opt_c,opt_d",
-        "explanation": "A careful survey of the four Gospels shows that the crucifixion of Jesus (e.g., Matt 27, Mark 15, Luke 23, John 19) and the baptism of Jesus (e.g., Matt 3, Mark 1, Luke 3, John 1) are the only events recorded in all four accounts. The feeding of the 5,000 appears in Matthew, Mark, and John, but not in Luke (which records the feeding of the 4,000). The resurrection of Lazarus is unique to John. This common core underscores the centrality of Jesus’ atoning death and his inaugural public ministry in the Gospel witness.",
-        "evaluationRubric": "Full credit (5 marks) for selecting both the crucifixion and the baptism. Partial credit (3 marks) for selecting one of the two correct events. No credit for selecting incorrect events or none."
-      },
-      {
-        "id": "q5",
-        "type": "short_answer",
-        "text": "Discuss the meaning of the Greek word *agapē* (ἀγάπη) as used in 1 Corinthians 13 and its theological implications for Christian love.",
-        "topic": "Agape Love – 1 Corinthians 13",
-        "bloomLevel": "evaluation",
-        "marks": 5,
-        "options": [],
-        "correctAnswer": "",
-        "explanation": "In 1 Corinthians 13, *agapē* denotes selfless, unconditional love that seeks the good of the other regardless of the recipient’s worthiness or response. Unlike *philia* (friendship love) or *eros* (romantic love), *agapē* is characterized by patience, kindness, lack of envy or boasting, and it \"rejoices with the truth\" (v. 6). The passage elevates *agapē* as the supreme virtue, even surpassing prophetic and sacrificial acts when not accompanied by love (v. 3). Theologically, this redefines love as a divine attribute mirrored in humanity: believers are called to reflect God’s love (*theós agapē*; cf. John 3:16) toward all, including enemies (Matt 5:44). Thus, *agapē* underpins the ethic of radical forgiveness, hospitality, and self‑sacrificial service that defines Christian discipleship.",
-        "evaluationRubric": "Full credit (5 marks) for a thorough definition of *agapē*, contrast with other Greek love terms, citation of key verses from 1 Corinthians 13, and theological implications for Christian ethics. Partial credit (3 marks) for correct definition and at least one theological implication. No credit for incomplete or inaccurate descriptions."
-      }
-    ]
-  },
-  {
-    "id": "exam-ai-1793972674157",
-    "title": "Exam: The Abrahamic Covenant and Justification by Faith",
-    "description": "This exam assesses knowledge of the Abrahamic Covenant in the Old Testament and its theological connection to justification by faith in the New Testament, requiring scriptural citation and exegesis.",
-    "category": "Old Testament Literature & Torah",
-    "difficulty": "intermediate",
-    "durationMinutes": 10,
-    "passingScore": 70,
+    "passingScore": 60,
     "totalMarks": 10,
     "isPublished": true,
-    "createdAt": "2026-11-06T13:44:34.157Z",
+    "createdAt": "2026-11-06T14:11:59.595Z",
     "proctoringSettings": {
       "enableWebcam": true,
       "enableMic": true,
@@ -157,65 +19,65 @@
       "blockCopyPaste": true
     },
     "instructions": [
-      "Read all biblical texts and question stems carefully before answering.",
-      "Biblical reference sheet and concordance are accessible from the top toolbar.",
-      "Full-screen lock and AI proctoring are enforced."
+      "Welcome to our Sunday School Bible Quiz!",
+      "Read each question carefully and think about what happened in the Bible story.",
+      "Do your best and remember: learning God's Word is a blessing!"
     ],
     "questions": [
       {
         "id": "q1",
         "type": "mcq_single",
-        "text": "According to Genesis 15:6, what is the primary basis for Abraham's righteousness before God?",
-        "topic": "Abrahamic Covenant",
-        "bloomLevel": "comprehension",
+        "text": "What beautiful sign did God place in the sky as a promise that He would never again flood the whole earth?",
+        "topic": "Noah and the Ark",
+        "bloomLevel": "knowledge",
         "marks": 5,
         "options": [
           {
             "id": "opt_a",
-            "text": "Abraham's obedience to the covenant sign of circumcision"
+            "text": "A bright star"
           },
           {
             "id": "opt_b",
-            "text": "God's imputed righteousness through faith in His promise"
+            "text": "A colorful rainbow"
           },
           {
             "id": "opt_c",
-            "text": "Abraham's works and sacrifices as meritorious deeds"
+            "text": "A shining sun"
           },
           {
             "id": "opt_d",
-            "text": "The Mosaic Law given centuries later"
+            "text": "A soft cloud"
           }
         ],
         "correctAnswer": "opt_b",
-        "explanation": "Genesis 15:6 states 'And he believed the LORD, and he counted it to him as righteousness.' This demonstrates that Abraham's righteousness was credited by God based on his faith in the promised seed, not on works or later law. The Hebrew term 'אָמַן' (aman) conveys belief/trust, and 'חָשׁׁׂב' (ḥashab) means 'counted' indicating imputation.",
-        "evaluationRubric": "Award full marks if the answer correctly identifies faith in God's promise as the basis; partial credit for mentioning 'faith' without linking to Genesis 15:6."
+        "explanation": "Great job! God placed a rainbow in the sky as a sign of His covenant with Noah and all living creatures (Genesis 9:13). Whenever we see a rainbow, we can remember that God keeps His promises and loves us very much!",
+        "evaluationRubric": "Select the correct option to earn full marks."
       },
       {
         "id": "q2",
         "type": "short_answer",
-        "text": "Explain how the concept of 'justification by faith' (δικαιοσύνῃ πίστευς) in Paul's letters connects to the Abrahamic Covenant, citing at least two biblical passages.",
-        "topic": "Justification by Faith",
+        "text": "Noah obeyed God even when building the ark must have seemed strange to others. Describe one way you can show obedience to God in your daily life at school or home.",
+        "topic": "Faith and Obedience",
         "bloomLevel": "application",
         "marks": 5,
         "options": [],
-        "correctAnswer": "Abraham was justified by faith, not by works, as shown in Genesis 15:6 and Romans 4:3, demonstrating that the covenant promise is received through faith which is counted as righteousness.",
-        "explanation": "Comprehensive scriptural exegesis and canonical alignment.",
-        "evaluationRubric": "Give full credit if the response cites Genesis 15:6 (Abraham's belief) and Romans 4:3 (justification by faith apart from works), explains that faith is the means of receiving the covenant promise, and links it to the doctrine of justification."
+        "correctAnswer": "Answers may vary. Examples include listening to parents, being kind to classmates, praying daily, or telling the truth.",
+        "explanation": "Wonderful! Noah showed great faith by obeying God (Genesis 6:22). When we listen to God and follow His ways, we show love and trust in Him, just like Noah did!",
+        "evaluationRubric": "Award full marks for a thoughtful, personal example of obeying God. Encourage sincerity and effort over perfect wording."
       }
     ]
   },
   {
-    "id": "exam-ot-001",
-    "title": "Old Testament Literature, Torah & Biblical Covenants",
-    "description": "Comprehensive certification examination testing the Pentateuch (Torah), Abrahamic & Mosaic Covenants, Tabernacle typology, Wisdom Literature, and Major Prophets.",
-    "category": "Old Testament Studies",
-    "difficulty": "intermediate",
-    "durationMinutes": 15,
-    "passingScore": 70,
-    "totalMarks": 50,
+    "id": "exam-ss-001",
+    "title": "Heroes of Faith: Great Bible Stories & Champions",
+    "description": "A fun and inspiring Sunday School quiz covering David and Goliath, Noah’s Ark, Daniel in the Lions’ Den, Moses, and Queen Esther.",
+    "category": "Sunday School",
+    "difficulty": "beginner",
+    "durationMinutes": 10,
+    "passingScore": 60,
+    "totalMarks": 35,
     "isPublished": true,
-    "createdAt": "2026-11-06T12:56:16.095Z",
+    "createdAt": "2026-11-06T14:03:36.953Z",
     "proctoringSettings": {
       "enableWebcam": true,
       "enableMic": true,
@@ -225,88 +87,88 @@
       "blockCopyPaste": true
     },
     "instructions": [
-      "This exam evaluates deep textual, historical, and theological understanding of the Old Testament scriptures.",
-      "AI Proctoring is enabled: Web camera, microphone monitoring, and fullscreen lock are active.",
-      "Exiting fullscreen or switching browser tabs more than 3 times will trigger automatic exam submission.",
-      "You may use the built-in Scripture Reference Sheet and Scratchpad from the toolbar.",
-      "Show clear scriptural references and theological precision in your short-answer explanations."
+      "Welcome to Sunday School Bible Quiz!",
+      "Read each question carefully and remember the wonderful stories from the Bible.",
+      "Ask Teacher Grace (AI Tutor) if you need help understanding a story.",
+      "Do your best and enjoy learning God’s Word!"
     ],
     "questions": [
       {
-        "id": "ot_q1",
+        "id": "ss_q1",
         "type": "mcq_single",
-        "text": "In the Abrahamic Covenant (Genesis 12, 15, and 17), which dramatic ceremony in Genesis 15 signified God’s unconditional commitment to fulfill His covenant promises to Abram?",
-        "topic": "Biblical Covenants",
+        "text": "When young David faced the giant Goliath in 1 Samuel 17, what weapon did David use to defeat him in the name of the LORD?",
+        "topic": "David and Goliath",
         "bloomLevel": "comprehension",
         "marks": 5,
         "options": [
           {
             "id": "opt_a",
-            "text": "Abram built an altar on Mount Moriah and offered a ram in place of his son."
+            "text": "A heavy iron sword and brass shield from King Saul"
           },
           {
             "id": "opt_b",
-            "text": "A smoking firepot and a blazing torch representing God passed between the severed animal halves while Abram slept."
+            "text": "A simple sling and five smooth stones from the stream"
           },
           {
             "id": "opt_c",
-            "text": "Melchizedek poured oil over Abram and anointed him king of Salem."
+            "text": "A bow with flaming arrows"
           },
           {
             "id": "opt_d",
-            "text": "Moses sprinkled the blood of the covenant onto the twelve stone pillars at Mount Sinai."
+            "text": "A golden spear"
           }
         ],
         "correctAnswer": "opt_b",
-        "explanation": "In ancient Near Eastern covenant ceremonies, parties walked between cut animal halves pledging \"May it be done to me as to these animals if I break covenant.\" In Genesis 15:17, only God (symbolized by the smoking firepot and blazing torch) passed between the pieces, making the covenant unilateral and unconditionally guaranteed by Yahweh."
+        "explanation": "In 1 Samuel 17:40-49, young shepherd David took his staff, chose five smooth stones from the stream, and put them in his shepherd’s bag. With his sling and faith in God, he defeated Goliath, declaring that the battle belongs to the Lord!"
       },
       {
-        "id": "ot_q2",
+        "id": "ss_q2",
         "type": "short_answer",
-        "text": "Explain the theological significance of the Day of Atonement (Yom Kippur) ritual in Leviticus 16, specifically contrasting the roles of the two goats (the slaughtered goat and the scapegoat / Azazel), and how this prefigures biblical atonement.",
-        "topic": "Levitical Priesthood & Typology",
-        "bloomLevel": "analysis",
+        "text": "In the story of Noah and the Ark (Genesis 9), what beautiful sign did God place in the sky, and what special promise does it remind us of?",
+        "topic": "Noah and the Rainbow",
+        "bloomLevel": "application",
         "marks": 10,
-        "correctAnswer": "On Yom Kippur, the high priest cast lots over two goats: 1) The first goat was slaughtered as a sin offering; its blood was brought inside the veil into the Holy of Holies and sprinkled on the Mercy Seat to make propitiation (expiation) for the people’s sins before God’s presence. 2) Over the second live goat (the scapegoat / Azazel), the priest laid hands and confessed all the iniquities of Israel, and it was sent away into the wilderness bearing their sins far away. Together they depict two complementary dimensions of atonement: propitiation (satisfaction of divine justice through blood) and expiation / remission (the removal and carrying away of sin).",
-        "evaluationRubric": "Candidate must explain: 1) First goat slaughtered for blood sprinkled on the Mercy Seat (propitiation / cleansing sanctuary), 2) Second live goat (scapegoat / Azazel) bearing confessed sins into the wilderness (removal of sins), and 3) Theological duality of satisfaction and removal of sin.",
-        "explanation": "Leviticus 16 provides the central Old Testament picture of double atonement: blood payment before God and total removal of guilt far away from the community (Psalm 103:12: \"As far as the east is from the west...\")."
+        "correctAnswer": "God put the rainbow in the clouds as a sign of His covenant promise that a flood would never again destroy the whole earth.",
+        "evaluationRubric": "Award full marks if the student mentions: 1) The rainbow, and 2) God’s promise/covenant never to flood the earth again.",
+        "explanation": "Genesis 9:13 says: \"I have set my rainbow in the clouds, and it will be the sign of the covenant between me and the earth.\" Whenever we see a rainbow, we remember God keeps His promises!"
       },
       {
-        "id": "ot_q3",
+        "id": "ss_q3",
         "type": "mcq_multiple",
-        "text": "According to Exodus 25-26 and Hebrews 9, which of the following sacred objects were placed inside the Holy of Holies (the Most Holy Place) behind the veil in the Tabernacle? (Select all that apply)",
-        "topic": "The Tabernacle",
+        "text": "In the story of Daniel in the Lions’ Den (Daniel 6), which of the following happened? (Select all that apply)",
+        "topic": "Daniel and the Lions",
         "bloomLevel": "knowledge",
         "marks": 5,
         "options": [
           {
             "id": "opt_a",
-            "text": "The Ark of the Covenant (containing the Tablets of the Testimony)"
+            "text": "Daniel faithfully prayed to God three times every day by his open window"
           },
           {
             "id": "opt_b",
-            "text": "The Mercy Seat (Kaporet / Atonement Cover) with cherubim"
+            "text": "God sent an angel who shut the mouths of the hungry lions"
           },
           {
             "id": "opt_c",
-            "text": "The Golden Lampstand (Menorah)"
+            "text": "The lions became Daniel’s pets and he rode them out of the den"
           },
           {
             "id": "opt_d",
-            "text": "The Table of Showbread"
+            "text": "The king was overjoyed to find Daniel safe the next morning because he trusted in God"
           }
         ],
         "correctAnswer": [
           "opt_a",
-          "opt_b"
+          "opt_b",
+          "opt_d"
         ],
-        "explanation": "The Holy of Holies contained only the Ark of the Covenant surmounted by the Mercy Seat with the golden cherubim. The Golden Lampstand and Table of Showbread were situated outside the inner veil in the Holy Place."
+        "explanation": "Daniel 6:10-23 tells us Daniel prayed three times a day. God sent His angel to protect Daniel all night, and King Darius was overjoyed to find Daniel without a single scratch!"
       },
       {
-        "id": "ot_q4",
+        "id": "ss_q4",
         "type": "true_false",
-        "text": "True or False: When the prophet Elijah fled to Mount Horeb in fear of Jezebel (1 Kings 19), the LORD revealed His presence not in the tearing hurricane wind, the violent earthquake, or the blazing fire, but in a \"gentle whisper\" (still, small voice).",
-        "topic": "Historical Books & Prophets",
+        "text": "True or False: When Queen Esther was afraid to approach the king to save her people, her cousin Mordecai encouraged her by asking if she had been chosen as queen \"for such a time as this.\"",
+        "topic": "Queen Esther",
         "bloomLevel": "comprehension",
         "marks": 5,
         "options": [
@@ -320,60 +182,32 @@
           }
         ],
         "correctAnswer": "opt_true",
-        "explanation": "True. 1 Kings 19:11-12 records that the LORD was not in the wind, earthquake, or fire, but manifested in the \"sound of a low whisper\" (qol d’mamah daqqah), teaching Elijah that God works through quiet, persistent sovereign power."
+        "explanation": "True! Esther 4:14 records Mordecai’s famous words: \"And who knows but that you have come to your royal position for such a time as this?\" Esther bravely stepped forward to save her people."
       },
       {
-        "id": "ot_q5",
+        "id": "ss_q5",
         "type": "short_answer",
-        "text": "Contrast the strict Retribution Theology argued by Job’s friends (Eliphaz, Bildad, and Zophar) with the resolution revealed when God answers Job out of the whirlwind in Job 38-41.",
-        "topic": "Wisdom Literature",
-        "bloomLevel": "evaluation",
-        "marks": 15,
-        "correctAnswer": "Job’s three friends maintained a rigid mechanical Retribution Theology (Deuteronomic formula): righteous living always yields immediate prosperity, while suffering is definitive proof of hidden, unconfessed sin. They concluded Job must be wicked. When God answers from the whirlwind (Job 38-41), He does not charge Job with wicked deeds, nor does He explain the cosmic wager of chapters 1-2. Instead, God takes Job on a tour of the cosmos, highlighting divine sovereignty, wisdom, and the limits of human knowledge. God shows that suffering is not always punitive retribution; God’s moral order is grounded in transcendent wisdom that finite humans cannot exhaustively master.",
-        "evaluationRubric": "Candidate must clearly describe: 1) Friends’ Retribution Theology (suffering = direct punishment for personal sin), 2) Job’s innocence vs friends’ accusations, 3) God’s answer from the whirlwind revealing divine sovereign wisdom, majesty, and the inadequacy of human mechanical moral formulas.",
-        "explanation": "The Book of Job dismantles the simplistic idea that all suffering is direct punishment for personal sins, pointing instead to trust in Yahweh’s transcendent wisdom and cosmic sovereignty."
-      },
-      {
-        "id": "ot_q6",
-        "type": "mcq_single",
-        "text": "In the Fourth Servant Song of Isaiah (Isaiah 52:13 - 53:12), which famous declaration describes the substitutionary nature of the Servant’s suffering?",
-        "topic": "Major Prophets",
-        "bloomLevel": "knowledge",
+        "text": "When Moses and the Israelites were trapped between Pharaoh’s army and the Red Sea (Exodus 14), what miracle did God perform, and what does it teach us about trusting God?",
+        "topic": "Moses and the Red Sea",
+        "bloomLevel": "application",
         "marks": 10,
-        "options": [
-          {
-            "id": "opt_a",
-            "text": "\"He was pierced for our transgressions, he was crushed for our iniquities; upon him was the chastisement that brought us peace.\""
-          },
-          {
-            "id": "opt_b",
-            "text": "\"Comfort, comfort my people, says your God. Speak tenderly to Jerusalem.\""
-          },
-          {
-            "id": "opt_c",
-            "text": "\"For unto us a child is born, unto us a son is given, and the government shall be upon his shoulder.\""
-          },
-          {
-            "id": "opt_d",
-            "text": "\"The wolf shall dwell with the lamb, and the leopard shall lie down with the young goat.\""
-          }
-        ],
-        "correctAnswer": "opt_a",
-        "explanation": "Isaiah 53:5 is the preeminent Old Testament prophecy of vicarious substitutionary atonement, fulfilled in Jesus Christ: \"He was pierced for our transgressions; he was crushed for our iniquities; upon him was the chastisement that brought us peace, and with his wounds we are healed.\""
+        "correctAnswer": "God parted the Red Sea so the Israelites could walk through on dry land. It teaches us that God makes a way when we feel trapped, and we can trust Him to guide and protect us.",
+        "evaluationRubric": "Award full marks if the student mentions: 1) God parted the Red Sea / dry land, and 2) We can trust God when we are afraid or face impossible obstacles.",
+        "explanation": "Exodus 14:21-22 tells how God drove the sea back with a strong east wind and turned it into dry land. God is our Protector and Deliverer!"
       }
     ]
   },
   {
-    "id": "exam-nt-002",
-    "title": "New Testament Gospels, Pauline Epistles & Early Church",
-    "description": "Advanced assessment covering the Synoptic Gospels, Johannine Logos Christology, the Book of Acts, Pauline Soteriology (Romans & Galatians), and the Resurrection.",
-    "category": "New Testament Studies",
-    "difficulty": "advanced",
-    "durationMinutes": 15,
-    "passingScore": 75,
-    "totalMarks": 50,
+    "id": "exam-ss-002",
+    "title": "The Life, Parables & Miracles of Jesus",
+    "description": "Explore the amazing life of Jesus Christ, His birth in Bethlehem, wonderful miracles, loving parables, and the joy of the Resurrection.",
+    "category": "Sunday School",
+    "difficulty": "beginner",
+    "durationMinutes": 10,
+    "passingScore": 60,
+    "totalMarks": 35,
     "isPublished": true,
-    "createdAt": "2026-11-06T12:56:16.096Z",
+    "createdAt": "2026-11-06T14:03:36.956Z",
     "proctoringSettings": {
       "enableWebcam": true,
       "enableMic": true,
@@ -383,88 +217,86 @@
       "blockCopyPaste": true
     },
     "instructions": [
-      "Proctored examination assessing critical understanding of New Testament Greek terms, theology, and historical context.",
-      "Active gaze tracking, face presence verification, and audio frequency monitoring are active.",
-      "Ensure clear scriptural citations and theological depth in all responses."
+      "Welcome to the Jesus and His Parables Quiz!",
+      "Think about the stories Jesus told and the love He showed to all people.",
+      "Take your time and enjoy sharing what you learned!"
     ],
     "questions": [
       {
-        "id": "nt_q1",
+        "id": "jesus_q1",
         "type": "mcq_single",
-        "text": "In the Gospel of Matthew’s Sermon on the Mount (Matthew 5:17), how does Jesus define His relationship to the Law of Moses and the Prophets?",
-        "topic": "Gospels & Jesus Ministry",
+        "text": "In the Parable of the Good Samaritan (Luke 10), who stopped to bandage the hurt man’s wounds and pay for his care at the inn?",
+        "topic": "The Good Samaritan",
         "bloomLevel": "comprehension",
         "marks": 5,
         "options": [
           {
             "id": "opt_a",
-            "text": "He came to abolish and repeal the Law so that commandments would no longer apply."
+            "text": "A priest who was on his way to the temple"
           },
           {
             "id": "opt_b",
-            "text": "He came not to abolish the Law or the Prophets, but to fulfill (plērosai) them."
+            "text": "A Levite who walked past on the other side"
           },
           {
             "id": "opt_c",
-            "text": "He endorsed the oral traditions and fence-laws added by the Pharisees as equal to Scripture."
+            "text": "A kind Samaritan traveler who had compassion"
           },
           {
             "id": "opt_d",
-            "text": "He instructed that the ceremonial dietary laws be extended worldwide without modification."
+            "text": "A Roman soldier on a horse"
           }
         ],
-        "correctAnswer": "opt_b",
-        "explanation": "In Matthew 5:17, Jesus explicitly declares: \"Do not think that I have come to abolish the Law or the Prophets; I have not come to abolish them but to fulfill them.\" He fulfills the Law’s moral demands, prophecies, and sacrificial typology."
+        "correctAnswer": "opt_c",
+        "explanation": "In Luke 10:30-37, Jesus explained that the Samaritan showed true neighborly love by showing compassion, bandaging wounds, and caring for the injured man."
       },
       {
-        "id": "nt_q2",
+        "id": "jesus_q2",
         "type": "short_answer",
-        "text": "In Romans 3:21-26 and Galatians 2:15-21, expound the Apostle Paul’s doctrine of \"Justification by Faith\" (dikaiosynē theou). How does Paul argue that justification is achieved through faith in Christ apart from the works of the Law (ergōn nomou)?",
-        "topic": "Pauline Soteriology",
-        "bloomLevel": "analysis",
-        "marks": 15,
-        "correctAnswer": "Paul argues that all human beings, both Jews and Gentiles, have sinned and fall short of the glory of God (Rom 3:23), making it impossible for anyone to be declared righteous through adherence to the works of the Law (ergōn nomou). Justification (dikaiōsis) is a judicial declaration where God declares a sinner righteous. This righteousness is not earned by moral achievement, but is received as a free gift of divine grace through the redemption that is in Christ Jesus, whom God put forward as a propitiation (hilastērion) by His blood, received through faith. Christ took the curse of the Law (Gal 3:13), so that believers are justified by faith in Him, not by ceremonial or moral Torah-keeping.",
-        "evaluationRubric": "Candidate must explain: 1) Universal sinfulness of humanity (Romans 3:23), 2) Impossibility of justification by works of the Law (ergon nomou), 3) Justification as a gracious divine declaration based on Christ’s propitiatory sacrifice (hilasterion), 4) Faith as the instrument through which this righteousness is appropriated.",
-        "explanation": "Justification by faith alone (sola fide) through grace alone (sola gratia) in Christ alone is the cornerstone of Pauline theology. Righteousness is imputed to the believer through faith in Jesus who satisfied the Law’s demands."
+        "text": "In the Parable of the Prodigal Son (Luke 15), how did the loving father react when he saw his lost son walking back home from far away?",
+        "topic": "The Prodigal Son",
+        "bloomLevel": "application",
+        "marks": 10,
+        "correctAnswer": "The father saw him from afar, felt deep compassion, ran to him, hugged and kissed him, and threw a big celebration because his lost son was found alive.",
+        "evaluationRubric": "Give full credit if the student describes: 1) The father ran to him / hugged him / showed love, and 2) He forgave him and celebrated his return. This shows God’s unconditional love for us.",
+        "explanation": "Luke 15:20 says: \"While he was still a long way off, his father saw him and was filled with compassion for him; he ran to his son, threw his arms around him and kissed him.\""
       },
       {
-        "id": "nt_q3",
+        "id": "jesus_q3",
         "type": "mcq_multiple",
-        "text": "Which of the following famous \"I AM\" (Egō Eimi) statements with absolute predicates are spoken by Jesus exclusively in the Gospel of John? (Select all that apply)",
-        "topic": "Johannine Literature",
+        "text": "When Jesus fed a hungry crowd of over 5,000 people (John 6), what humble lunch did a young boy generously offer to Jesus?",
+        "topic": "Feeding the 5,000",
         "bloomLevel": "knowledge",
-        "marks": 10,
+        "marks": 5,
         "options": [
           {
             "id": "opt_a",
-            "text": "\"I am the Bread of Life\" (John 6:35)"
+            "text": "Five small barley loaves of bread"
           },
           {
             "id": "opt_b",
-            "text": "\"I am the Good Shepherd\" (John 10:11)"
+            "text": "Two small fish"
           },
           {
             "id": "opt_c",
-            "text": "\"I am the Way, the Truth, and the Life\" (John 14:6)"
+            "text": "A basket of fresh grapes and figs"
           },
           {
             "id": "opt_d",
-            "text": "\"I am the True Vine, and my Father is the vinedresser\" (John 15:1)"
+            "text": "A jar of goat’s milk"
           }
         ],
         "correctAnswer": [
           "opt_a",
-          "opt_b",
-          "opt_c",
-          "opt_d"
+          "opt_b"
         ],
-        "explanation": "All four statements are among the 7 distinct \"I AM\" sayings with predicates found exclusively in the Gospel of John, echoing the divine name revealed to Moses in Exodus 3:14 (\"I AM WHO I AM\")."
+        "explanation": "John 6:9 mentions a boy with five barley loaves and two small fish. Jesus gave thanks, distributed them to everyone, and filled twelve baskets with leftovers!"
       },
       {
-        "id": "nt_q4",
+        "id": "jesus_q4",
         "type": "true_false",
-        "text": "True or False: At the Jerusalem Council in Acts 15, James and the apostles ruled that Gentile converts were required to be circumcised and observe the entirety of the Mosaic ceremonial code in order to be saved.",
-        "topic": "Early Church & Acts",
+        "text": "True or False: When a terrifying storm rocked the disciples’ boat on the Sea of Galilee, Jesus stood up and said, \"Peace, be still!\" and the wind and waves immediately obeyed Him.",
+        "topic": "Jesus Calms the Storm",
         "bloomLevel": "comprehension",
         "marks": 5,
         "options": [
@@ -477,97 +309,85 @@
             "text": "False"
           }
         ],
-        "correctAnswer": "opt_false",
-        "explanation": "False. The Jerusalem Council in Acts 15 concluded that Gentile believers are saved by grace through faith just as Jewish believers are, without the yoke of circumcision. They were only asked to abstain from food polluted by idols, sexual immorality, meat of strangled animals, and blood."
+        "correctAnswer": "opt_true",
+        "explanation": "True! In Mark 4:39, Jesus rebuked the wind and said to the sea, \"Peace, be still!\" And the wind ceased, and there was a great calm."
       },
       {
-        "id": "nt_q5",
+        "id": "jesus_q5",
         "type": "short_answer",
-        "text": "Examine the Christological Carmen Christi (Hymn of Christ) in Philippians 2:5-11. Detail the stages of the *Kenosis* (Christ’s voluntary self-emptying) and His subsequent sovereign exaltation by God the Father.",
-        "topic": "Christology",
-        "bloomLevel": "evaluation",
-        "marks": 15,
-        "correctAnswer": "Philippians 2:5-11 presents a profound two-movement theological arc: 1) The Descent / Kenosis: Christ, although existing in the very form of God (morphē theou), did not regard equality with God as something to be grasped (harpagmon), but emptied Himself (ekenōsen), taking the form of a servant (morphē doulou), being born in human likeness. In humility, He became obedient unto death—even death on a cross. 2) The Ascent / Divine Exaltation: Therefore, God has highly exalted Him (hyperypsōsen) and bestowed on Him the name that is above every name, so that at the name of Jesus every knee should bow in heaven, on earth, and under the earth, and every tongue confess that Jesus Christ is Lord (Kyrios), to the glory of God the Father.",
-        "evaluationRubric": "Must articulate: 1) Pre-existence in the form of God (morphe theou), 2) Self-emptying (kenosis) taking servant form and human likeness, 3) Obedience to death on a cross, and 4) Super-exaltation by God with universal confession as Lord (Kyrios).",
-        "explanation": "Philippians 2:5-11 is one of the earliest and most elevated Christological passages in the New Testament, grounding Christian humility and ethics in the incarnation, cross, and cosmic lordship of Jesus."
+        "text": "What wonderful news did the angel give to the women at the empty garden tomb on the very first Easter morning (Matthew 28:5-6)?",
+        "topic": "The Resurrection",
+        "bloomLevel": "knowledge",
+        "marks": 10,
+        "correctAnswer": "The angel told them: \"Do not be afraid, for I know that you seek Jesus who was crucified. He is not here; for He is risen, as He said!\"",
+        "evaluationRubric": "Give full credit if the student states that Jesus is alive / He has risen from the dead / the tomb was empty.",
+        "explanation": "Matthew 28:6 contains the happiest message in the Bible: \"He is not here; He has risen, just as He said!\" Jesus defeated death and gives us eternal life."
       }
     ]
   },
   {
-    "id": "exam-hermeneutics-003",
-    "title": "Biblical Hermeneutics, Theology & Scriptural Doctrines",
-    "description": "Assessment evaluating principles of grammatical-historical exegesis, the doctrine of Scripture, biblical typology, and the unity of the Triune Godhead.",
-    "category": "Theology & Hermeneutics",
-    "difficulty": "intermediate",
-    "durationMinutes": 12,
-    "passingScore": 70,
-    "totalMarks": 40,
+    "id": "exam-ss-003",
+    "title": "The Ten Commandments & The Fruit of the Spirit",
+    "description": "Learn God’s loving rules for our lives and discover the 9 wonderful fruits the Holy Spirit grows in our hearts every day.",
+    "category": "Sunday School",
+    "difficulty": "beginner",
+    "durationMinutes": 10,
+    "passingScore": 60,
+    "totalMarks": 30,
     "isPublished": true,
-    "createdAt": "2026-11-06T12:56:16.096Z",
+    "createdAt": "2026-11-06T14:03:36.956Z",
     "proctoringSettings": {
       "enableWebcam": true,
-      "enableMic": false,
+      "enableMic": true,
       "enableFullscreen": true,
       "maxTabSwitches": 3,
       "aiFaceDetection": true,
       "blockCopyPaste": true
     },
     "instructions": [
-      "Standard biblical interpretation and doctrine examination.",
-      "You are provided with an on-screen Scripture reference guide and formula sheet.",
-      "Adhere strictly to grammatical-historical interpretative principles."
+      "Welcome to God’s Commandments and Fruit of the Spirit Quiz!",
+      "Think about how God wants us to treat our family, friends, and teachers."
     ],
     "questions": [
       {
-        "id": "h_q1",
+        "id": "fruit_q1",
         "type": "mcq_single",
-        "text": "In biblical interpretation, what is the crucial distinction between *exegesis* and *eisegesis*?",
-        "topic": "Hermeneutics Principles",
+        "text": "When asked which commandment in the Law is the greatest, what did Jesus say in Matthew 22:37-39?",
+        "topic": "The Greatest Commandment",
+        "bloomLevel": "knowledge",
+        "marks": 5,
+        "options": [
+          {
+            "id": "opt_a",
+            "text": "Love the Lord your God with all your heart, soul, and mind, and love your neighbor as yourself"
+          },
+          {
+            "id": "opt_b",
+            "text": "Always build the biggest temple in your town"
+          },
+          {
+            "id": "opt_c",
+            "text": "Fast every single day without eating"
+          },
+          {
+            "id": "opt_d",
+            "text": "Do not talk to people who are different from you"
+          }
+        ],
+        "correctAnswer": "opt_a",
+        "explanation": "Jesus said loving God with all our heart and loving our neighbor as ourselves sums up all the commandments (Matthew 22:37-40)."
+      },
+      {
+        "id": "fruit_q2",
+        "type": "mcq_multiple",
+        "text": "According to Galatians 5:22-23, which of these are the Fruit of the Spirit? (Select all that apply)",
+        "topic": "Fruit of the Spirit",
         "bloomLevel": "comprehension",
         "marks": 5,
         "options": [
           {
             "id": "opt_a",
-            "text": "Exegesis interprets poetry literally, while eisegesis allegorizes historical narratives."
-          },
-          {
-            "id": "opt_b",
-            "text": "Exegesis draws out the author’s intended meaning from the text, while eisegesis reads the reader’s preconceived ideas into the text."
-          },
-          {
-            "id": "opt_c",
-            "text": "Exegesis applies strictly to the Old Testament, while eisegesis is used for the New Testament."
-          },
-          {
-            "id": "opt_d",
-            "text": "Exegesis translates texts word-for-word, while eisegesis paraphrases dynamic equivalents."
-          }
-        ],
-        "correctAnswer": "opt_b",
-        "explanation": "Exegesis (from Greek \"to lead out\") means objectively drawing out what the biblical author originally meant in historical, grammatical, and literary context. Eisegesis (from Greek \"to lead in\") is the error of imposing one’s own presuppositions and biases into the biblical text."
-      },
-      {
-        "id": "h_q2",
-        "type": "short_answer",
-        "text": "Explain the biblical doctrine of the Trinity, demonstrating from Scripture both the essential unity of God (Monotheism) and the eternal distinction and full deity of the three Persons (Father, Son, and Holy Spirit).",
-        "topic": "Systematic Theology",
-        "bloomLevel": "analysis",
-        "marks": 15,
-        "correctAnswer": "The doctrine of the Trinity teaches that there is only one true and living God (Deuteronomy 6:4 Shema: \"The LORD our God, the LORD is one\"; Isaiah 45:5), existing eternally as three distinct, co-equal, co-eternal Persons: the Father, the Son, and the Holy Spirit. 1) The Father is fully God (1 Cor 8:6). 2) The Son is fully God (John 1:1 \"the Word was God\"; Colossians 2:9 \"in Him the whole fullness of deity dwells bodily\"; Hebrews 1:8). 3) The Holy Spirit is fully God and a personal being (Acts 5:3-4 where lying to the Spirit is lying to God; 1 Cor 2:10-11). The three Persons are distinct yet undivided in essence, seen united at Jesus’ baptism (Matthew 3:16-17), the Great Commission baptismal formula (Matthew 28:19: singular \"name\" of Father, Son, Spirit), and the Apostolic blessing (2 Cor 13:14).",
-        "evaluationRubric": "Candidate must include: 1) Biblical Monotheism (one essence / Deuteronomy 6:4), 2) Full deity of the Father, Son (John 1:1/Col 2:9), and Spirit (Acts 5:3-4), 3) Eternal personal distinction, 4) Scriptural synthesis (Matthew 28:19, 2 Cor 13:14).",
-        "explanation": "Orthodox Christian theology affirms one God in three Persons (una substantia, tres personae). They share the same divine nature and attributes while relating in distinct personal ways in the economy of salvation."
-      },
-      {
-        "id": "h_q3",
-        "type": "mcq_multiple",
-        "text": "Which of the following are explicitly listed by the Apostle Paul as the \"Fruit of the Spirit\" in Galatians 5:22-23? (Select all that apply)",
-        "topic": "Pneumatology & Christian Ethics",
-        "bloomLevel": "knowledge",
-        "marks": 10,
-        "options": [
-          {
-            "id": "opt_a",
-            "text": "Love (Agapē), Joy, and Peace"
+            "text": "Love, Joy, and Peace"
           },
           {
             "id": "opt_b",
@@ -575,130 +395,11 @@
           },
           {
             "id": "opt_c",
+            "text": "Pride, Boasting, and Anger"
+          },
+          {
+            "id": "opt_d",
             "text": "Faithfulness, Gentleness, and Self-control"
-          },
-          {
-            "id": "opt_d",
-            "text": "Financial Prosperity and Worldly Power"
-          }
-        ],
-        "correctAnswer": [
-          "opt_a",
-          "opt_b",
-          "opt_c"
-        ],
-        "explanation": "Galatians 5:22-23 lists 9 virtues as the single harvest fruit of the Holy Spirit: love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control. Option D is contrary to biblical cruciform discipleship."
-      },
-      {
-        "id": "h_q4",
-        "type": "true_false",
-        "text": "True or False: The Reformation hermeneutical rule of \"Scriptura Scripturae Interpres\" (Scripture is its own interpreter / Analogy of Faith) means that obscure or difficult biblical passages should be interpreted in the light of clear, unambiguous passages.",
-        "topic": "Hermeneutics Principles",
-        "bloomLevel": "comprehension",
-        "marks": 10,
-        "options": [
-          {
-            "id": "opt_true",
-            "text": "True"
-          },
-          {
-            "id": "opt_false",
-            "text": "False"
-          }
-        ],
-        "correctAnswer": "opt_true",
-        "explanation": "True. The principle of the Analogy of Faith (analogia fidei) asserts that because Scripture is divinely inspired and coherent, Scripture interprets Scripture; no individual passage should be interpreted in a way that contradicts the clear teaching of the rest of the Bible."
-      }
-    ]
-  },
-  {
-    "id": "exam-languages-004",
-    "title": "Biblical Languages: Hebrew & Koine Greek Exegesis",
-    "description": "Advanced philological and exegetical certification on Old Testament Hebrew and New Testament Koine Greek grammar, vocabulary, syntax, and discourse analysis.",
-    "category": "Biblical Languages",
-    "difficulty": "advanced",
-    "durationMinutes": 20,
-    "passingScore": 75,
-    "totalMarks": 40,
-    "isPublished": true,
-    "createdAt": "2026-11-06T12:56:16.096Z",
-    "proctoringSettings": {
-      "enableWebcam": true,
-      "enableMic": true,
-      "enableFullscreen": true,
-      "maxTabSwitches": 3,
-      "aiFaceDetection": true,
-      "blockCopyPaste": true
-    },
-    "instructions": [
-      "This exam tests advanced lexical semantics and grammatical syntax in Biblical Hebrew and Koine Greek.",
-      "AI Proctoring is actively monitoring camera feed, microphone levels, and tab changes.",
-      "Scripture and Biblical Language reference sheet is available in the toolbar.",
-      "Provide precise morphological parsing and semantic justifications in short-answer prompts."
-    ],
-    "questions": [
-      {
-        "id": "lang_q1",
-        "type": "mcq_single",
-        "text": "What is the primary theological nuance of the Hebrew noun \"Hesed\" (חֶסֶד), prominent throughout the Psalms and the Book of Ruth?",
-        "topic": "Biblical Hebrew Lexicography",
-        "bloomLevel": "comprehension",
-        "marks": 5,
-        "options": [
-          {
-            "id": "opt_a",
-            "text": "Fleeting sentimental compassion that depends on human merit"
-          },
-          {
-            "id": "opt_b",
-            "text": "Steadfast, loyal covenant love and enduring faithfulness grounded in Yahweh’s character"
-          },
-          {
-            "id": "opt_c",
-            "text": "Ritual ceremonial purity required for priests entering the holy place"
-          },
-          {
-            "id": "opt_d",
-            "text": "Military valor and physical triumph over national adversaries"
-          }
-        ],
-        "correctAnswer": "opt_b",
-        "explanation": "Hesed (חֶסֶד) is the covenantal love and unconditional loyalty of God toward His covenant people, expressing faithfulness that perseveres through human failure (Exodus 34:6, Psalm 136)."
-      },
-      {
-        "id": "lang_q2",
-        "type": "short_answer",
-        "text": "Analyze the Greek clause \"Ἐν ἀρχῇ ἦν ὁ Λόγος\" (In the beginning was the Word) from John 1:1. Explain the theological significance of the imperfect verb \"ἦν\" (ēn) compared to the aorist verb \"ἐγένετο\" (egeneto) used in John 1:14 (\"the Word became flesh\").",
-        "topic": "Koine Greek Syntax & Christology",
-        "bloomLevel": "analysis",
-        "marks": 15,
-        "correctAnswer": "In John 1:1, the verb ἦν (ēn) is in the imperfect active indicative of eimi (to be), indicating continuous, eternal existence without point of origin—the Logos already was continuously existing before creation began (\"en archē\"). In contrast, in John 1:14, John shifts to ἐγένετο (egeneto), the aorist indicative of ginomai (to become/come into being). The Word did not \"become\" God; rather, the eternally existing Word \"became flesh\" at a specific historical point in time in the Incarnation, taking on genuine human nature without ceasing to be the eternal Logos.",
-        "evaluationRubric": "Candidate must explain: 1) The imperfect \"ēn\" signifying eternal, continuous pre-existence of the Logos, 2) The contrast with aorist \"egeneto\" in John 1:14 denoting an entry into historical human existence, and 3) The theological implication for Christ’s eternal deity and temporal Incarnation.",
-        "explanation": "The grammatical contrast between ēn (eternal continuous being) in John 1:1 and egeneto (point-in-time historical becoming) in John 1:14 is a cornerstone of New Testament Christology."
-      },
-      {
-        "id": "lang_q3",
-        "type": "mcq_multiple",
-        "text": "Which of the following theological assertions are true regarding the Hebrew verb \"Bara\" (בָּרָא) in Genesis 1:1? (Select all that apply)",
-        "topic": "Biblical Hebrew Grammar",
-        "bloomLevel": "analysis",
-        "marks": 10,
-        "options": [
-          {
-            "id": "opt_a",
-            "text": "In the Qal stem, God (Elohim) is the exclusive grammatical subject of \"Bara\" across the Old Testament."
-          },
-          {
-            "id": "opt_b",
-            "text": "It denotes the bringing into being of entirely novel reality without requiring pre-existing material."
-          },
-          {
-            "id": "opt_c",
-            "text": "It is synonymous with ordinary human craftsmanship like carpentry or metalworking."
-          },
-          {
-            "id": "opt_d",
-            "text": "It underscores God’s sovereign, effortless cosmic creation by His Word."
           }
         ],
         "correctAnswer": [
@@ -706,133 +407,15 @@
           "opt_b",
           "opt_d"
         ],
-        "explanation": "Throughout the Hebrew Bible, bara (בָּרָא) in the Qal stem has only God as its subject, never humans, signifying divine creation ex nihilo and effortless sovereign power. Human craftsmanship uses verbs like asah or yatsar."
+        "explanation": "Galatians 5:22-23 lists all nine fruits: Love, Joy, Peace, Patience, Kindness, Goodness, Faithfulness, Gentleness, and Self-control."
       },
       {
-        "id": "lang_q4",
+        "id": "fruit_q3",
         "type": "true_false",
-        "text": "True or False: In Koine Greek verbal aspect, the Aorist tense primarily communicates a \"continuous, ongoing, linear\" action in time.",
-        "topic": "Koine Greek Grammar",
-        "bloomLevel": "comprehension",
-        "marks": 10,
-        "options": [
-          {
-            "id": "opt_true",
-            "text": "True"
-          },
-          {
-            "id": "opt_false",
-            "text": "False"
-          }
-        ],
-        "correctAnswer": "opt_false",
-        "explanation": "False. The Aorist tense in Greek represents \"perfective\" verbal aspect—viewing an action as a complete whole or snapshot (\"summary\" aspect), whereas the Present and Imperfect tenses convey imperfective (continuous, ongoing, linear) aspect."
-      }
-    ]
-  },
-  {
-    "id": "exam-gospels-005",
-    "title": "The Gospels, Life of Christ & Passion Week Chronology",
-    "description": "In-depth certification examining the Synoptic Gospels and John, the Messianic Ministry, Sermon on the Mount, Parables, the Olivet Discourse, and the Crucifixion and Resurrection.",
-    "category": "New Testament Studies",
-    "difficulty": "intermediate",
-    "durationMinutes": 15,
-    "passingScore": 70,
-    "totalMarks": 40,
-    "isPublished": true,
-    "createdAt": "2026-11-06T12:56:16.096Z",
-    "proctoringSettings": {
-      "enableWebcam": true,
-      "enableMic": true,
-      "enableFullscreen": true,
-      "maxTabSwitches": 3,
-      "aiFaceDetection": true,
-      "blockCopyPaste": true
-    },
-    "instructions": [
-      "This examination tests mastery over the Gospels, Christological titles, Synoptic comparisons, and Passion Week.",
-      "Active proctoring enforces webcam, microphone, and full-screen compliance.",
-      "Scripture reference sheet and concordance are available in the top toolbar."
-    ],
-    "questions": [
-      {
-        "id": "gosp_q1",
-        "type": "mcq_single",
-        "text": "In the Sermon on the Mount (Matthew 5:17-20), what does Jesus mean when He declares that He came not to abolish the Law or the Prophets, but to \"fulfill\" (plērōsai) them?",
-        "topic": "The Sermon on the Mount",
-        "bloomLevel": "comprehension",
-        "marks": 5,
-        "options": [
-          {
-            "id": "opt_a",
-            "text": "He intended to eliminate Old Testament moral obligations and substitute them with philosophical relativism."
-          },
-          {
-            "id": "opt_b",
-            "text": "He came to embody the true prophetic intention, obey the moral demand perfectly, and establish its ultimate redemptive purpose."
-          },
-          {
-            "id": "opt_c",
-            "text": "He commanded strict adherence exclusively to oral rabbinic traditions over written scripture."
-          },
-          {
-            "id": "opt_d",
-            "text": "He endorsed the ceremonial Levitical sacrificial system as eternally repeatable without change."
-          }
-        ],
-        "correctAnswer": "opt_b",
-        "explanation": "Fulfill (plērōsai) signifies bringing the Law and Prophets to their intended goal, teleological climax, and authoritative interpretation through Christ’s righteous life, sacrificial death, and inward ethical commands."
-      },
-      {
-        "id": "gosp_q2",
-        "type": "short_answer",
-        "text": "Analyze the literary and theological structure of the Parable of the Prodigal Son (Luke 15:11-32). Explain how the father’s posture toward the younger son versus the elder son addresses the Pharisees and tax collectors listening to Jesus.",
-        "topic": "Parables of Jesus",
-        "bloomLevel": "analysis",
-        "marks": 15,
-        "correctAnswer": "The parable addresses the murmuring Pharisees and scribes who objected to Jesus eating with sinners (Luke 15:1-2). The younger son represents the repentant tax collectors and sinners who return in humble brokenness, received by the father with running grace, robes, a ring, and celebratory feast (representing unconditional justification). The elder son represents the self-righteous Pharisees, who remained physically in the field yet spiritually alienated from the father’s heart, harboring bitterness toward grace and refusing to enter the banquet. The father gently pleads with both sons, demonstrating that religious legalism is as dangerous as worldly rebellion.",
-        "evaluationRubric": "Candidate must identify: 1) The younger son as the repentant sinner/tax collector receiving free grace, 2) The elder son as the self-righteous Pharisee refusing the feast, and 3) The father representing God’s heart seeking both the wayward and the legalistic.",
-        "explanation": "Luke 15 presents three parables of the lost (sheep, coin, sons) highlighting the celebratory joy of heaven over one sinner who repents."
-      },
-      {
-        "id": "gosp_q3",
-        "type": "mcq_multiple",
-        "text": "Which of the following events occurred chronologically during the final Passion Week of Jesus in Jerusalem? (Select all that apply)",
-        "topic": "Passion Week Chronology",
+        "text": "True or False: The Fifth Commandment (Exodus 20:12) teaches: \"Honor your father and your mother, that your days may be long in the land.\"",
+        "topic": "Ten Commandments",
         "bloomLevel": "knowledge",
-        "marks": 10,
-        "options": [
-          {
-            "id": "opt_a",
-            "text": "The Triumphal Entry on Palm Sunday into Jerusalem"
-          },
-          {
-            "id": "opt_b",
-            "text": "The Cleansing of the Temple court of the Gentiles"
-          },
-          {
-            "id": "opt_c",
-            "text": "The Institution of the Lord’s Supper in the Upper Room"
-          },
-          {
-            "id": "opt_d",
-            "text": "The Baptism of Jesus in the Jordan River by John the Baptist"
-          }
-        ],
-        "correctAnswer": [
-          "opt_a",
-          "opt_b",
-          "opt_c"
-        ],
-        "explanation": "Options A, B, and C occurred during Passion Week in Jerusalem. Jesus’ baptism occurred at the beginning of His public ministry years earlier in Judea/Perea (Matthew 3)."
-      },
-      {
-        "id": "gosp_q4",
-        "type": "true_false",
-        "text": "True or False: In the Gospel of Mark’s earliest manuscripts (Mark 16:1-8), the women encounter a young man in a white robe at the empty tomb who announces that Jesus of Nazareth who was crucified has been raised and is going ahead to Galilee.",
-        "topic": "The Resurrection",
-        "bloomLevel": "comprehension",
-        "marks": 10,
+        "marks": 5,
         "options": [
           {
             "id": "opt_true",
@@ -844,21 +427,32 @@
           }
         ],
         "correctAnswer": "opt_true",
-        "explanation": "True. In Mark 16:5-7, the messenger at the empty tomb proclaims: \"Do not be alarmed. You seek Jesus of Nazareth, who was crucified. He has risen; he is not here... he is going before you to Galilee.\""
+        "explanation": "True! God promises a blessing when children obey and honor their parents with respect and love."
+      },
+      {
+        "id": "fruit_q4",
+        "type": "short_answer",
+        "text": "Pick one fruit of the Spirit (such as kindness, patience, or love) and describe a practical way you can show it at school or at home this week.",
+        "topic": "Living the Fruit of the Spirit",
+        "bloomLevel": "application",
+        "marks": 15,
+        "correctAnswer": "For example, showing kindness by inviting someone sitting alone to play at recess, showing patience by waiting our turn without complaining, or helping mom clean up with joy.",
+        "evaluationRubric": "Give full credit if the student picks a fruit of the Spirit and gives a realistic, positive everyday example of putting it into practice.",
+        "explanation": "Jesus said in John 13:35: \"By this everyone will know that you are my disciples, if you love one another.\""
       }
     ]
   },
   {
-    "id": "exam-apocalyptic-006",
-    "title": "Biblical Apocalyptic Literature: Daniel & Revelation",
-    "description": "Advanced study of Old and New Testament apocalyptic genres, Daniel’s visions of the Four Kingdoms and Seventy Weeks, the Seven Churches of Asia Minor, and the New Creation in Revelation.",
-    "category": "Biblical Eschatology",
-    "difficulty": "advanced",
-    "durationMinutes": 20,
-    "passingScore": 75,
-    "totalMarks": 40,
+    "id": "exam-ss-004",
+    "title": "Bible Adventures: Joseph, Jonah & Ruth",
+    "description": "Travel through the exciting adventures of Joseph and his coat, Jonah and the big fish, and Ruth’s faithful love for Naomi.",
+    "category": "Sunday School",
+    "difficulty": "beginner",
+    "durationMinutes": 10,
+    "passingScore": 60,
+    "totalMarks": 30,
     "isPublished": true,
-    "createdAt": "2026-11-06T12:56:16.096Z",
+    "createdAt": "2026-11-06T14:03:36.956Z",
     "proctoringSettings": {
       "enableWebcam": true,
       "enableMic": true,
@@ -868,89 +462,56 @@
       "blockCopyPaste": true
     },
     "instructions": [
-      "This exam assesses biblical apocalyptic symbolism, eschatological frameworks, and intertextual prophecy.",
-      "AI Proctoring actively logs face orientation, audio levels, and tab consistency.",
-      "Scripture Reference sheet and Concordance are enabled in the toolbar."
+      "Welcome to Bible Adventures!",
+      "Discover how God was with Joseph, Jonah, and Ruth in all their journeys."
     ],
     "questions": [
       {
-        "id": "apoc_q1",
+        "id": "adv_q1",
         "type": "mcq_single",
-        "text": "In Daniel 7:13-14, who is the celestial figure who comes \"with the clouds of heaven\" to the Ancient of Days and receives an everlasting dominion, glory, and kingdom that will never be destroyed?",
-        "topic": "Danielic Prophecy",
-        "bloomLevel": "comprehension",
+        "text": "What special gift did father Jacob give to young Joseph that showed his special favor (Genesis 37:3)?",
+        "topic": "Joseph and his Coat",
+        "bloomLevel": "knowledge",
         "marks": 5,
         "options": [
           {
             "id": "opt_a",
-            "text": "King Nebuchadnezzar restored from the wilderness"
+            "text": "A beautiful coat of many colors / richly ornamented robe"
           },
           {
             "id": "opt_b",
-            "text": "One like a Son of Man (Bar Enosh)"
+            "text": "A golden crown with jewels"
           },
           {
             "id": "opt_c",
-            "text": "The Archangel Gabriel delivering an interpretation"
+            "text": "A chariot with white horses"
           },
           {
             "id": "opt_d",
-            "text": "Cyrus the Great as the anointed conqueror of Babylon"
+            "text": "A flock of 1,000 sheep"
           }
         ],
-        "correctAnswer": "opt_b",
-        "explanation": "Daniel 7:13-14 introduces \"one like a son of man\" (Bar Enosh) receiving universal worship and an eternal kingdom from the Ancient of Days, a title Jesus claimed for Himself at His trial before Caiaphas (Matthew 26:64)."
+        "correctAnswer": "opt_a",
+        "explanation": "Genesis 37:3 tells us Israel (Jacob) loved Joseph more than any of his other sons, so he made him an ornate robe of many colors."
       },
       {
-        "id": "apoc_q2",
+        "id": "adv_q2",
         "type": "short_answer",
-        "text": "Compare and contrast the four primary hermeneutical frameworks used in the interpretation of the Book of Revelation: Preterism, Historicism, Futurism, and Idealism.",
-        "topic": "Apocalyptic Hermeneutics",
-        "bloomLevel": "analysis",
-        "marks": 15,
-        "correctAnswer": "The four major frameworks are: 1) Preterism views Revelation as primarily fulfilled in the first century during the Roman Empire and the fall of Jerusalem in 70 AD. 2) Historicism sees the book as a continuous chronological panorama of church history from apostolic times through the Reformation to the second coming. 3) Futurism holds that chapters 4-22 describe literal events immediately preceding the second coming of Christ, the tribulation, and millennial kingdom. 4) Idealism (or the spiritual/symbolic view) interprets Revelation not as historical chronology, but as timeless symbols depicting the ongoing cosmic struggle between God’s kingdom and the forces of evil across all ages.",
-        "evaluationRubric": "Candidate must clearly define all 4 schools: 1) Preterism (1st century fulfillment), 2) Historicism (sweeping church history timeline), 3) Futurism (end-times future fulfillment), and 4) Idealism (timeless spiritual principles/cosmic struggle).",
-        "explanation": "Each framework highlights distinct aspects of apocalyptic genre, whether historical setting, cosmic significance, or future consummation."
-      },
-      {
-        "id": "apoc_q3",
-        "type": "mcq_multiple",
-        "text": "Which of the following cities were home to the Seven Churches of Asia Minor specifically addressed by the glorified Christ in Revelation chapters 2 and 3? (Select all that apply)",
-        "topic": "The Seven Churches",
-        "bloomLevel": "knowledge",
-        "marks": 10,
-        "options": [
-          {
-            "id": "opt_a",
-            "text": "Ephesus and Smyrna"
-          },
-          {
-            "id": "opt_b",
-            "text": "Pergamum and Thyatira"
-          },
-          {
-            "id": "opt_c",
-            "text": "Philadelphia and Laodicea"
-          },
-          {
-            "id": "opt_d",
-            "text": "Rome and Alexandria"
-          }
-        ],
-        "correctAnswer": [
-          "opt_a",
-          "opt_b",
-          "opt_c"
-        ],
-        "explanation": "The seven churches of Asia Minor are: Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, and Laodicea (Revelation 1:11, 2-3). Rome and Alexandria are not part of the seven."
-      },
-      {
-        "id": "apoc_q4",
-        "type": "true_false",
-        "text": "True or False: In Revelation 21-22, the ultimate biblical hope for redeemed humanity is depicted as an ethereal disembodied escape into the clouds, rather than the New Jerusalem descending from heaven to a renewed physical creation where God dwells with humanity.",
-        "topic": "New Creation & Eschatology",
+        "text": "When Jonah tried to run away from God by getting on a ship going to Tarshish, what happened at sea and how did God rescue him?",
+        "topic": "Jonah and the Big Fish",
         "bloomLevel": "comprehension",
         "marks": 10,
+        "correctAnswer": "A huge storm came up at sea, Jonah was thrown into the water, and God sent a huge fish to swallow Jonah. Inside the fish, Jonah prayed and God had the fish spit him onto dry land so he could obey.",
+        "evaluationRubric": "Give full marks if the student mentions: 1) The storm at sea, 2) The big fish swallowing Jonah, and 3) Jonah praying to God and going to Nineveh.",
+        "explanation": "Jonah 1:17 says the LORD provided a huge fish to swallow Jonah, and Jonah was inside the fish three days and three nights, learning that salvation comes from the LORD."
+      },
+      {
+        "id": "adv_q3",
+        "type": "true_false",
+        "text": "True or False: Ruth showed loyal love to her mother-in-law Naomi, saying: \"Where you go I will go, and where you stay I will stay. Your people will be my people and your God my God.\"",
+        "topic": "Ruth and Naomi",
+        "bloomLevel": "knowledge",
+        "marks": 5,
         "options": [
           {
             "id": "opt_true",
@@ -961,8 +522,147 @@
             "text": "False"
           }
         ],
-        "correctAnswer": "opt_false",
-        "explanation": "False. Revelation 21:1-4 and Romans 8:19-23 portray a bodily resurrection and renewed cosmos (\"a new heaven and a new earth\"), where the Holy City descends and God’s dwelling is with humanity on earth, wiping away every tear and death is no more."
+        "correctAnswer": "opt_true",
+        "explanation": "True! Ruth 1:16 is one of the most famous declarations of loyalty and love in the entire Bible."
+      },
+      {
+        "id": "adv_q4",
+        "type": "short_answer",
+        "text": "Years after his brothers sold him, Joseph became a ruler in Egypt. When his brothers arrived looking for food, how did Joseph treat them?",
+        "topic": "Joseph Forgives his Brothers",
+        "bloomLevel": "application",
+        "marks": 10,
+        "correctAnswer": "Joseph forgave his brothers completely, wept with joy, and said: \"You intended to harm me, but God intended it for good to save many lives.\"",
+        "evaluationRubric": "Full credit if the student mentions that Joseph forgave his brothers and recognized that God turned what happened into something good.",
+        "explanation": "Genesis 50:20 gives us Joseph’s inspiring perspective: \"You planned evil against me; God planned it for good to bring about the present result—the survival of many people.\""
+      }
+    ]
+  },
+  {
+    "id": "exam-ss-005",
+    "title": "Sunday School Champions: Memory Verses & Wisdom",
+    "description": "Test your knowledge of beloved Bible verses: Psalm 23, John 3:16, The Armor of God, and The Lord’s Prayer.",
+    "category": "Sunday School",
+    "difficulty": "beginner",
+    "durationMinutes": 10,
+    "passingScore": 60,
+    "totalMarks": 30,
+    "isPublished": true,
+    "createdAt": "2026-11-06T14:03:36.956Z",
+    "proctoringSettings": {
+      "enableWebcam": true,
+      "enableMic": true,
+      "enableFullscreen": true,
+      "maxTabSwitches": 3,
+      "aiFaceDetection": true,
+      "blockCopyPaste": true
+    },
+    "instructions": [
+      "Welcome Memory Verse Champions!",
+      "Fill in the blanks and share what these verses mean to you."
+    ],
+    "questions": [
+      {
+        "id": "mv_q1",
+        "type": "mcq_single",
+        "text": "Complete the beloved verse in Psalm 23:1: \"The LORD is my shepherd; ________.\"",
+        "topic": "Psalm 23",
+        "bloomLevel": "knowledge",
+        "marks": 5,
+        "options": [
+          {
+            "id": "opt_a",
+            "text": "I shall not want (I lack nothing)"
+          },
+          {
+            "id": "opt_b",
+            "text": "I will build a city"
+          },
+          {
+            "id": "opt_c",
+            "text": "I am always busy"
+          },
+          {
+            "id": "opt_d",
+            "text": "The road is easy"
+          }
+        ],
+        "correctAnswer": "opt_a",
+        "explanation": "Psalm 23:1 says: \"The LORD is my shepherd; I shall not want.\" God takes care of us like a loving shepherd watches over his sheep."
+      },
+      {
+        "id": "mv_q2",
+        "type": "short_answer",
+        "text": "Explain the message of John 3:16: \"For God so loved the world that He gave His one and only Son...\" What does this verse teach us about God’s love for you?",
+        "topic": "God’s Great Love: John 3:16",
+        "bloomLevel": "application",
+        "marks": 10,
+        "correctAnswer": "It teaches that God loves everyone in the world so much that He sent Jesus so that whoever believes in Him will have eternal life and be part of God’s family forever.",
+        "evaluationRubric": "Give full credit if the student mentions God’s unconditional love, sending Jesus, and the gift of eternal life through faith.",
+        "explanation": "John 3:16 is often called \"the Gospel in a nutshell\" because it shares God’s immense love and gift of salvation through Jesus Christ."
+      },
+      {
+        "id": "mv_q3",
+        "type": "mcq_multiple",
+        "text": "In Ephesians 6:10-18, what pieces make up the \"Armor of God\" for children of God? (Select all that apply)",
+        "topic": "The Armor of God",
+        "bloomLevel": "comprehension",
+        "marks": 5,
+        "options": [
+          {
+            "id": "opt_a",
+            "text": "The Belt of Truth and Breastplate of Righteousness"
+          },
+          {
+            "id": "opt_b",
+            "text": "The Shield of Faith and Helmet of Salvation"
+          },
+          {
+            "id": "opt_c",
+            "text": "The Sword of the Spirit, which is the Word of God"
+          },
+          {
+            "id": "opt_d",
+            "text": "A golden crown of gold coins"
+          }
+        ],
+        "correctAnswer": [
+          "opt_a",
+          "opt_b",
+          "opt_c"
+        ],
+        "explanation": "Ephesians 6 describes spiritual armor: Belt of Truth, Breastplate of Righteousness, Shoes of Peace, Shield of Faith, Helmet of Salvation, and Sword of the Spirit (God’s Word)."
+      },
+      {
+        "id": "mv_q4",
+        "type": "true_false",
+        "text": "True or False: Philippians 4:13 gives us courage for hard days by saying: \"I can do all things through Christ who strengthens me.\"",
+        "topic": "Strength in Christ",
+        "bloomLevel": "knowledge",
+        "marks": 5,
+        "options": [
+          {
+            "id": "opt_true",
+            "text": "True"
+          },
+          {
+            "id": "opt_false",
+            "text": "False"
+          }
+        ],
+        "correctAnswer": "opt_true",
+        "explanation": "True! Philippians 4:13 reminds us that when we face tests, challenges, or fears, Jesus gives us the strength we need."
+      },
+      {
+        "id": "mv_q5",
+        "type": "short_answer",
+        "text": "In the Lord’s Prayer (Matthew 6:9-13), what are we asking God when we pray: \"Give us this day our daily bread, and forgive us our debts as we forgive our debtors\"?",
+        "topic": "The Lord’s Prayer",
+        "bloomLevel": "application",
+        "marks": 5,
+        "correctAnswer": "We are asking God to provide what we need each day, to forgive our mistakes, and to help us forgive other people who hurt our feelings.",
+        "evaluationRubric": "Give full credit if the student mentions: 1) Asking God for daily needs/food, and 2) Asking for forgiveness and forgiving others.",
+        "explanation": "Jesus taught us to rely on our Heavenly Father every day for our needs and to be forgiving toward others just as God forgives us."
       }
     ]
   }

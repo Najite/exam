@@ -14,11 +14,10 @@ interface AIExamGeneratorModalProps {
 export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamGeneratorModalProps) {
   const router = useRouter();
   const [topic, setTopic] = useState('');
-  const [category, setCategory] = useState('Old Testament Literature & Torah');
-  const [difficulty, setDifficulty] = useState<DifficultyLevel>('intermediate');
+  const [difficulty, setDifficulty] = useState<DifficultyLevel>('beginner');
   const [questionCount, setQuestionCount] = useState<number>(5);
-  const [durationMinutes, setDurationMinutes] = useState<number>(15);
-  const [questionTypes, setQuestionTypes] = useState<QuestionType[]>(['mcq_single', 'short_answer']);
+  const [durationMinutes, setDurationMinutes] = useState<number>(10);
+  const [questionTypes, setQuestionTypes] = useState<QuestionType[]>(['mcq_single', 'true_false', 'short_answer']);
   const [contextMaterial, setContextMaterial] = useState('');
   const [apiKey, setApiKey] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -39,7 +38,7 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!topic.trim()) {
-      setError('Please provide an exam topic or curriculum subject.');
+      setError('Please provide a Sunday School topic or Bible story.');
       return;
     }
 
@@ -52,7 +51,7 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           topic,
-          category,
+          category: 'Sunday School',
           difficulty,
           questionCount,
           durationMinutes,
@@ -65,7 +64,7 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
 
       const data = await res.json();
       if (!res.ok || !data.success) {
-        throw new Error(data.error || 'Failed to generate exam.');
+        throw new Error(data.error || 'Failed to generate Sunday School quiz.');
       }
 
       if (onExamCreated) {
@@ -86,17 +85,17 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
         {/* Header */}
         <div className="px-6 py-4 bg-slate-800/80 border-b border-slate-700 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30">
               <Sparkles className="w-5 h-5 animate-pulse" />
             </div>
             <div>
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
-                <span>AI CBT Exam Generator</span>
+                <span>Sunday School Quiz Generator</span>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800">
-                  Gemma & Free Cascade
+                  AI Bible Assistant
                 </span>
               </h2>
-              <p className="text-xs text-slate-400">Synthesize psychometric question sets via OpenRouter Multi-Model Free Engine</p>
+              <p className="text-xs text-slate-400">Generate fun, inspiring Bible quizzes and lessons for Sunday School students</p>
             </div>
           </div>
           <button
@@ -119,59 +118,43 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
           {/* Exam Topic */}
           <div>
             <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-              Subject / Topic Prompt <span className="text-rose-400">*</span>
+              Bible Story / Sunday School Topic <span className="text-rose-400">*</span>
             </label>
             <input
               type="text"
               required
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
-              placeholder="e.g. The Abrahamic Covenant & Genesis 15, Johannine Christology, or Justification in Romans"
+              placeholder="e.g. David and Goliath, Noah's Ark, The Good Samaritan, The Ten Commandments, or The Miracles of Jesus"
               className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-hidden focus:border-indigo-500 transition"
             />
           </div>
 
-          {/* Category & Difficulty */}
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                Category
-              </label>
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-hidden focus:border-indigo-500"
-              >
-                <option value="Old Testament Literature & Torah">Old Testament Literature & Torah</option>
-                <option value="New Testament Gospels & Epistles">New Testament Gospels & Epistles</option>
-                <option value="Pauline Theology & Early Church">Pauline Theology & Early Church</option>
-                <option value="Biblical Hermeneutics & Exegesis">Biblical Hermeneutics & Exegesis</option>
-                <option value="Systematic Theology & Doctrines">Systematic Theology & Doctrines</option>
-                <option value="Biblical Languages (Hebrew & Greek)">Biblical Languages (Hebrew & Greek)</option>
-                <option value="Church History & Patristics">Church History & Patristics</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                Difficulty Level
-              </label>
-              <div className="grid grid-cols-3 gap-1 bg-slate-950 p-1 rounded-xl border border-slate-700 text-xs text-center font-medium">
-                {(['beginner', 'intermediate', 'advanced'] as DifficultyLevel[]).map((level) => (
-                  <button
-                    type="button"
-                    key={level}
-                    onClick={() => setDifficulty(level)}
-                    className={`py-1.5 rounded-lg capitalize transition ${
-                      difficulty === level
-                        ? 'bg-indigo-600 text-white font-semibold'
-                        : 'text-slate-400 hover:text-white'
-                    }`}
-                  >
-                    {level.slice(0, 3)}
-                  </button>
-                ))}
-              </div>
+          {/* Difficulty Level (Kids, Juniors, Teens) */}
+          <div>
+            <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+              Age & Learning Level
+            </label>
+            <div className="grid grid-cols-3 gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-700 text-xs text-center font-medium">
+              {[
+                { id: 'beginner' as DifficultyLevel, label: 'Primary (Kids)', desc: 'Ages 5-8' },
+                { id: 'intermediate' as DifficultyLevel, label: 'Juniors (Pre-teens)', desc: 'Ages 9-12' },
+                { id: 'advanced' as DifficultyLevel, label: 'Youth (Teens)', desc: 'Ages 13+' },
+              ].map((item) => (
+                <button
+                  type="button"
+                  key={item.id}
+                  onClick={() => setDifficulty(item.id)}
+                  className={`py-2 px-1 rounded-lg transition flex flex-col items-center justify-center ${
+                    difficulty === item.id
+                      ? 'bg-indigo-600 text-white font-semibold shadow-xs'
+                      : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+                  }`}
+                >
+                  <span className="font-semibold">{item.label}</span>
+                  <span className="text-[10px] opacity-75">{item.desc}</span>
+                </button>
+              ))}
             </div>
           </div>
 
@@ -221,13 +204,12 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
             <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
               Include Question Types
             </label>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-2 gap-2">
               {[
-                { id: 'mcq_single' as QuestionType, label: 'Single Choice MCQ' },
-                { id: 'mcq_multiple' as QuestionType, label: 'Multi-Select MCQ' },
+                { id: 'mcq_single' as QuestionType, label: 'Single Choice (MCQ)' },
                 { id: 'true_false' as QuestionType, label: 'True / False' },
-                { id: 'short_answer' as QuestionType, label: 'AI Short Answer' },
-                { id: 'code' as QuestionType, label: 'Code Snippet' },
+                { id: 'mcq_multiple' as QuestionType, label: 'Multi-Select (Select all that apply)' },
+                { id: 'short_answer' as QuestionType, label: 'Short Answer / Story Reflection' },
               ].map((item) => {
                 const checked = questionTypes.includes(item.id);
                 return (
@@ -252,13 +234,13 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
           {/* Optional Syllabus or Reference Material */}
           <div>
             <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-              Scripture Passage / Reference Material (Optional)
+              Bible Passage or Memory Verse (Optional)
             </label>
             <textarea
               rows={2}
               value={contextMaterial}
               onChange={(e) => setContextMaterial(e.target.value)}
-              placeholder="Paste scripture passages (e.g. Genesis 15:1-21, Romans 3:21-31), theological notes, or syllabus excerpts..."
+              placeholder="Paste Bible verses (e.g. 1 Samuel 17:40-50, Luke 10:25-37, John 3:16) or lesson notes..."
               className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-hidden focus:border-indigo-500 resize-none"
             />
           </div>
@@ -278,7 +260,7 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
                   className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-hidden focus:border-indigo-500 font-mono"
                 />
                 <p className="text-[11px] text-slate-500">
-                  Default: OpenRouter using <code className="text-amber-300">google/gemma-4-31b-it:free</code> configured in <code className="text-indigo-300">.env</code>.
+                  Default: OpenRouter multi-model free cascade starting with <code className="text-amber-300">google/gemma-4-31b-it:free</code>.
                 </p>
               </div>
             </details>
@@ -289,17 +271,17 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2 transition disabled:opacity-60"
+              className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 via-indigo-600 to-purple-600 hover:from-amber-400 hover:via-indigo-500 hover:to-purple-500 text-white shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2 transition disabled:opacity-60"
             >
               {isLoading ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Synthesizing Exam & Rubrics...</span>
+                  <span>Preparing Sunday School Questions...</span>
                 </>
               ) : (
                 <>
                   <Sparkles className="w-4 h-4" />
-                  <span>Generate AI Exam & Launch</span>
+                  <span>Generate Sunday School Quiz</span>
                 </>
               )}
             </button>

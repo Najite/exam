@@ -546,19 +546,19 @@ function ExamTakeContent() {
           <button
             onClick={() => setIsFormulaOpen(true)}
             className="flex items-center gap-1.5 hover:text-white px-2 py-1 rounded-lg hover:bg-slate-800 transition"
-            title="Open Scripture & Biblical Reference Sheet"
+            title="Open Sunday School Bible Helper"
           >
-            <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
-            <span className="hidden sm:inline">Scripture Sheet</span>
+            <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+            <span className="hidden sm:inline">Bible Helper</span>
           </button>
 
           <button
             onClick={() => setIsConcordanceOpen(true)}
             className="flex items-center gap-1.5 hover:text-white px-2 py-1 rounded-lg hover:bg-slate-800 transition"
-            title="Open Scripture Concordance & Topical Cross-References"
+            title="Open Sunday School Bible Story & Verse Finder"
           >
             <BookMarked className="w-3.5 h-3.5 text-amber-400" />
-            <span className="hidden sm:inline">Concordance</span>
+            <span className="hidden sm:inline">Verse Finder</span>
           </button>
 
           <button

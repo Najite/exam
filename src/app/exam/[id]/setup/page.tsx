@@ -31,8 +31,8 @@ function ExamSetupContent() {
   const [loading, setLoading] = useState(true);
 
   // Form state
-  const [candidateName, setCandidateName] = useState('Alex Rivers');
-  const [candidateEmail, setCandidateEmail] = useState('alex.rivers@university.edu');
+  const [candidateName, setCandidateName] = useState('Samuel');
+  const [candidateEmail, setCandidateEmail] = useState('samuel@churchkids.org');
   const [candidatePhoto, setCandidatePhoto] = useState<string | null>(null);
 
   // Diagnostic states
@@ -392,42 +392,42 @@ function ExamSetupContent() {
             <div className="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-xs">
               3
             </div>
-            <h3 className="text-base font-bold text-white">AI Proctoring & Academic Integrity Honor Code</h3>
+            <h3 className="text-base font-bold text-white">Sunday School Quiz Focus & Honor Code</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6 text-xs text-slate-300">
             <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800/80">
-              <div className="font-bold text-indigo-300 mb-1 flex items-center gap-1.5">
-                <Maximize2 className="w-3.5 h-3.5 text-indigo-400" /> Fullscreen Enforcement
+              <div className="font-bold text-amber-300 mb-1 flex items-center gap-1.5">
+                <Maximize2 className="w-3.5 h-3.5 text-amber-400" /> Focus on the Screen
               </div>
-              <p className="text-slate-400">The exam runs in dedicated fullscreen mode. Minimizing triggers an incident strike.</p>
+              <p className="text-slate-400">Keep your full attention on the Bible quiz so you can do your very best!</p>
             </div>
 
             <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800/80">
               <div className="font-bold text-amber-300 mb-1 flex items-center gap-1.5">
-                <AlertTriangle className="w-3.5 h-3.5 text-amber-400" /> Tab Switching & Strikes
+                <AlertTriangle className="w-3.5 h-3.5 text-amber-400" /> Stay on the Quiz Tab
               </div>
-              <p className="text-slate-400">Navigating to secondary browser tabs or applications logs a strike. Max 3 strikes allowed.</p>
+              <p className="text-slate-400">Please avoid switching browser tabs during the quiz to keep your focus sharp.</p>
             </div>
 
             <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800/80">
               <div className="font-bold text-emerald-300 mb-1 flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Vision & Audio Guard
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Helpful Tools
               </div>
-              <p className="text-slate-400">Your face must remain centered in the camera frame without background voices.</p>
+              <p className="text-slate-400">Use the Bible Helper and Verse Finder on your toolbar whenever you need a hint.</p>
             </div>
           </div>
 
           {/* Agreement Checkbox */}
-          <label className="flex items-start gap-3 p-4 rounded-2xl bg-indigo-950/30 border border-indigo-900/50 cursor-pointer mb-6 hover:bg-indigo-950/40 transition">
+          <label className="flex items-start gap-3 p-4 rounded-2xl bg-amber-950/30 border border-amber-900/50 cursor-pointer mb-6 hover:bg-amber-950/40 transition">
             <input
               type="checkbox"
               checked={agreedHonorCode}
               onChange={(e) => setAgreedHonorCode(e.target.checked)}
-              className="mt-0.5 w-4 h-4 rounded-md accent-indigo-600 cursor-pointer"
+              className="mt-0.5 w-4 h-4 rounded-md accent-amber-600 cursor-pointer"
             />
             <span className="text-xs text-slate-300 leading-relaxed">
-              I certify that I am <strong className="text-white">{candidateName}</strong>, that I will take this examination independently without unapproved aids, external search engines, or secondary participants, and I agree to AI proctor monitoring.
+              I certify that I am <strong className="text-white">{candidateName}</strong>, that I will do my best and answer honestly, and I look forward to learning God&apos;s Word!
             </span>
           </label>
 

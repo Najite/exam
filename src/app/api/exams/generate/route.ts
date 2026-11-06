@@ -13,8 +13,8 @@ export async function POST(req: Request) {
 
     const exam = await generateExamWithAI({
       topic: topic.trim(),
-      category: category || 'General Knowledge',
-      difficulty: difficulty || 'intermediate',
+      category: category || 'Sunday School',
+      difficulty: difficulty || 'beginner',
       questionCount: Number(questionCount) || 5,
       durationMinutes: Number(durationMinutes) || 15,
       questionTypes: Array.isArray(questionTypes) && questionTypes.length > 0 ? questionTypes : ['mcq_single', 'short_answer'],

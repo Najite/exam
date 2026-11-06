@@ -242,36 +242,41 @@ export async function generateExamWithAI(params: GenerateExamParams): Promise<Ex
 }
 
 async function callOpenRouterExamGeneration(params: GenerateExamParams, apiKey: string): Promise<Exam> {
-  const prompt = `You are an expert biblical scholar, theologian, and psychometric test design authority.
-Create a rigorous, high-stakes Computer-Based Test (CBT) examination in JSON format focusing on Biblical Studies, Scripture, Exegesis, or Christian Theology on the topic: "${params.topic}".
-Category: ${params.category || 'Biblical Studies'}
-Target Difficulty: ${params.difficulty}
+  const prompt = `You are an encouraging, friendly, and creative Sunday School Bible Teacher and Christian educator.
+Create a fun, inspiring, and age-appropriate Sunday School Bible quiz/exam in JSON format on the topic: "${params.topic}".
+Category: "Sunday School"
+Target Level: ${params.difficulty === 'beginner' ? 'Primary (Kids ages 5-8)' : params.difficulty === 'intermediate' ? 'Juniors (Pre-teens ages 9-12)' : 'Youth (Teens)'}
 Number of Questions: ${params.questionCount}
 Allowed Question Types: ${params.questionTypes.join(', ')}
-${params.contextMaterial ? `Source Scripture / Reference Material:\n"""${params.contextMaterial}"""\n` : ''}
+${params.contextMaterial ? `Bible Passage / Lesson Notes:\n"""${params.contextMaterial}"""\n` : ''}
+
+SUNDAY SCHOOL GUIDELINES:
+- This is for SUNDAY SCHOOL, NOT a theological seminary exam. Avoid dense theological jargon, academic debates, and original language exegesis (no Hebrew/Greek grammar disputes).
+- Focus on key Bible stories, heroes and heroines of faith (e.g. David, Noah, Moses, Daniel, Esther, Jesus, Peter, Paul), the parables and miracles of Jesus, practical kindness, loving God and our neighbors, and memorable Scripture lessons.
+- Ensure language is warm, clear, age-appropriate, and encouraging for young learners and church students.
+- In explanations, share simple, memorable biblical insights with friendly Bible references (e.g. 1 Samuel 17:45, Luke 15:11-32, John 3:16).
 
 CRITICAL: Return ONLY valid, raw JSON (no markdown formatting, no \`\`\`json code blocks).
-Include specific biblical citations (book, chapter, verse), original language concepts where appropriate (Hebrew/Greek), and clear theological justifications in the explanations.
 The JSON must adhere strictly to this schema:
 {
-  "title": "Clear biblical exam title",
-  "description": "Comprehensive description of biblical scope and learning objectives",
-  "category": "${params.category || 'Biblical Studies'}",
+  "title": "Inspiring Sunday School Quiz Title",
+  "description": "Warm, encouraging description of the Bible story and learning lesson",
+  "category": "Sunday School",
   "difficulty": "${params.difficulty}",
   "durationMinutes": ${params.durationMinutes},
-  "passingScore": 70,
+  "passingScore": 60,
   "instructions": [
-    "Read all biblical texts and question stems carefully before answering.",
-    "Biblical reference sheet and concordance are accessible from the top toolbar.",
-    "Full-screen lock and AI proctoring are enforced."
+    "Welcome to our Sunday School Bible Quiz!",
+    "Read each question carefully and think about what happened in the Bible story.",
+    "Do your best and remember: learning God's Word is a blessing!"
   ],
   "questions": [
     {
       "id": "q1",
       "type": "mcq_single" | "mcq_multiple" | "true_false" | "short_answer",
-      "text": "Detailed question prompt with scriptural context",
-      "topic": "Specific subtopic or biblical book",
-      "bloomLevel": "knowledge" | "comprehension" | "application" | "analysis" | "evaluation",
+      "text": "Clear, engaging question prompt about the Bible story",
+      "topic": "Bible Story / Topic",
+      "bloomLevel": "knowledge" | "comprehension" | "application",
       "marks": 5,
       "options": [
         { "id": "opt_a", "text": "Option A text" },
@@ -280,8 +285,8 @@ The JSON must adhere strictly to this schema:
         { "id": "opt_d", "text": "Option D text" }
       ],
       "correctAnswer": "opt_b",
-      "explanation": "Thorough theological and scriptural justification with relevant verses",
-      "evaluationRubric": "Rubric criteria for short answer evaluation"
+      "explanation": "Friendly, encouraging explanation connecting the story and Bible verse",
+      "evaluationRubric": "Simple rubric criteria for short answer evaluation"
     }
   ]
 }`;
@@ -289,7 +294,7 @@ The JSON must adhere strictly to this schema:
   const rawText = await callOpenRouter([
     {
       role: 'system',
-      content: 'You are an authoritative psychometrician and biblical scholar. Always output valid JSON strictly adhering to the requested schema without conversational filler.',
+      content: 'You are a friendly, encouraging Sunday School Bible Teacher. Always output valid JSON strictly adhering to the requested schema without conversational filler.',
     },
     { role: 'user', content: prompt },
   ], { apiKey, temperature: 0.5, timeoutMs: 25000 });
@@ -328,36 +333,41 @@ The JSON must adhere strictly to this schema:
 }
 
 async function callGeminiExamGeneration(params: GenerateExamParams, apiKey: string): Promise<Exam> {
-  const prompt = `You are an expert biblical scholar, theologian, and psychometric test design authority.
-Create a rigorous, high-stakes Computer-Based Test (CBT) examination in JSON format focusing on Biblical Studies, Scripture, Exegesis, or Christian Theology on the topic: "${params.topic}".
-Category: ${params.category || 'Biblical Studies'}
-Target Difficulty: ${params.difficulty}
+  const prompt = `You are an encouraging, friendly, and creative Sunday School Bible Teacher and Christian educator.
+Create a fun, inspiring, and age-appropriate Sunday School Bible quiz/exam in JSON format on the topic: "${params.topic}".
+Category: "Sunday School"
+Target Level: ${params.difficulty === 'beginner' ? 'Primary (Kids ages 5-8)' : params.difficulty === 'intermediate' ? 'Juniors (Pre-teens ages 9-12)' : 'Youth (Teens)'}
 Number of Questions: ${params.questionCount}
 Allowed Question Types: ${params.questionTypes.join(', ')}
-${params.contextMaterial ? `Source Scripture / Reference Material:\n"""${params.contextMaterial}"""\n` : ''}
+${params.contextMaterial ? `Bible Passage / Lesson Notes:\n"""${params.contextMaterial}"""\n` : ''}
+
+SUNDAY SCHOOL GUIDELINES:
+- This is for SUNDAY SCHOOL, NOT a theological seminary exam. Avoid dense theological jargon, academic debates, and original language exegesis.
+- Focus on key Bible stories, heroes and heroines of faith, the parables and miracles of Jesus, practical kindness, and memorable Scripture lessons.
+- Ensure language is warm, clear, age-appropriate, and encouraging for young learners and church students.
+- In explanations, share simple, memorable biblical insights with friendly Bible references.
 
 CRITICAL: Return ONLY valid, raw JSON (no markdown formatting, no \`\`\`json code blocks).
-Include specific biblical citations (book, chapter, verse), original language concepts where appropriate (Hebrew/Greek), and clear theological justifications in the explanations.
 The JSON must adhere strictly to this schema:
 {
-  "title": "Clear biblical exam title",
-  "description": "Comprehensive description of biblical scope and learning objectives",
-  "category": "${params.category || 'Biblical Studies'}",
+  "title": "Inspiring Sunday School Quiz Title",
+  "description": "Warm, encouraging description of the Bible story and learning lesson",
+  "category": "Sunday School",
   "difficulty": "${params.difficulty}",
   "durationMinutes": ${params.durationMinutes},
-  "passingScore": 70,
+  "passingScore": 60,
   "instructions": [
-    "Read all biblical texts and question stems carefully before answering.",
-    "Biblical reference sheet and concordance are accessible from the top toolbar.",
-    "Full-screen lock and AI proctoring are enforced."
+    "Welcome to our Sunday School Bible Quiz!",
+    "Read each question carefully and think about what happened in the Bible story.",
+    "Do your best and remember: learning God's Word is a blessing!"
   ],
   "questions": [
     {
       "id": "q1",
       "type": "mcq_single" | "mcq_multiple" | "true_false" | "short_answer",
-      "text": "Detailed question prompt with scriptural context",
-      "topic": "Specific subtopic or biblical book",
-      "bloomLevel": "knowledge" | "comprehension" | "application" | "analysis" | "evaluation",
+      "text": "Clear, engaging question prompt about the Bible story",
+      "topic": "Bible Story / Topic",
+      "bloomLevel": "knowledge" | "comprehension" | "application",
       "marks": 5,
       "options": [
         { "id": "opt_a", "text": "Option A text" },
@@ -366,8 +376,8 @@ The JSON must adhere strictly to this schema:
         { "id": "opt_d", "text": "Option D text" }
       ],
       "correctAnswer": "opt_b",
-      "explanation": "Thorough theological and scriptural justification with relevant verses",
-      "evaluationRubric": "Rubric criteria for short answer evaluation"
+      "explanation": "Friendly, encouraging explanation connecting the story and Bible verse",
+      "evaluationRubric": "Simple rubric criteria for short answer evaluation"
     }
   ]
 }`;
@@ -450,23 +460,23 @@ export async function evaluateShortAnswerWithAI(
     };
   }
 
-  const prompt = `You are a fair, objective exam evaluator grading a student's answer to a CBT question.
+  const prompt = `You are a kind, encouraging Sunday School Bible teacher evaluating a student's answer to a Bible quiz question.
 Question: "${question.text}"
 Total Available Marks: ${maxScore}
 Model Answer: "${question.correctAnswer}"
-Evaluation Rubric: "${question.evaluationRubric || 'Assess factual correctness, scriptural precision, and completeness.'}"
+Evaluation Rubric: "${question.evaluationRubric || 'Assess whether the student understood the Bible story, key character, or practical moral/faith lesson.'}"
 
 Student's Answer: "${trimmedAnswer}"
 
-Grade the student response strictly based on the rubric.
+Grade the student's response with warmth, fairness, and encouragement. Celebrate what they remembered or applied from the Bible story.
 Return ONLY valid JSON matching this structure (no markdown fences, no conversational filler):
 {
   "score": number (between 0 and ${maxScore}),
   "maxScore": ${maxScore},
   "accuracy": "high" | "moderate" | "low" | "none",
-  "strengths": ["bullet 1", "bullet 2"],
-  "improvements": ["what was missing or needs refinement"],
-  "reasoning": "Clear explanation of how the score was calculated based on the rubric"
+  "strengths": ["encouraging praise for what the student remembered or explained"],
+  "improvements": ["gentle reminder of any story detail or verse that was missed"],
+  "reasoning": "Encouraging explanation of the grade and biblical lesson"
 }`;
 
   // 1. OpenRouter cascade
@@ -579,25 +589,27 @@ export async function askAITutor(
   const openRouterKey = apiKey?.startsWith('sk-or-') ? apiKey : process.env.OPENROUTER_API_KEY;
   const geminiKey = apiKey || process.env.GEMINI_API_KEY;
 
-  const prompt = `You are a patient, encouraging, and scholarly AI Biblical Socratic tutor on a computer-based theological testing platform.
-The student took an exam and is reviewing this biblical question:
+  const prompt = `You are Teacher Grace, a loving, patient, and joyful Sunday School Bible teacher.
+A Sunday School student is reviewing this Bible quiz question and asking you for guidance:
 
 Question: "${question.text}"
 ${question.options ? `Options:\n${question.options.map((o) => `${o.id}: ${o.text}`).join('\n')}\n` : ''}
 Correct Answer: ${Array.isArray(question.correctAnswer) ? question.correctAnswer.join(', ') : question.correctAnswer}
-Official Theological Explanation: ${question.explanation}
+Bible Story Explanation: ${question.explanation}
 Student's Chosen Answer: ${userAnswer ? (Array.isArray(userAnswer) ? userAnswer.join(', ') : userAnswer) : 'None'}
 
-Student's inquiry to you: "${userQuestion}"
+Student's inquiry: "${userQuestion}"
 
-Provide a rich, pastoral, and academically rigorous explanation. Cite relevant scripture verses (book, chapter, verse), original language roots (Hebrew/Greek) if helpful, and gently explain why distractors fall short while upholding orthodox biblical interpretation.`;
+Provide a warm, inspiring, and easy-to-understand Sunday School explanation suitable for students and church learners.
+Use simple, clear language, tell the Bible story vividly, cite memorable Bible verses (e.g. John 3:16, Psalm 23, Proverbs 3:5-6), share a friendly everyday life lesson, and encourage the student in their faith!
+DO NOT use seminary jargon, academic exegesis, or complex linguistic terms.`;
 
   // 1. OpenRouter cascade
   if (openRouterKey) {
     const text = await callOpenRouter([
-      { role: 'system', content: 'You are an encouraging, scholarly Biblical Socratic tutor.' },
+      { role: 'system', content: 'You are Teacher Grace, a warm and encouraging Sunday School Bible teacher.' },
       { role: 'user', content: prompt },
-    ], { apiKey: openRouterKey, temperature: 0.6, timeoutMs: 45000 });
+    ], { apiKey: openRouterKey, temperature: 0.6, timeoutMs: 30000 });
 
     if (text) return text;
     throw new Error('AI Tutor returned an empty response.');

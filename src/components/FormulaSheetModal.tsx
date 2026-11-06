@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, BookOpen, Search, Copy, Check, ScrollText, Landmark, Languages } from 'lucide-react';
+import { X, BookOpen, Search, Copy, Check, Heart, Shield, Sparkles } from 'lucide-react';
 
 interface FormulaSheetModalProps {
   isOpen: boolean;
@@ -10,7 +10,7 @@ interface FormulaSheetModalProps {
 
 export function FormulaSheetModal({ isOpen, onClose }: FormulaSheetModalProps) {
   const [search, setSearch] = useState('');
-  const [activeTab, setActiveTab] = useState<'covenants' | 'terms' | 'canon'>('covenants');
+  const [activeTab, setActiveTab] = useState<'stories' | 'verses' | 'commandments'>('stories');
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
   if (!isOpen) return null;
@@ -21,151 +21,127 @@ export function FormulaSheetModal({ isOpen, onClose }: FormulaSheetModalProps) {
     setTimeout(() => setCopiedKey(null), 2000);
   };
 
-  const biblicalCategories = {
-    covenants: [
+  const sundaySchoolData = {
+    stories: [
       {
-        name: 'Edenic / Adamic Covenant',
-        ref: 'Genesis 1:26-30; 2:15-17; 3:15',
-        formula: 'Mandate: Fill earth & rule • Prohibition: Tree of Knowledge • Seed Promise (Protoevangelium Gen 3:15)',
-        desc: 'Universal covenant of creation, work, and moral probation. Gen 3:15 promises the Seed of the woman crushing the serpent.',
+        name: 'David & Goliath (1 Samuel 17)',
+        ref: '1 Samuel 17:45-49',
+        summary: 'Faith in God • 5 Smooth Stones • The battle belongs to the Lord!',
+        desc: 'Young shepherd David was not afraid of the giant Goliath because he trusted God. With five smooth stones and a sling, David defeated the giant in the name of the Lord.',
       },
       {
-        name: 'Noahic Covenant',
-        ref: 'Genesis 9:8-17',
-        formula: 'Universal Preservation • Sign: The Rainbow (Qeshet) • Prohibition against murder/eating blood',
-        desc: 'Unconditional covenant guaranteeing preservation of the earth from universal flood until the consummation.',
+        name: 'Noah’s Ark & The Rainbow (Genesis 6-9)',
+        ref: 'Genesis 9:12-17',
+        summary: 'Obedience • Animal Pairs • The Rainbow Promise',
+        desc: 'Noah obeyed God and built a giant ark to save his family and animals. After the flood, God put the rainbow in the sky as a promise never to flood the earth again.',
       },
       {
-        name: 'Abrahamic Covenant',
-        ref: 'Genesis 12:1-3; 15:1-21; 17:1-14',
-        formula: 'Promises: Seed, Land (Canaan), Universal Blessing • Sign: Circumcision • Unilateral oath by Yahweh',
-        desc: 'Foundational redemptive covenant ratified through the burning lamp passing through the pieces (Gen 15) and fulfilled in Christ (Gal 3:16).',
+        name: 'Daniel in the Lions’ Den (Daniel 6)',
+        ref: 'Daniel 6:16-23',
+        summary: 'Praying Daily • Angel Protected • Shut the Lions’ Mouths',
+        desc: 'Daniel refused to stop praying to God. When he was thrown into a den of hungry lions, God sent His angel to shut their mouths, keeping Daniel completely safe.',
       },
       {
-        name: 'Mosaic (Sinaitic) Covenant',
-        ref: 'Exodus 19-24; Deuteronomy 28',
-        formula: 'Conditional Suzerain-Vassal Treaty • Decalogue & Ceremonial Law • Sign: The Sabbath • Ratified with blood',
-        desc: 'Establishes Israel as a holy nation and kingdom of priests; carries explicit blessing for obedience and curses for disobedience.',
+        name: 'Moses & The Red Sea (Exodus 14)',
+        ref: 'Exodus 14:13-22',
+        summary: 'Deliverance • Parting the Waters • Walking on Dry Ground',
+        desc: 'Trapped between Pharaoh’s army and the deep sea, God told Moses to stretch out his staff. God parted the waters so the Israelites walked safely on dry land.',
       },
       {
-        name: 'Davidic Covenant',
-        ref: '2 Samuel 7:8-16; Psalm 89; 132',
-        formula: 'Unconditional Royal Dynastic Grant • Eternal Throne, House, and Kingdom • Fulfilled in Christ the Son of David',
-        desc: 'Yahweh promises David an everlasting dynasty culminating in the Messiah whose kingdom shall have no end (Luke 1:32-33).',
+        name: 'The Good Samaritan (Luke 10)',
+        ref: 'Luke 10:25-37',
+        summary: 'Loving your Neighbor • Compassion • Helping Anyone in Need',
+        desc: 'Jesus told the story of a traveler beaten by robbers. While others walked past, a Samaritan stopped, bandaged his wounds, and paid for his care. Love your neighbor!',
       },
       {
-        name: 'The New Covenant (Berith Chadashah)',
-        ref: 'Jeremiah 31:31-34; Luke 22:20; Hebrews 8:6-13',
-        formula: 'Law on hearts • Sins remembered no more • Mediator: Jesus Christ • Ratified by the blood of Christ',
-        desc: 'Inward spiritual regeneration, universal knowledge of God, total remission of sins, mediated by Christ our High Priest.',
-      },
-    ],
-    terms: [
-      {
-        name: 'Hesed (חֶסֶד) - Hebrew',
-        ref: 'Exodus 34:6-7; Psalm 136',
-        formula: 'Steadfast covenant love, lovingkindness, unfailing loyal grace',
-        desc: 'God’s unshakeable fidelity and relational devotion to His covenant people despite human unfaithfulness.',
+        name: 'The Prodigal Son (Luke 15)',
+        ref: 'Luke 15:11-32',
+        summary: 'Forgiveness • Father’s Great Hug • Lost and Found',
+        desc: 'A younger son ran away and wasted everything. When he returned expecting anger, his loving father ran, hugged, and welcomed him home with a grand celebration!',
       },
       {
-        name: 'Shalom (שָׁלוֹם) - Hebrew',
-        ref: 'Numbers 6:24-26; Isaiah 9:6',
-        formula: 'Wholeness, completeness, sound moral order, cosmic well-being and reconciliation',
-        desc: 'Far more than the absence of conflict; denotes flourishing, justice, and harmonious communion with God.',
+        name: 'Feeding the 5,000 (John 6)',
+        ref: 'John 6:1-14',
+        summary: 'A Boy’s Generosity • 5 Loaves & 2 Fish • 12 Baskets Leftover',
+        desc: 'A young boy shared his small lunch with Jesus. Jesus prayed, thanked God, and multiplied the food to feed over 5,000 people with twelve baskets full of leftovers.',
       },
       {
-        name: 'Berith (בְּרִית) - Hebrew',
-        ref: 'Genesis 15:18; Exodus 24:8',
-        formula: 'Covenant, binding solemn treaty, oath sealed in blood',
-        desc: 'The foundational relational framework between God and humanity; cut (karath berith) through sacrifice.',
-      },
-      {
-        name: 'Go’el (גֹּאֵל) - Hebrew',
-        ref: 'Leviticus 25:25; Ruth 4:1-10; Job 19:25',
-        formula: 'Kinsman-Redeemer, vindicator, legal protector of family land and legacy',
-        desc: 'A near relative who buys back enslaved family or land; Boaz serves as a type fulfilled in Christ our Redeemer.',
-      },
-      {
-        name: 'Kippur / Kapporeth (כִּפּוּר) - Hebrew',
-        ref: 'Leviticus 16; Exodus 25:17-22',
-        formula: 'Atonement, covering, Mercy Seat (propitiatory cover of the Ark)',
-        desc: 'The ritual covering and cleansing of sin through innocent sacrificial blood sprinkled before Yahweh.',
-      },
-      {
-        name: 'Logos (Λόγος) - Greek',
-        ref: 'John 1:1, 14; 1 John 1:1; Revelation 19:13',
-        formula: 'The Divine Word, Reason, Eternal Self-Expression of the Godhead',
-        desc: 'Christ as the eternal Creator who was with God, was God, and became flesh to tabernacle among humanity.',
-      },
-      {
-        name: 'Agape (Ἀγάπη) - Greek',
-        ref: 'John 3:16; 1 Corinthians 13; 1 John 4:8',
-        formula: 'Unconditional, self-giving, sacrificial divine love',
-        desc: 'Love determined by the nature of the giver, choosing the highest good of the recipient without regard for personal cost.',
-      },
-      {
-        name: 'Kenosis (Κένωσις) - Greek',
-        ref: 'Philippians 2:5-11',
-        formula: 'Self-emptying, voluntary humiliation of the Son in the Incarnation',
-        desc: 'Christ veiling His glory and taking the form of a bondservant to endure the cross without abandoning His deity.',
-      },
-      {
-        name: 'Parakletos (Παράκλητος) - Greek',
-        ref: 'John 14:16, 26; 15:26; 16:7; 1 John 2:1',
-        formula: 'Comforter, Advocate, Helper, One called alongside to assist',
-        desc: 'Title of the Holy Spirit sent by the Father and Son, and of Jesus Christ our Advocate before the Father.',
-      },
-      {
-        name: 'Dikaiosyne (Δικαιοσύνη) - Greek',
-        ref: 'Romans 1:17; 3:21-26; 5:1',
-        formula: 'Righteousness, justification, divine legal acquittal by faith',
-        desc: 'The imputation of Christ’s perfect righteousness to the believer through faith apart from the works of the Law.',
+        name: 'Jonah & The Big Fish (Jonah 1-3)',
+        ref: 'Jonah 1:17; 2:1-10',
+        summary: 'Second Chances • Big Fish • God’s Forgiving Heart',
+        desc: 'Jonah tried to run from God, but after three days inside a great fish, he prayed and obeyed God’s call to tell Nineveh about God’s love and forgiveness.',
       },
     ],
-    canon: [
+    verses: [
       {
-        name: 'The Tanakh (Old Testament Divisions)',
-        ref: 'Luke 24:44; Matthew 5:17',
-        formula: 'Torah (Law: 5) • Nevi’im (Prophets: 8/21) • Ketuvim (Writings: 11/13)',
-        desc: 'The traditional tripartite Jewish canon recognized by Jesus as testifying of His death and resurrection.',
+        name: 'John 3:16 - God’s Great Love',
+        ref: 'John 3:16',
+        summary: '“For God so loved the world that He gave His one and only Son…”',
+        desc: 'God loves each one of us so much that He sent Jesus so whoever believes in Him will have everlasting life and be part of God’s family.',
       },
       {
-        name: 'New Testament Canonical Divisions',
-        ref: '27 Canonical Books',
-        formula: 'Gospels (4) • Acts (1) • Pauline Epistles (13) • General Epistles (8) • Revelation (1)',
-        desc: 'Apostolic witness to the life, death, resurrection, theological expansion, and apocalyptic consummation in Christ.',
+        name: 'Psalm 23:1 - The Good Shepherd',
+        ref: 'Psalm 23:1-3',
+        summary: '“The LORD is my shepherd; I shall not want…”',
+        desc: 'God takes care of us just like a kind, gentle shepherd leads and protects his sheep into green pastures and beside quiet waters.',
       },
       {
-        name: 'Chronology: The Exodus & Sinai',
-        ref: 'Exodus 12-20',
-        formula: 'Circa 1446 BC (Early Date) or 1260 BC (Late Date)',
-        desc: 'Deliverance of Israel from Egyptian bondage, institution of the Passover, and delivery of the Law at Mount Sinai.',
+        name: 'Philippians 4:13 - Strength in Jesus',
+        ref: 'Philippians 4:13',
+        summary: '“I can do all things through Christ who strengthens me.”',
+        desc: 'Whenever we face difficult tests, big challenges, or feel afraid, Jesus gives us courage and strength to overcome.',
       },
       {
-        name: 'Chronology: United Monarchy & Temple Dedication',
-        ref: '1 Samuel 8 - 1 Kings 8',
-        formula: 'Saul (~1050 BC) • David (~1010-970 BC) • Solomon (~970-930 BC) • Temple Dedicated (~966 BC)',
-        desc: 'The golden age of Israel under Davidic kingship and the building of the First Temple in Jerusalem.',
+        name: 'Proverbs 3:5-6 - Trust in the Lord',
+        ref: 'Proverbs 3:5-6',
+        summary: '“Trust in the LORD with all your heart and lean not on your own understanding…”',
+        desc: 'In all our ways acknowledge God, and He will guide our footsteps on the right path.',
       },
       {
-        name: 'Chronology: Divided Kingdom & Exiles',
-        ref: '2 Kings 17; 25; 2 Chronicles 36',
-        formula: 'Fall of Northern Israel to Assyria: 722 BC • Fall of Jerusalem to Babylon: 586 BC • Edict of Cyrus: 539 BC',
-        desc: 'Judgment on idolatry leading to exile; 70-year Babylonian captivity ended by Persian decree under Cyrus the Great.',
+        name: 'The Lord’s Prayer',
+        ref: 'Matthew 6:9-13',
+        summary: '“Our Father in heaven, hallowed be Your name. Your kingdom come, Your will be done…”',
+        desc: 'The prayer Jesus taught His disciples: asking God for our daily bread, forgiving others, and asking for guidance away from temptation.',
       },
       {
-        name: 'Chronology: Apostolic Church Milestones',
-        ref: 'Acts 2; Acts 15; Galatians 2',
-        formula: 'Crucifixion/Resurrection (~30/33 AD) • Jerusalem Council (~49 AD) • Destruction of Second Temple (70 AD)',
-        desc: 'Birth of the Church at Pentecost, formal inclusion of Gentiles without circumcision at Jerusalem, and fall of Jerusalem.',
+        name: 'The Golden Rule',
+        ref: 'Luke 6:31; Matthew 7:12',
+        summary: '“Do to others as you would have them do to you.”',
+        desc: 'Treat every person with the kindness, respect, patience, and love that you want to receive.',
+      },
+    ],
+    commandments: [
+      {
+        name: 'The 10 Commandments (Simplified for Kids)',
+        ref: 'Exodus 20:1-17',
+        summary: '1-4: Love God • 5-10: Love People',
+        desc: '1. Put God first • 2. No idols • 3. Respect God’s name • 4. Keep the Sabbath holy • 5. Honor mom & dad • 6. Do not murder/hurt • 7. Be faithful • 8. Do not steal • 9. Do not lie • 10. Do not be jealous.',
+      },
+      {
+        name: 'The 9 Fruit of the Spirit',
+        ref: 'Galatians 5:22-23',
+        summary: 'Love, Joy, Peace, Patience, Kindness, Goodness, Faithfulness, Gentleness, Self-Control',
+        desc: 'The qualities that the Holy Spirit grows in our hearts as we follow Jesus every day. Against such things there is no law!',
+      },
+      {
+        name: 'The Full Armor of God',
+        ref: 'Ephesians 6:10-18',
+        summary: 'Belt of Truth • Breastplate of Righteousness • Shoes of Peace • Shield of Faith • Helmet of Salvation • Sword of the Spirit',
+        desc: 'God’s spiritual armor that protects our minds, hearts, and steps so we can stand strong in God’s truth and love.',
+      },
+      {
+        name: 'The Greatest Commandment',
+        ref: 'Matthew 22:37-39',
+        summary: 'Love God with all your heart, soul, and mind, and love your neighbor as yourself.',
+        desc: 'Jesus said all the Law and Prophets hang on these two great commandments.',
       },
     ],
   };
 
-  const list = biblicalCategories[activeTab].filter(
+  const list = sundaySchoolData[activeTab].filter(
     (item) =>
       item.name.toLowerCase().includes(search.toLowerCase()) ||
-      item.formula.toLowerCase().includes(search.toLowerCase()) ||
+      item.summary.toLowerCase().includes(search.toLowerCase()) ||
       item.desc.toLowerCase().includes(search.toLowerCase()) ||
       item.ref.toLowerCase().includes(search.toLowerCase())
   );
@@ -176,12 +152,12 @@ export function FormulaSheetModal({ isOpen, onClose }: FormulaSheetModalProps) {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 bg-slate-800 border-b border-slate-700">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
               <BookOpen className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white">Scripture & Biblical Reference Sheet</h2>
-              <p className="text-xs text-slate-400">Approved theological covenants, original language roots, and canon timeline</p>
+              <h2 className="text-base font-bold text-white">Sunday School Bible Helper</h2>
+              <p className="text-xs text-slate-400">Memory verses, famous Bible stories, 10 Commandments & Fruit of the Spirit</p>
             </div>
           </div>
           <button
@@ -198,79 +174,80 @@ export function FormulaSheetModal({ isOpen, onClose }: FormulaSheetModalProps) {
             <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
             <input
               type="text"
-              placeholder="Search covenants, Greek/Hebrew terms, scriptures, or dates..."
+              placeholder="Search stories, characters, verses (e.g. David, Noah, Love, Psalm 23)..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-700 rounded-xl pl-9 pr-4 py-2 text-sm text-white placeholder-slate-500 focus:outline-hidden focus:border-indigo-500"
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-hidden focus:border-indigo-500"
             />
           </div>
 
           <div className="flex gap-2">
-            <button
-              onClick={() => setActiveTab('covenants')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
-                activeTab === 'covenants' ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
-              }`}
-            >
-              <ScrollText className="w-3.5 h-3.5" />
-              <span>Biblical Covenants</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('terms')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
-                activeTab === 'terms' ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
-              }`}
-            >
-              <Languages className="w-3.5 h-3.5" />
-              <span>Hebrew & Greek Terms</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('canon')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
-                activeTab === 'canon' ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
-              }`}
-            >
-              <Landmark className="w-3.5 h-3.5" />
-              <span>Canon & Chronology</span>
-            </button>
+            {[
+              { id: 'stories' as const, label: 'Bible Stories & Heroes', icon: Sparkles },
+              { id: 'verses' as const, label: 'Memory Verses', icon: Heart },
+              { id: 'commandments' as const, label: 'Commandments & Fruit', icon: Shield },
+            ].map((tab) => {
+              const Icon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition ${
+                    activeTab === tab.id
+                      ? 'bg-indigo-600 text-white'
+                      : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Content List */}
-        <div className="p-6 overflow-y-auto space-y-3 flex-1">
+        <div className="p-6 overflow-y-auto space-y-4 flex-1">
           {list.length === 0 ? (
-            <div className="text-center py-10 text-slate-500 text-sm">
-              No biblical entries matched your search.
+            <div className="text-center py-12 text-slate-500 text-xs">
+              No Bible stories or verses found matching &quot;{search}&quot;.
             </div>
           ) : (
-            list.map((item, idx) => (
-              <div
-                key={idx}
-                className="p-4 bg-slate-800/60 border border-slate-700/80 rounded-xl hover:border-slate-600 transition flex items-start justify-between gap-4"
-              >
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">{item.name}</span>
-                    <span className="text-[11px] text-slate-400 font-mono bg-slate-900/80 px-2 py-0.5 rounded border border-slate-800">
-                      {item.ref}
-                    </span>
-                  </div>
-                  <div className="text-sm font-medium text-slate-200">{item.formula}</div>
-                  <div className="text-xs text-slate-400 leading-relaxed">{item.desc}</div>
-                </div>
-                <button
-                  onClick={() => handleCopy(`${item.name} (${item.ref}): ${item.formula}`, `${activeTab}-${idx}`)}
-                  className="p-2 bg-slate-700/60 hover:bg-slate-700 rounded-lg text-slate-300 transition shrink-0 mt-1"
-                  title="Copy reference"
+            list.map((item, idx) => {
+              const key = `${activeTab}-${idx}`;
+              const isCopied = copiedKey === key;
+
+              return (
+                <div
+                  key={key}
+                  className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 hover:border-slate-700 transition space-y-2 group"
                 >
-                  {copiedKey === `${activeTab}-${idx}` ? (
-                    <Check className="w-4 h-4 text-emerald-400" />
-                  ) : (
-                    <Copy className="w-4 h-4" />
-                  )}
-                </button>
-              </div>
-            ))
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="font-bold text-sm text-indigo-300 flex items-center gap-2">
+                        <span>{item.name}</span>
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">
+                          {item.ref}
+                        </span>
+                      </div>
+                      <div className="text-xs font-medium text-amber-200 mt-1">
+                        {item.summary}
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => handleCopy(`${item.name} (${item.ref}): ${item.summary}\n${item.desc}`, key)}
+                      className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition shrink-0 opacity-0 group-hover:opacity-100"
+                      title="Copy to scratchpad"
+                    >
+                      {isCopied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                    </button>
+                  </div>
+
+                  <p className="text-xs text-slate-300 leading-relaxed">{item.desc}</p>
+                </div>
+              );
+            })
           )}
         </div>
       </div>
