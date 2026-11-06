@@ -1,5 +1,73 @@
 [
   {
+    "id": "exam-ai-1793972674157",
+    "title": "Exam: The Abrahamic Covenant and Justification by Faith",
+    "description": "This exam assesses knowledge of the Abrahamic Covenant in the Old Testament and its theological connection to justification by faith in the New Testament, requiring scriptural citation and exegesis.",
+    "category": "Old Testament Literature & Torah",
+    "difficulty": "intermediate",
+    "durationMinutes": 10,
+    "passingScore": 70,
+    "totalMarks": 10,
+    "isPublished": true,
+    "createdAt": "2026-11-06T13:44:34.157Z",
+    "proctoringSettings": {
+      "enableWebcam": true,
+      "enableMic": true,
+      "enableFullscreen": true,
+      "maxTabSwitches": 3,
+      "aiFaceDetection": true,
+      "blockCopyPaste": true
+    },
+    "instructions": [
+      "Read all biblical texts and question stems carefully before answering.",
+      "Biblical reference sheet and concordance are accessible from the top toolbar.",
+      "Full-screen lock and AI proctoring are enforced."
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "type": "mcq_single",
+        "text": "According to Genesis 15:6, what is the primary basis for Abraham's righteousness before God?",
+        "topic": "Abrahamic Covenant",
+        "bloomLevel": "comprehension",
+        "marks": 5,
+        "options": [
+          {
+            "id": "opt_a",
+            "text": "Abraham's obedience to the covenant sign of circumcision"
+          },
+          {
+            "id": "opt_b",
+            "text": "God's imputed righteousness through faith in His promise"
+          },
+          {
+            "id": "opt_c",
+            "text": "Abraham's works and sacrifices as meritorious deeds"
+          },
+          {
+            "id": "opt_d",
+            "text": "The Mosaic Law given centuries later"
+          }
+        ],
+        "correctAnswer": "opt_b",
+        "explanation": "Genesis 15:6 states 'And he believed the LORD, and he counted it to him as righteousness.' This demonstrates that Abraham's righteousness was credited by God based on his faith in the promised seed, not on works or later law. The Hebrew term 'אָמַן' (aman) conveys belief/trust, and 'חָשׁׁׂב' (ḥashab) means 'counted' indicating imputation.",
+        "evaluationRubric": "Award full marks if the answer correctly identifies faith in God's promise as the basis; partial credit for mentioning 'faith' without linking to Genesis 15:6."
+      },
+      {
+        "id": "q2",
+        "type": "short_answer",
+        "text": "Explain how the concept of 'justification by faith' (δικαιοσύνῃ πίστευς) in Paul's letters connects to the Abrahamic Covenant, citing at least two biblical passages.",
+        "topic": "Justification by Faith",
+        "bloomLevel": "application",
+        "marks": 5,
+        "options": [],
+        "correctAnswer": "Abraham was justified by faith, not by works, as shown in Genesis 15:6 and Romans 4:3, demonstrating that the covenant promise is received through faith which is counted as righteousness.",
+        "explanation": "Comprehensive scriptural exegesis and canonical alignment.",
+        "evaluationRubric": "Give full credit if the response cites Genesis 15:6 (Abraham's belief) and Romans 4:3 (justification by faith apart from works), explains that faith is the means of receiving the covenant promise, and links it to the doctrine of justification."
+      }
+    ]
+  },
+  {
     "id": "exam-ot-001",
     "title": "Old Testament Literature, Torah & Biblical Covenants",
     "description": "Comprehensive certification examination testing the Pentateuch (Torah), Abrahamic & Mosaic Covenants, Tabernacle typology, Wisdom Literature, and Major Prophets.",

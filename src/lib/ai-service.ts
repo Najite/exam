@@ -1,4 +1,4 @@
-import { Exam, Question, DifficultyLevel, QuestionType, AIEvaluation, AIAnalytics, TopicBreakdown } from '@/types';
+import { Exam, Question, DifficultyLevel, QuestionType, AIEvaluation, AIAnalytics, TopicBreakdown, QuestionOption } from '@/types';
 
 interface GenerateExamParams {
   topic: string;
@@ -11,8 +11,24 @@ interface GenerateExamParams {
   apiKey?: string;
 }
 
-// OpenRouter LLM Gateway - Strictly uses google/gemma-4-31b-it:free (or process.env.OPENROUTER_MODEL)
-// No candidate fallbacks, no local mock failover.
+// 10 Verified Free Models on OpenRouter
+// Ordered for maximum speed and reliability: primary Gemma models first,
+// followed by high-throughput free routers and fast reasoning models.
+export const OPENROUTER_FREE_MODELS: readonly string[] = [
+  'google/gemma-4-31b-it:free',                         // 1. Google Gemma 4 31B (User's primary selection)
+  'google/gemma-4-26b-a4b-it:free',                     // 2. Google Gemma 4 26B A4B
+  'openrouter/free',                                    // 3. OpenRouter Free Tier Auto-Router (Fast auto-routing)
+  'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free', // 4. NVIDIA Nemotron 3 Nano Omni 30B (High-speed reasoning)
+  'cohere/north-mini-code:free',                        // 5. Cohere North Mini Code (Fast instruction)
+  'dots-studio/dots-3-note-preview:free',               // 6. Dots Studio Note Preview (Fast response)
+  'recursive/flint-v1.0:free',                          // 7. Recursive Flint (256k context)
+  'nvidia/nemotron-3.5-lightning:free',                 // 8. NVIDIA Nemotron 3.5 Lightning
+  'nvidia/nemotron-3.5-super-vl:free',                  // 9. NVIDIA Nemotron 3.5 Super VL
+  'nvidia/nemotron-3-ultra-550b-a55b:free',             // 10. NVIDIA Nemotron 3 Ultra (550B deep reasoning)
+] as const;
+
+// OpenRouter LLM Gateway with Multi-Model Free Fallback Chain
+// Tries primary model first; if rate-limited (HTTP 429) or busy, seamlessly cascades through free models
 async function callOpenRouter(
   messages: { role: 'system' | 'user' | 'assistant'; content: string }[],
   options: { apiKey?: string; jsonMode?: boolean; temperature?: number; timeoutMs?: number } = {}
@@ -22,47 +38,67 @@ async function callOpenRouter(
     throw new Error('No OpenRouter API key found. Please set OPENROUTER_API_KEY in your .env file.');
   }
 
-  const model = process.env.OPENROUTER_MODEL || 'google/gemma-4-31b-it:free';
-  const timeoutMs = options.timeoutMs ?? 60000;
+  const primaryModel = process.env.OPENROUTER_MODEL || 'google/gemma-4-31b-it:free';
+  // Build candidate chain ensuring primary model is first, followed by verified free fallbacks
+  const candidateModels = Array.from(new Set([primaryModel, ...OPENROUTER_FREE_MODELS]));
+  const timeoutMs = options.timeoutMs ?? 25000;
 
-  try {
-    const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${key}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'http://localhost:3000',
-        'X-Title': 'Cognita CBT Platform',
-      },
-      body: JSON.stringify({
-        model,
-        messages,
-        temperature: options.temperature ?? 0.5,
-      }),
-      signal: AbortSignal.timeout(timeoutMs),
-    });
+  const attemptedErrors: string[] = [];
 
-    if (!res.ok) {
-      let errorDetail = '';
-      try {
-        const errJson = await res.json();
-        errorDetail = errJson.error?.metadata?.raw || errJson.error?.message || JSON.stringify(errJson);
-      } catch {
-        errorDetail = await res.text();
+  for (let i = 0; i < candidateModels.length; i++) {
+    const model = candidateModels[i];
+    try {
+      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${key}`,
+          'Content-Type': 'application/json',
+          'HTTP-Referer': 'http://localhost:3000',
+          'X-Title': 'Cognita CBT Platform',
+        },
+        body: JSON.stringify({
+          model,
+          messages,
+          temperature: options.temperature ?? 0.5,
+        }),
+        signal: AbortSignal.timeout(timeoutMs),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        const choice = data.choices?.[0];
+        const content = choice?.message?.content || choice?.message?.reasoning;
+        if (content && typeof content === 'string' && content.trim().length > 0) {
+          if (i > 0) {
+            console.log(`[OpenRouter] Successfully generated via fallback model: ${model}`);
+          }
+          return content;
+        }
+      } else {
+        let errorDetail = '';
+        try {
+          const errJson = await res.json();
+          errorDetail = errJson.error?.metadata?.raw || errJson.error?.message || JSON.stringify(errJson);
+        } catch {
+          errorDetail = await res.text();
+        }
+
+        const msg = `[${model}] HTTP ${res.status}: ${errorDetail}`;
+        console.warn(`[OpenRouter Cascade] ${msg}`);
+        attemptedErrors.push(msg);
+
+        // If not the last model, continue to next fallback
+        continue;
       }
-      throw new Error(`OpenRouter Error [${res.status}] (${model}): ${errorDetail}`);
+    } catch (err: any) {
+      const msg = `[${model}] Network/Timeout: ${err.message}`;
+      console.warn(`[OpenRouter Cascade] ${msg}`);
+      attemptedErrors.push(msg);
+      continue;
     }
-
-    const data = await res.json();
-    const content = data.choices?.[0]?.message?.content;
-    if (!content) {
-      throw new Error(`OpenRouter (${model}) returned an empty completion response.`);
-    }
-    return content;
-  } catch (err: any) {
-    console.error(`OpenRouter call error on model ${model}:`, err);
-    throw err;
   }
+
+  throw new Error(`All ${candidateModels.length} OpenRouter free models failed:\n${attemptedErrors.join('\n')}`);
 }
 
 function extractJsonFromText(rawText: string): any {
@@ -75,18 +111,116 @@ function extractJsonFromText(rawText: string): any {
     cleaned = cleaned.substring(firstBrace, lastBrace + 1);
   }
 
+  // 1. Try raw parse first
   try {
     return JSON.parse(cleaned);
-  } catch (err: any) {
-    throw new Error(`Failed to parse AI JSON response: ${err.message}. Excerpt: ${rawText.slice(0, 250)}`);
+  } catch {
+    // 2. Perform resilience cleaning for LLM formatting anomalies:
+    const sanitized = cleaned
+      // Replace unicode double quotes
+      .replace(/[\u201C\u201D\u201E\u201F\u2033\u2036]/g, '"')
+      // Replace unicode single quotes inside identifiers
+      .replace(/[\u2018\u2019\u201A\u201B\u2032\u2035]/g, "'")
+      // Remove trailing commas before closing braces/brackets
+      .replace(/,\s*([}\]])/g, '$1')
+      // Normalize non-breaking hyphens/dashes
+      .replace(/[\u2010\u2011\u2012\u2013\u2014\u2015]/g, '-');
+
+    try {
+      return JSON.parse(sanitized);
+    } catch (secondErr: any) {
+      throw new Error(`Failed to parse AI JSON response: ${secondErr.message}. Excerpt: ${rawText.slice(0, 250)}`);
+    }
   }
+}
+
+function normalizeExamQuestions(rawQuestions: any[]): Question[] {
+  if (!Array.isArray(rawQuestions)) {
+    if (typeof rawQuestions === 'object' && rawQuestions !== null) {
+      rawQuestions = [rawQuestions];
+    } else {
+      return [];
+    }
+  }
+
+  return rawQuestions.map((q: any, i: number) => {
+    const rawOptions = q.options;
+    let normalizedOptions: QuestionOption[] | undefined = undefined;
+
+    if (Array.isArray(rawOptions) && rawOptions.length > 0) {
+      normalizedOptions = rawOptions.map((opt: any, optIdx: number) => {
+        if (typeof opt === 'string') {
+          const match = opt.match(/^([A-Da-d0-9])[\.\)\:\-]\s*(.*)$/);
+          if (match) {
+            return {
+              id: `opt_${match[1].toLowerCase()}`,
+              text: match[2].trim() || opt,
+            };
+          }
+          const letters = ['a', 'b', 'c', 'd', 'e', 'f'];
+          return {
+            id: `opt_${letters[optIdx] || optIdx}`,
+            text: opt,
+          };
+        }
+        if (typeof opt === 'object' && opt !== null) {
+          let id = String(opt.id || `opt_${optIdx}`);
+          if (!id.startsWith('opt_')) {
+            const letterMatch = id.match(/^[a-fA-F0-9]$/);
+            id = letterMatch ? `opt_${id.toLowerCase()}` : `opt_${optIdx}`;
+          }
+          return {
+            id,
+            text: String(opt.text || opt.label || opt.value || ''),
+          };
+        }
+        return { id: `opt_${optIdx}`, text: String(opt) };
+      });
+    } else if (typeof rawOptions === 'object' && rawOptions !== null) {
+      normalizedOptions = Object.entries(rawOptions).map(([key, val]) => ({
+        id: `opt_${key.toLowerCase()}`,
+        text: String(val),
+      }));
+    }
+
+    // Normalize correctAnswer
+    let correctAnswer: any = q.correctAnswer ?? q.correct_answer ?? q.answer;
+    if (typeof correctAnswer === 'string') {
+      const trimmed = correctAnswer.trim();
+      const letterMatch = trimmed.match(/^([a-dA-D])$/);
+      if (letterMatch) {
+        correctAnswer = `opt_${letterMatch[1].toLowerCase()}`;
+      } else if (!trimmed.startsWith('opt_') && normalizedOptions && normalizedOptions.some(o => o.id === `opt_${trimmed.toLowerCase()}`)) {
+        correctAnswer = `opt_${trimmed.toLowerCase()}`;
+      }
+    } else if (Array.isArray(correctAnswer)) {
+      correctAnswer = correctAnswer.map((ans: any) => {
+        const s = String(ans).trim();
+        const letterMatch = s.match(/^([a-dA-D])$/);
+        return letterMatch ? `opt_${letterMatch[1].toLowerCase()}` : s;
+      });
+    }
+
+    return {
+      id: q.id ? String(q.id) : `gen_q_${i + 1}`,
+      type: (q.type as QuestionType) || (normalizedOptions && normalizedOptions.length > 0 ? 'mcq_single' : 'short_answer'),
+      text: q.text || q.question || 'Scriptural Analysis Question',
+      topic: q.topic || 'Biblical Studies',
+      bloomLevel: q.bloomLevel || 'analysis',
+      marks: Number(q.marks) || 5,
+      options: normalizedOptions,
+      correctAnswer: correctAnswer ?? (normalizedOptions ? normalizedOptions[0]?.id : 'See theological rubric'),
+      explanation: q.explanation || 'Comprehensive scriptural exegesis and canonical alignment.',
+      evaluationRubric: q.evaluationRubric,
+    };
+  });
 }
 
 export async function generateExamWithAI(params: GenerateExamParams): Promise<Exam> {
   const openRouterKey = params.apiKey?.startsWith('sk-or-') ? params.apiKey : process.env.OPENROUTER_API_KEY;
   const geminiKey = params.apiKey || process.env.GEMINI_API_KEY;
 
-  // 1. Primary path: OpenRouter with google/gemma-4-31b-it:free
+  // 1. Primary path: OpenRouter with multi-model free cascade
   if (openRouterKey) {
     const generated = await callOpenRouterExamGeneration(params, openRouterKey);
     if (generated && generated.questions?.length > 0) {
@@ -104,7 +238,7 @@ export async function generateExamWithAI(params: GenerateExamParams): Promise<Ex
     throw new Error('Gemini API generated an exam with no valid questions.');
   }
 
-  throw new Error('No AI API key found. Please configure OPENROUTER_API_KEY in .env to generate exams with google/gemma-4-31b-it:free.');
+  throw new Error('No AI API key found. Please configure OPENROUTER_API_KEY in .env.');
 }
 
 async function callOpenRouterExamGeneration(params: GenerateExamParams, apiKey: string): Promise<Exam> {
@@ -158,10 +292,12 @@ The JSON must adhere strictly to this schema:
       content: 'You are an authoritative psychometrician and biblical scholar. Always output valid JSON strictly adhering to the requested schema without conversational filler.',
     },
     { role: 'user', content: prompt },
-  ], { apiKey, temperature: 0.5, timeoutMs: 75000 });
+  ], { apiKey, temperature: 0.5, timeoutMs: 25000 });
 
   const parsed = extractJsonFromText(rawText);
-  const totalMarks = (parsed.questions || []).reduce((acc: number, q: any) => acc + (q.marks || 5), 0);
+  const rawQuestionsList = parsed.questions || (parsed.question ? [parsed] : []);
+  const normalizedQuestions = normalizeExamQuestions(rawQuestionsList);
+  const totalMarks = normalizedQuestions.reduce((acc: number, q: Question) => acc + (q.marks || 5), 0);
 
   return {
     id: `exam-ai-${Date.now()}`,
@@ -187,11 +323,7 @@ The JSON must adhere strictly to this schema:
       'Answer all questions to the best of your ability.',
       'Auto-save is enabled.',
     ],
-    questions: (parsed.questions || []).map((q: any, i: number) => ({
-      ...q,
-      id: q.id || `gen_q_${i + 1}`,
-      marks: q.marks || 5,
-    })),
+    questions: normalizedQuestions,
   };
 }
 
@@ -263,8 +395,9 @@ The JSON must adhere strictly to this schema:
 
   const cleanJson = rawText.trim().replace(/^```json/i, '').replace(/```$/i, '').trim();
   const parsed = JSON.parse(cleanJson);
-
-  const totalMarks = (parsed.questions || []).reduce((acc: number, q: any) => acc + (q.marks || 5), 0);
+  const rawQuestionsList = parsed.questions || (parsed.question ? [parsed] : []);
+  const normalizedQuestions = normalizeExamQuestions(rawQuestionsList);
+  const totalMarks = normalizedQuestions.reduce((acc: number, q: Question) => acc + (q.marks || 5), 0);
 
   return {
     id: `exam-ai-${Date.now()}`,
@@ -290,11 +423,7 @@ The JSON must adhere strictly to this schema:
       'Answer all questions to the best of your ability.',
       'Auto-save is enabled.',
     ],
-    questions: (parsed.questions || []).map((q: any, i: number) => ({
-      ...q,
-      id: q.id || `gen_q_${i + 1}`,
-      marks: q.marks || 5,
-    })),
+    questions: normalizedQuestions,
   };
 }
 
@@ -340,12 +469,12 @@ Return ONLY valid JSON matching this structure (no markdown fences, no conversat
   "reasoning": "Clear explanation of how the score was calculated based on the rubric"
 }`;
 
-  // 1. OpenRouter (google/gemma-4-31b-it:free)
+  // 1. OpenRouter cascade
   if (openRouterKey) {
     const rawText = await callOpenRouter([
       { role: 'system', content: 'You are an objective academic evaluator. Return raw JSON only.' },
       { role: 'user', content: prompt },
-    ], { apiKey: openRouterKey, temperature: 0.2, timeoutMs: 45000 });
+    ], { apiKey: openRouterKey, temperature: 0.2, timeoutMs: 35000 });
 
     const parsed = extractJsonFromText(rawText);
     return {
@@ -354,7 +483,7 @@ Return ONLY valid JSON matching this structure (no markdown fences, no conversat
       accuracy: parsed.accuracy || 'moderate',
       strengths: Array.isArray(parsed.strengths) ? parsed.strengths : ['Addressed the biblical theme directly.'],
       improvements: Array.isArray(parsed.improvements) ? parsed.improvements : [],
-      reasoning: parsed.reasoning || 'Evaluated based on theological precision and rubric alignment via Gemma AI.',
+      reasoning: parsed.reasoning || 'Evaluated based on theological precision and rubric alignment via AI.',
     };
   }
 
@@ -463,12 +592,12 @@ Student's inquiry to you: "${userQuestion}"
 
 Provide a rich, pastoral, and academically rigorous explanation. Cite relevant scripture verses (book, chapter, verse), original language roots (Hebrew/Greek) if helpful, and gently explain why distractors fall short while upholding orthodox biblical interpretation.`;
 
-  // 1. OpenRouter (google/gemma-4-31b-it:free)
+  // 1. OpenRouter cascade
   if (openRouterKey) {
     const text = await callOpenRouter([
       { role: 'system', content: 'You are an encouraging, scholarly Biblical Socratic tutor.' },
       { role: 'user', content: prompt },
-    ], { apiKey: openRouterKey, temperature: 0.6, timeoutMs: 60000 });
+    ], { apiKey: openRouterKey, temperature: 0.6, timeoutMs: 45000 });
 
     if (text) return text;
     throw new Error('AI Tutor returned an empty response.');

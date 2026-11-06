@@ -93,10 +93,10 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <span>AI CBT Exam Generator</span>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800">
-                  google/gemma-4-31b-it
+                  Gemma & Free Cascade
                 </span>
               </h2>
-              <p className="text-xs text-slate-400">Synthesize psychometric question sets via OpenRouter & Gemma AI</p>
+              <p className="text-xs text-slate-400">Synthesize psychometric question sets via OpenRouter Multi-Model Free Engine</p>
             </div>
           </div>
           <button
