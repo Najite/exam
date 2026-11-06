@@ -60,3 +60,4 @@ export function Navbar({ onOpenGenerator }: NavbarProps) {
     </header>
   );
 }
+

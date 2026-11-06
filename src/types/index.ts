@@ -122,3 +122,4 @@ export interface Submission {
   integrityVerdict: 'clean' | 'flagged' | 'high_risk';
   aiAnalytics: AIAnalytics;
 }
+

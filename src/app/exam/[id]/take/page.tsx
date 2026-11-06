@@ -14,13 +14,15 @@ import {
   Bookmark, 
   RotateCcw, 
   Send, 
-  Maximize, 
   CheckCircle2, 
   User, 
   AlertCircle,
   HelpCircle,
   Loader2,
-  Code2
+  Code2,
+  Volume2,
+  VolumeX,
+  Sparkles
 } from 'lucide-react';
 import { Exam, Question, ProctorIncident, ProctorIncidentType } from '@/types';
 import { WebcamProctor } from '@/components/WebcamProctor';
@@ -28,6 +30,7 @@ import { QuestionPalette } from '@/components/QuestionPalette';
 import { CalculatorModal } from '@/components/CalculatorModal';
 import { FormulaSheetModal } from '@/components/FormulaSheetModal';
 import { ScratchpadModal } from '@/components/ScratchpadModal';
+import { CodeRunner } from '@/components/CodeRunner';
 
 function ExamTakeContent() {
   const params = useParams();
@@ -52,13 +55,19 @@ function ExamTakeContent() {
   // Time tracking
   const [secondsRemaining, setSecondsRemaining] = useState<number>(900);
   const [secondsElapsed, setSecondsElapsed] = useState<number>(0);
+  const secondsElapsedRef = useRef<number>(0);
   const startedAtRef = useRef<string>(new Date().toISOString());
 
   // Proctoring & Integrity state
   const [proctorLogs, setProctorLogs] = useState<ProctorIncident[]>([]);
   const [strikeCount, setStrikeCount] = useState<number>(0);
   const [maxStrikes, setMaxStrikes] = useState<number>(3);
+  const maxStrikesRef = useRef<number>(3);
   const [strikeWarningModal, setStrikeWarningModal] = useState<string | null>(null);
+  const [activeToast, setActiveToast] = useState<{ type: string; message: string } | null>(null);
+
+  // Accessibility: Text to speech
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
   // Utility modals
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
@@ -67,6 +76,11 @@ function ExamTakeContent() {
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [fontSize, setFontSize] = useState<'normal' | 'large'>('normal');
+
+  // Update ref for seconds elapsed
+  useEffect(() => {
+    secondsElapsedRef.current = secondsElapsed;
+  }, [secondsElapsed]);
 
   // Load Exam and Session Storage
   useEffect(() => {
@@ -85,7 +99,9 @@ function ExamTakeContent() {
           setExam(data.exam);
           const totalSec = (data.exam.durationMinutes || 15) * 60;
           setSecondsRemaining(totalSec);
-          setMaxStrikes(data.exam.proctoringSettings?.maxTabSwitches || 3);
+          const strikes = data.exam.proctoringSettings?.maxTabSwitches || 3;
+          setMaxStrikes(strikes);
+          maxStrikesRef.current = strikes;
 
           // Mark first question visited
           if (data.exam.questions?.[0]) {
@@ -110,58 +126,69 @@ function ExamTakeContent() {
     loadExam();
   }, [examId]);
 
-  // Log Proctor Incident
+  // Log Proctor Incident (Stable callback with throttled notifications)
   const logIncident = useCallback((incident: Omit<ProctorIncident, 'id' | 'timestamp' | 'secondsIntoExam'>) => {
     const newInc: ProctorIncident = {
       ...incident,
-      id: `inc-${Date.now()}`,
+      id: `inc-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`,
       timestamp: new Date().toISOString(),
-      secondsIntoExam: secondsElapsed,
+      secondsIntoExam: secondsElapsedRef.current,
     };
 
     setProctorLogs((prev) => [...prev, newInc]);
 
-    // If severe or tab switch, increment strike
-    if (incident.type === 'tab_switch' || incident.type === 'fullscreen_exit') {
+    // Show on-screen toast
+    setActiveToast({ type: incident.type, message: incident.description });
+    setTimeout(() => {
+      setActiveToast((curr) => (curr?.message === incident.description ? null : curr));
+    }, 5000);
+
+    // If critical security breach (tab switch, fullscreen exit, multiple faces), increment strike
+    if (incident.type === 'tab_switch' || incident.type === 'fullscreen_exit' || incident.type === 'multiple_faces') {
       setStrikeCount((prev) => {
         const next = prev + 1;
-        setStrikeWarningModal(`Security Alert: ${incident.description}. Strike ${next} of ${maxStrikes}.`);
-        if (next >= maxStrikes) {
+        setStrikeWarningModal(`Security Alert: ${incident.description}. Strike ${next} of ${maxStrikesRef.current}.`);
+        if (next >= maxStrikesRef.current) {
           // Trigger auto-submit on strike limit reached
           setTimeout(() => {
             handleSubmitExam(true);
-          }, 1500);
+          }, 1800);
         }
         return next;
       });
     }
-  }, [secondsElapsed, maxStrikes]);
+  }, []);
 
-  // Anti-Cheating: Fullscreen & Tab Blur Listeners
+  // Anti-Cheating: Fullscreen & Tab Blur Listeners (Debounced to prevent double counting)
   useEffect(() => {
     if (!exam) return;
 
-    // Tab visibility change
+    let lastTabSwitchTime = 0;
+
     const handleVisibilityChange = () => {
-      if (document.hidden) {
+      const now = Date.now();
+      if (document.hidden && now - lastTabSwitchTime > 3000) {
+        lastTabSwitchTime = now;
         logIncident({
           type: 'tab_switch',
           severity: 'high',
-          description: 'Candidate switched tabs or minimized browser window',
+          description: 'Candidate switched away from exam tab or minimized browser window',
         });
       }
     };
 
-    // Window blur
     const handleWindowBlur = () => {
-      logIncident({
-        type: 'window_blur',
-        severity: 'medium',
-        description: 'Candidate navigated away or interacted with external window',
-      });
+      const now = Date.now();
+      if (now - lastTabSwitchTime > 3000) {
+        lastTabSwitchTime = now;
+        logIncident({
+          type: 'window_blur',
+          severity: 'medium',
+          description: 'Window focus lost. Candidate interacted outside exam terminal',
+        });
+      }
     };
 
-    // Fullscreen change
     const handleFullscreenChange = () => {
       if (!document.fullscreenElement && exam.proctoringSettings.enableFullscreen) {
         logIncident({
@@ -172,14 +199,13 @@ function ExamTakeContent() {
       }
     };
 
-    // Prevent right click and copy/paste
     const handleContextMenu = (e: MouseEvent) => e.preventDefault();
     const handleCopyPaste = (e: ClipboardEvent) => {
       e.preventDefault();
       logIncident({
         type: 'paste_attempt',
         severity: 'medium',
-        description: 'Clipboard copy/paste action blocked by security monitor',
+        description: 'Clipboard copy/paste blocked by exam security monitor',
       });
     };
 
@@ -219,6 +245,30 @@ function ExamTakeContent() {
     return () => clearInterval(timer);
   }, [loading, exam, isSubmitting]);
 
+  // Accessibility Text-to-Speech
+  const handleToggleSpeak = () => {
+    if (!exam || !exam.questions[currentIndex]) return;
+    if (isSpeaking) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(false);
+      return;
+    }
+
+    const q = exam.questions[currentIndex];
+    let textToRead = `Question ${currentIndex + 1}. ${q.text}.`;
+    if (q.options) {
+      textToRead += ' Options: ' + q.options.map((o, idx) => `Option ${idx + 1}: ${o.text}`).join('. ');
+    }
+
+    const utterance = new SpeechSynthesisUtterance(textToRead);
+    utterance.rate = 0.95;
+    utterance.onend = () => setIsSpeaking(false);
+    utterance.onerror = () => setIsSpeaking(false);
+
+    setIsSpeaking(true);
+    window.speechSynthesis.speak(utterance);
+  };
+
   // Cache answers to localStorage
   const handleAnswerChange = (qId: string, value: any) => {
     setAnswers((prev) => {
@@ -230,6 +280,10 @@ function ExamTakeContent() {
 
   const handleSelectQuestion = (index: number) => {
     if (!exam || !exam.questions[index]) return;
+    if (isSpeaking) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(false);
+    }
     setCurrentIndex(index);
     setVisited((prev) => ({ ...prev, [exam.questions[index].id]: true }));
   };
@@ -264,9 +318,9 @@ function ExamTakeContent() {
   const handleSubmitExam = async (forcedByViolation = false) => {
     if (!exam || isSubmitting) return;
     setIsSubmitting(true);
+    if (isSpeaking) window.speechSynthesis.cancel();
 
     try {
-      // Exit fullscreen if active
       if (document.fullscreenElement) {
         document.exitFullscreen().catch(() => {});
       }
@@ -280,7 +334,7 @@ function ExamTakeContent() {
           candidateEmail,
           candidatePhoto,
           startedAt: startedAtRef.current,
-          timeSpentSeconds: secondsElapsed,
+          timeSpentSeconds: secondsElapsedRef.current,
           answers,
           proctorLogs: forcedByViolation
             ? [
@@ -288,10 +342,10 @@ function ExamTakeContent() {
                 {
                   id: `inc-term-${Date.now()}`,
                   timestamp: new Date().toISOString(),
-                  secondsIntoExam: secondsElapsed,
+                  secondsIntoExam: secondsElapsedRef.current,
                   type: 'tab_switch',
                   severity: 'high',
-                  description: 'Exam automatically terminated due to excessive security violations',
+                  description: 'Exam automatically submitted due to security strike limit reached',
                 },
               ]
             : proctorLogs,
@@ -300,7 +354,6 @@ function ExamTakeContent() {
 
       const data = await res.json();
       if (data.success && data.submission) {
-        // Clear cached answers
         localStorage.removeItem(`cbt_answers_${examId}`);
         router.push(`/result/${data.submission.id}`);
       } else {
@@ -336,19 +389,32 @@ function ExamTakeContent() {
   }
 
   const currentQ = exam.questions[currentIndex];
-  const isTimeCritical = secondsRemaining < 300; // < 5 mins
-  const isTimeEmergency = secondsRemaining < 60; // < 1 min
+  const isTimeCritical = secondsRemaining < 300;
+  const isTimeEmergency = secondsRemaining < 60;
 
   return (
     <div className={`min-h-screen bg-slate-950 text-white flex flex-col font-sans select-none ${
       fontSize === 'large' ? 'text-base' : 'text-sm'
     }`}>
-      {/* Strike Warning Modal */}
+      {/* Real-time Floating Proctor Toast Notification */}
+      {activeToast && (
+        <div className="fixed top-20 right-6 z-50 max-w-sm bg-slate-900 border-2 border-amber-500/80 rounded-2xl p-3.5 shadow-2xl text-white flex items-start gap-3 animate-in slide-in-from-top-4 duration-200">
+          <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+          <div className="flex-1 text-xs">
+            <div className="font-bold text-amber-300 capitalize mb-0.5">
+              AI Proctor Notice: {activeToast.type.replace('_', ' ')}
+            </div>
+            <p className="text-slate-300 leading-snug">{activeToast.message}</p>
+          </div>
+        </div>
+      )}
+
+      {/* Critical Strike Modal (on Tab Switch or Multi-face violation) */}
       {strikeWarningModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4">
           <div className="bg-rose-950 border-2 border-rose-500 w-full max-w-md rounded-3xl p-6 text-white text-center shadow-2xl animate-in zoom-in-95">
             <ShieldAlert className="w-12 h-12 text-rose-400 mx-auto mb-3 animate-bounce" />
-            <h2 className="text-xl font-bold mb-2">Proctor Security Warning</h2>
+            <h2 className="text-xl font-bold mb-2">Proctor Security Violation</h2>
             <p className="text-xs text-rose-200 mb-6 leading-relaxed">
               {strikeWarningModal}
             </p>
@@ -359,9 +425,9 @@ function ExamTakeContent() {
                   document.documentElement.requestFullscreen().catch(() => {});
                 }
               }}
-              className="w-full py-3 bg-white hover:bg-slate-100 text-rose-950 font-bold rounded-xl text-xs transition"
+              className="w-full py-3 bg-white hover:bg-slate-100 text-rose-950 font-bold rounded-xl text-xs transition cursor-pointer"
             >
-              I Understand & Acknowledge
+              I Understand & Acknowledge (Return to Test)
             </button>
           </div>
         </div>
@@ -408,7 +474,7 @@ function ExamTakeContent() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setIsSubmitModalOpen(true)}
-            className="px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-emerald-950 flex items-center gap-1.5 transition active:scale-95"
+            className="px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-emerald-950 flex items-center gap-1.5 transition active:scale-95 cursor-pointer"
           >
             <Send className="w-3.5 h-3.5" />
             <span>Finish & Submit</span>
@@ -442,6 +508,21 @@ function ExamTakeContent() {
             <Edit3 className="w-3.5 h-3.5 text-amber-400" />
             <span className="hidden sm:inline">Scratchpad</span>
           </button>
+
+          {/* Text-To-Speech Read Aloud */}
+          <button
+            type="button"
+            onClick={handleToggleSpeak}
+            className={`flex items-center gap-1.5 px-2 py-1 rounded-lg transition ${
+              isSpeaking
+                ? 'bg-indigo-950 text-indigo-300 border border-indigo-700 animate-pulse'
+                : 'hover:text-white hover:bg-slate-800'
+            }`}
+            title="Read Question Aloud (Accessibility Voice)"
+          >
+            {isSpeaking ? <VolumeX className="w-3.5 h-3.5 text-indigo-400" /> : <Volume2 className="w-3.5 h-3.5 text-indigo-400" />}
+            <span className="hidden sm:inline">{isSpeaking ? 'Stop Audio' : 'Read Aloud'}</span>
+          </button>
         </div>
 
         <div className="flex items-center gap-3">
@@ -467,7 +548,7 @@ function ExamTakeContent() {
 
           <div className="hidden sm:flex items-center gap-1 text-[11px] font-mono text-emerald-400">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            Proctor Active
+            AI Proctor Active
           </div>
         </div>
       </div>
@@ -509,15 +590,14 @@ function ExamTakeContent() {
                 {currentQ.text}
               </h2>
 
-              {/* Code Snippet if present */}
-              {currentQ.codeSnippet && (
-                <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4 font-mono text-xs text-indigo-200 overflow-x-auto my-4 leading-relaxed shadow-inner">
-                  <div className="flex items-center gap-2 text-[10px] text-slate-500 pb-2 mb-2 border-b border-slate-800">
-                    <Code2 className="w-3.5 h-3.5 text-indigo-400" />
-                    <span>Code Execution Sandbox</span>
-                  </div>
-                  <pre>{currentQ.codeSnippet}</pre>
-                </div>
+              {/* Interactive Code Runner if code question or snippet */}
+              {(currentQ.type === 'code' || currentQ.codeSnippet) && (
+                <CodeRunner
+                  initialCode={currentQ.codeSnippet || '// Write solution here'}
+                  onApplyToAnswer={(code) => {
+                    handleAnswerChange(currentQ.id, code);
+                  }}
+                />
               )}
             </div>
 
@@ -528,7 +608,9 @@ function ExamTakeContent() {
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-xs text-slate-400 font-semibold uppercase tracking-wider">
                     <span>Synthesize Response</span>
-                    <span className="text-indigo-400 font-mono">AI Semantic Grading Enabled</span>
+                    <span className="text-indigo-400 font-mono flex items-center gap-1">
+                      <Sparkles className="w-3 h-3" /> AI Semantic Grading Enabled
+                    </span>
                   </div>
                   <textarea
                     rows={6}
@@ -726,7 +808,7 @@ function ExamTakeContent() {
               <button
                 type="button"
                 onClick={() => setIsSubmitModalOpen(false)}
-                className="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs transition"
+                className="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs transition cursor-pointer"
               >
                 Return to Exam
               </button>
@@ -735,7 +817,7 @@ function ExamTakeContent() {
                 type="button"
                 disabled={isSubmitting}
                 onClick={() => handleSubmitExam(false)}
-                className="flex-1 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-emerald-950 disabled:opacity-50"
+                className="flex-1 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-emerald-950 disabled:opacity-50 cursor-pointer"
               >
                 {isSubmitting ? (
                   <>

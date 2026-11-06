@@ -91,3 +91,4 @@ export function saveSubmission(submission: Submission): Submission {
   fs.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(submissions, null, 2), 'utf-8');
   return submission;
 }
+

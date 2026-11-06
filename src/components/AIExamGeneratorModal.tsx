@@ -306,3 +306,4 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
     </div>
   );
 }
+

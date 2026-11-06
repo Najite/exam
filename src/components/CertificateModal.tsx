@@ -124,3 +124,4 @@ export function CertificateModal({ isOpen, onClose, submission }: CertificateMod
     </div>
   );
 }
+

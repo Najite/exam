@@ -519,3 +519,4 @@ Explain clearly, step-by-step, using intuitive examples. If they made a mistake,
   // Fallback intelligent tutor response
   return `### AI Tutor Explanation\n\n**Key Concept:** ${question.topic}\n\n${question.explanation}\n\n**Why the correct answer holds:** In ${question.topic}, the fundamental principle requires strict adherence to ${Array.isArray(question.correctAnswer) ? question.correctAnswer.join(', ') : question.correctAnswer}. When analyzing this problem, notice that distractors often invert the causality or overlook edge cases.\n\n*Pro-tip:* When encountering similar problems, identify the core invariant or definition first before evaluating the choices!`;
 }
+

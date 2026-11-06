@@ -100,3 +100,4 @@ export function ScratchpadModal({ isOpen, onClose, examId }: ScratchpadModalProp
     </div>
   );
 }
+
