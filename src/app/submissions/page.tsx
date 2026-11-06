@@ -70,13 +70,13 @@ export default function SubmissionsPage() {
           <div>
             <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-800 text-[11px] font-semibold mb-2">
               <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
-              <span>Sunday School Class Record</span>
+              <span>Youth Ministry & Teen Records</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold text-white">
-              Student Submissions & Quiz Results
+              Student Submissions & Challenge Results
             </h1>
             <p className="text-xs text-slate-400 mt-1">
-              Review completed Sunday School quizzes, student scores, and Teacher Grace AI evaluations.
+              Review completed Teen Bible Challenges, student scores, and Pastor Jordan AI evaluations.
             </p>
           </div>
 

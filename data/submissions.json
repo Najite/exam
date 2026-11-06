@@ -1,5 +1,198 @@
 [
   {
+    "id": "sub-1793974589709",
+    "examId": "exam-ai-1793974514782",
+    "examTitle": "Inspiring Sunday School Quiz on the Story of Jesus",
+    "candidateName": "Samuel",
+    "candidateEmail": "samuel@churchkids.org",
+    "candidatePhoto": "data:image/jpeg;base64,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",
+    "startedAt": "2026-11-06T14:15:21.288Z",
+    "submittedAt": "2026-11-06T14:16:29.709Z",
+    "timeSpentSeconds": 48,
+    "answers": {
+      "q1": "opt_a",
+      "q2": "opt_a",
+      "q3": "by providing food\nby healing the sick",
+      "q4": "opt_b",
+      "q5": "opt_b"
+    },
+    "score": 25,
+    "totalPossibleScore": 25,
+    "percentage": 100,
+    "passed": true,
+    "questionResults": [
+      {
+        "questionId": "q1",
+        "userAnswer": "opt_a",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "Mary was chosen, just as God chose a special person for a big plan. Remember Luke 1:38."
+      },
+      {
+        "questionId": "q2",
+        "userAnswer": "opt_a",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "Jesus performed his first public miracle, showing his power and love. John 2:1-11."
+      },
+      {
+        "questionId": "q3",
+        "userAnswer": "by providing food\nby healing the sick",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "Jesus healed many people, showing his love. He also fed the 5000. Mark 2:5.",
+        "aiEvaluation": {
+          "score": 5,
+          "maxScore": 5,
+          "accuracy": "high",
+          "strengths": [
+            "Wonderful! You remembered two beautiful examples of Jesus' love: providing food for the hungry (like when He fed the 5,000) and healing the sick. Both show His deep compassion for people's physical and spiritual needs."
+          ],
+          "improvements": [
+            "You've already given excellent examples! If you'd like to explore more, you could also mention how Jesus welcomed children, forgave sins, or spent time with those who were lonely or rejected."
+          ],
+          "reasoning": "Your answer perfectly reflects Jesus' caring heart. Providing food and healing the sick are both clear demonstrations of His love in action. You've earned full marks for showing such good understanding of how Jesus put love into practice. Keep up the great work in learning about His ministry!"
+        }
+      },
+      {
+        "questionId": "q4",
+        "userAnswer": "opt_b",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "Jesus taught us to help those in need, like the Good Samaritan. Luke 10:33."
+      },
+      {
+        "questionId": "q5",
+        "userAnswer": "opt_b",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "Jesus rose alive, showing he is the Son of God. 1 Corinthians 15:3-4."
+      }
+    ],
+    "proctorLogs": [
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (DOWN). Please face screen directly.",
+        "id": "inc-1793974522089-je7f",
+        "timestamp": "2026-11-06T14:15:22.089Z",
+        "secondsIntoExam": 0
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (DOWN). Please face screen directly.",
+        "id": "inc-1793974528101-fdeb",
+        "timestamp": "2026-11-06T14:15:28.101Z",
+        "secondsIntoExam": 6
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (DOWN). Please face screen directly.",
+        "id": "inc-1793974534117-5x8a",
+        "timestamp": "2026-11-06T14:15:34.117Z",
+        "secondsIntoExam": 12
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (DOWN). Please face screen directly.",
+        "id": "inc-1793974540134-ieb6",
+        "timestamp": "2026-11-06T14:15:40.134Z",
+        "secondsIntoExam": 18
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (DOWN). Please face screen directly.",
+        "id": "inc-1793974546150-k2cq",
+        "timestamp": "2026-11-06T14:15:46.151Z",
+        "secondsIntoExam": 24
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (DOWN). Please face screen directly.",
+        "id": "inc-1793974552151-y0s2",
+        "timestamp": "2026-11-06T14:15:52.151Z",
+        "secondsIntoExam": 30
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (DOWN). Please face screen directly.",
+        "id": "inc-1793974558167-09go",
+        "timestamp": "2026-11-06T14:15:58.167Z",
+        "secondsIntoExam": 36
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (DOWN). Please face screen directly.",
+        "id": "inc-1793974564184-xlkz",
+        "timestamp": "2026-11-06T14:16:04.184Z",
+        "secondsIntoExam": 42
+      }
+    ],
+    "integrityScore": 20,
+    "integrityVerdict": "high_risk",
+    "aiAnalytics": {
+      "topicBreakdown": [
+        {
+          "topic": "Birth of Jesus",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "Miracle of Jesus",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "Jesus' Love",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "Parable of the Good Samaritan",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "Resurrection",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        }
+      ],
+      "strengths": [
+        "Birth of Jesus",
+        "Miracle of Jesus",
+        "Jesus' Love",
+        "Parable of the Good Samaritan",
+        "Resurrection"
+      ],
+      "weaknesses": [
+        "None identified; consistent performance across tested subtopics."
+      ],
+      "recommendations": [
+        "Demonstrated strong mastery across all tested domains. Consider advancing to expert-level modules."
+      ],
+      "summary": "Candidate passed successfully with 100% score (99th percentile estimate). Demonstrates strong grasp of core competencies.",
+      "estimatedPercentile": 99
+    }
+  },
+  {
     "id": "sub-1793973468014",
     "examId": "exam-ai-1793972674157",
     "examTitle": "Exam: The Abrahamic Covenant and Justification by Faith",

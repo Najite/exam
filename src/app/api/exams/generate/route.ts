@@ -13,7 +13,7 @@ export async function POST(req: Request) {
 
     const exam = await generateExamWithAI({
       topic: topic.trim(),
-      category: category || 'Sunday School',
+      category: category || 'Teen Bible Challenge',
       difficulty: difficulty || 'beginner',
       questionCount: Number(questionCount) || 5,
       durationMinutes: Number(durationMinutes) || 15,

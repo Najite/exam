@@ -242,40 +242,41 @@ export async function generateExamWithAI(params: GenerateExamParams): Promise<Ex
 }
 
 async function callOpenRouterExamGeneration(params: GenerateExamParams, apiKey: string): Promise<Exam> {
-  const prompt = `You are an encouraging, friendly, and creative Sunday School Bible Teacher and Christian educator.
-Create a fun, inspiring, and age-appropriate Sunday School Bible quiz/exam in JSON format on the topic: "${params.topic}".
-Category: "Sunday School"
-Target Level: ${params.difficulty === 'beginner' ? 'Primary (Kids ages 5-8)' : params.difficulty === 'intermediate' ? 'Juniors (Pre-teens ages 9-12)' : 'Youth (Teens)'}
+  const prompt = `You are an inspiring, wise, and relatable Youth Pastor and Christian educator.
+Create an engaging, scripture-grounded, and thought-provoking Bible quiz/exam in JSON format for TEENAGERS (ages 13–19) on the topic: "${params.topic}".
+Category: "Teen Bible Challenge"
+Target Level: ${params.difficulty === 'beginner' ? 'Junior High / Early Teens (ages 13-14)' : params.difficulty === 'intermediate' ? 'High School / Mid Teens (ages 15-16)' : 'Senior Youth / College Prep (ages 17-19)'}
 Number of Questions: ${params.questionCount}
 Allowed Question Types: ${params.questionTypes.join(', ')}
 ${params.contextMaterial ? `Bible Passage / Lesson Notes:\n"""${params.contextMaterial}"""\n` : ''}
 
-SUNDAY SCHOOL GUIDELINES:
-- This is for SUNDAY SCHOOL, NOT a theological seminary exam. Avoid dense theological jargon, academic debates, and original language exegesis (no Hebrew/Greek grammar disputes).
-- Focus on key Bible stories, heroes and heroines of faith (e.g. David, Noah, Moses, Daniel, Esther, Jesus, Peter, Paul), the parables and miracles of Jesus, practical kindness, loving God and our neighbors, and memorable Scripture lessons.
-- Ensure language is warm, clear, age-appropriate, and encouraging for young learners and church students.
-- In explanations, share simple, memorable biblical insights with friendly Bible references (e.g. 1 Samuel 17:45, Luke 15:11-32, John 3:16).
+TEEN BIBLE CHALLENGE GUIDELINES:
+- This is designed specifically for TEENAGERS (ages 13–19). NOT for little kids (do NOT use simplistic preschool stories, baby-talk, or coloring concepts) and NOT dry seminary theological exegesis (no obscure ancient linguistic trivia).
+- Focus on real-world Christian discipleship for teens: standing firm under peer pressure (Daniel, Esther, Joseph), identity and self-worth in Christ (Ephesians, Psalm 139), radical kingdom ethics (Sermon on the Mount), managing anxiety, doubt, mental health, and social media culture with biblical truth (Philippians 4, Romans 12), relationships and integrity, and Christian leadership (Timothy, Josiah).
+- Questions should be challenging, culturally relevant, intellectually honest, and spiritually deep, testing both scriptural knowledge and real-life teenage application.
+- In explanations, provide sharp, insightful biblical commentary citing relevant Scriptures (e.g. Romans 12:1-2, 1 Timothy 4:12, Philippians 4:6-8, Daniel 1:8, John 14:6) and practical takeaways for high school and teenage life.
 
 CRITICAL: Return ONLY valid, raw JSON (no markdown formatting, no \`\`\`json code blocks).
 The JSON must adhere strictly to this schema:
 {
-  "title": "Inspiring Sunday School Quiz Title",
-  "description": "Warm, encouraging description of the Bible story and learning lesson",
-  "category": "Sunday School",
+  "title": "Inspiring Teen Bible Challenge Title",
+  "description": "Engaging description connecting the scriptural theme to real-life teenage challenges",
+  "category": "Teen Bible Challenge",
   "difficulty": "${params.difficulty}",
   "durationMinutes": ${params.durationMinutes},
   "passingScore": 60,
   "instructions": [
-    "Welcome to our Sunday School Bible Quiz!",
-    "Read each question carefully and think about what happened in the Bible story.",
-    "Do your best and remember: learning God's Word is a blessing!"
+    "Welcome to the Teen Bible Challenge!",
+    "Read each question carefully and think critically about scripture and real-world application.",
+    "Ask Pastor Jordan (AI Youth Mentor) if you want to explore any passage or question further.",
+    "Honor God with your honesty and integrity."
   ],
   "questions": [
     {
       "id": "q1",
       "type": "mcq_single" | "mcq_multiple" | "true_false" | "short_answer",
-      "text": "Clear, engaging question prompt about the Bible story",
-      "topic": "Bible Story / Topic",
+      "text": "Clear, engaging question prompt relevant to teens",
+      "topic": "Bible Topic / Real-Life Application",
       "bloomLevel": "knowledge" | "comprehension" | "application",
       "marks": 5,
       "options": [
@@ -285,8 +286,8 @@ The JSON must adhere strictly to this schema:
         { "id": "opt_d", "text": "Option D text" }
       ],
       "correctAnswer": "opt_b",
-      "explanation": "Friendly, encouraging explanation connecting the story and Bible verse",
-      "evaluationRubric": "Simple rubric criteria for short answer evaluation"
+      "explanation": "Engaging, youth-pastor style explanation connecting the text to teen life and scripture",
+      "evaluationRubric": "Rubric criteria for evaluating depth, biblical accuracy, and teen application"
     }
   ]
 }`;
@@ -294,7 +295,7 @@ The JSON must adhere strictly to this schema:
   const rawText = await callOpenRouter([
     {
       role: 'system',
-      content: 'You are a friendly, encouraging Sunday School Bible Teacher. Always output valid JSON strictly adhering to the requested schema without conversational filler.',
+      content: 'You are an inspiring, wise Youth Pastor creating Bible challenges for teenagers. Always output valid JSON strictly adhering to the requested schema without conversational filler.',
     },
     { role: 'user', content: prompt },
   ], { apiKey, temperature: 0.5, timeoutMs: 25000 });
@@ -333,40 +334,41 @@ The JSON must adhere strictly to this schema:
 }
 
 async function callGeminiExamGeneration(params: GenerateExamParams, apiKey: string): Promise<Exam> {
-  const prompt = `You are an encouraging, friendly, and creative Sunday School Bible Teacher and Christian educator.
-Create a fun, inspiring, and age-appropriate Sunday School Bible quiz/exam in JSON format on the topic: "${params.topic}".
-Category: "Sunday School"
-Target Level: ${params.difficulty === 'beginner' ? 'Primary (Kids ages 5-8)' : params.difficulty === 'intermediate' ? 'Juniors (Pre-teens ages 9-12)' : 'Youth (Teens)'}
+  const prompt = `You are an inspiring, wise, and relatable Youth Pastor and Christian educator.
+Create an engaging, scripture-grounded, and thought-provoking Bible quiz/exam in JSON format for TEENAGERS (ages 13–19) on the topic: "${params.topic}".
+Category: "Teen Bible Challenge"
+Target Level: ${params.difficulty === 'beginner' ? 'Junior High / Early Teens (ages 13-14)' : params.difficulty === 'intermediate' ? 'High School / Mid Teens (ages 15-16)' : 'Senior Youth / College Prep (ages 17-19)'}
 Number of Questions: ${params.questionCount}
 Allowed Question Types: ${params.questionTypes.join(', ')}
 ${params.contextMaterial ? `Bible Passage / Lesson Notes:\n"""${params.contextMaterial}"""\n` : ''}
 
-SUNDAY SCHOOL GUIDELINES:
-- This is for SUNDAY SCHOOL, NOT a theological seminary exam. Avoid dense theological jargon, academic debates, and original language exegesis.
-- Focus on key Bible stories, heroes and heroines of faith, the parables and miracles of Jesus, practical kindness, and memorable Scripture lessons.
-- Ensure language is warm, clear, age-appropriate, and encouraging for young learners and church students.
-- In explanations, share simple, memorable biblical insights with friendly Bible references.
+TEEN BIBLE CHALLENGE GUIDELINES:
+- This is designed specifically for TEENAGERS (ages 13–19). NOT for little kids (do NOT use simplistic preschool stories or baby-talk) and NOT dry seminary theological exegesis (no obscure ancient linguistic trivia).
+- Focus on real-world Christian discipleship for teens: standing firm under peer pressure (Daniel, Esther, Joseph), identity and self-worth in Christ (Ephesians, Psalm 139), radical kingdom ethics (Sermon on the Mount), managing anxiety, doubt, mental health, and social media culture with biblical truth (Philippians 4, Romans 12), relationships and integrity, and Christian leadership (Timothy, Josiah).
+- Questions should be challenging, culturally relevant, intellectually honest, and spiritually deep.
+- In explanations, provide sharp, insightful biblical commentary citing relevant Scriptures (e.g. Romans 12:1-2, 1 Timothy 4:12, Philippians 4:6-8, Daniel 1:8, John 14:6) and practical takeaways for high school and teenage life.
 
 CRITICAL: Return ONLY valid, raw JSON (no markdown formatting, no \`\`\`json code blocks).
 The JSON must adhere strictly to this schema:
 {
-  "title": "Inspiring Sunday School Quiz Title",
-  "description": "Warm, encouraging description of the Bible story and learning lesson",
-  "category": "Sunday School",
+  "title": "Inspiring Teen Bible Challenge Title",
+  "description": "Engaging description connecting the scriptural theme to real-life teenage challenges",
+  "category": "Teen Bible Challenge",
   "difficulty": "${params.difficulty}",
   "durationMinutes": ${params.durationMinutes},
   "passingScore": 60,
   "instructions": [
-    "Welcome to our Sunday School Bible Quiz!",
-    "Read each question carefully and think about what happened in the Bible story.",
-    "Do your best and remember: learning God's Word is a blessing!"
+    "Welcome to the Teen Bible Challenge!",
+    "Read each question carefully and think critically about scripture and real-world application.",
+    "Ask Pastor Jordan (AI Youth Mentor) if you want to explore any passage or question further.",
+    "Honor God with your honesty and integrity."
   ],
   "questions": [
     {
       "id": "q1",
       "type": "mcq_single" | "mcq_multiple" | "true_false" | "short_answer",
-      "text": "Clear, engaging question prompt about the Bible story",
-      "topic": "Bible Story / Topic",
+      "text": "Clear, engaging question prompt relevant to teens",
+      "topic": "Bible Topic / Real-Life Application",
       "bloomLevel": "knowledge" | "comprehension" | "application",
       "marks": 5,
       "options": [
@@ -376,8 +378,8 @@ The JSON must adhere strictly to this schema:
         { "id": "opt_d", "text": "Option D text" }
       ],
       "correctAnswer": "opt_b",
-      "explanation": "Friendly, encouraging explanation connecting the story and Bible verse",
-      "evaluationRubric": "Simple rubric criteria for short answer evaluation"
+      "explanation": "Engaging, youth-pastor style explanation connecting the text to teen life and scripture",
+      "evaluationRubric": "Rubric criteria for evaluating depth, biblical accuracy, and teen application"
     }
   ]
 }`;
@@ -460,23 +462,23 @@ export async function evaluateShortAnswerWithAI(
     };
   }
 
-  const prompt = `You are a kind, encouraging Sunday School Bible teacher evaluating a student's answer to a Bible quiz question.
+  const prompt = `You are a thoughtful, encouraging Christian Youth Pastor and teen mentor evaluating a teenager's answer to a Bible challenge question.
 Question: "${question.text}"
 Total Available Marks: ${maxScore}
 Model Answer: "${question.correctAnswer}"
-Evaluation Rubric: "${question.evaluationRubric || 'Assess whether the student understood the Bible story, key character, or practical moral/faith lesson.'}"
+Evaluation Rubric: "${question.evaluationRubric || 'Assess whether the student understood the biblical text, principles, and genuine real-life application for teens.'}"
 
 Student's Answer: "${trimmedAnswer}"
 
-Grade the student's response with warmth, fairness, and encouragement. Celebrate what they remembered or applied from the Bible story.
+Grade the teenager's response with fairness, depth, and encouragement. Celebrate insightful scriptural connections, mature reflection, and authentic application. Provide constructive feedback if key points or context were overlooked.
 Return ONLY valid JSON matching this structure (no markdown fences, no conversational filler):
 {
   "score": number (between 0 and ${maxScore}),
   "maxScore": ${maxScore},
   "accuracy": "high" | "moderate" | "low" | "none",
-  "strengths": ["encouraging praise for what the student remembered or explained"],
-  "improvements": ["gentle reminder of any story detail or verse that was missed"],
-  "reasoning": "Encouraging explanation of the grade and biblical lesson"
+  "strengths": ["encouraging praise for the teen's biblical insight and application"],
+  "improvements": ["helpful advice on deepening their understanding or addressing missed details"],
+  "reasoning": "Mentor-style explanation of the grade and spiritual takeaway"
 }`;
 
   // 1. OpenRouter cascade
@@ -589,25 +591,26 @@ export async function askAITutor(
   const openRouterKey = apiKey?.startsWith('sk-or-') ? apiKey : process.env.OPENROUTER_API_KEY;
   const geminiKey = apiKey || process.env.GEMINI_API_KEY;
 
-  const prompt = `You are Teacher Grace, a loving, patient, and joyful Sunday School Bible teacher.
-A Sunday School student is reviewing this Bible quiz question and asking you for guidance:
+  const prompt = `You are Pastor Jordan, an authentic, approachable, and passionate Youth Pastor and teen mentor.
+A Christian teenager (ages 13–19) is reviewing this Bible challenge question and asking you for guidance:
 
 Question: "${question.text}"
 ${question.options ? `Options:\n${question.options.map((o) => `${o.id}: ${o.text}`).join('\n')}\n` : ''}
 Correct Answer: ${Array.isArray(question.correctAnswer) ? question.correctAnswer.join(', ') : question.correctAnswer}
-Bible Story Explanation: ${question.explanation}
+Biblical Context / Explanation: ${question.explanation}
 Student's Chosen Answer: ${userAnswer ? (Array.isArray(userAnswer) ? userAnswer.join(', ') : userAnswer) : 'None'}
 
 Student's inquiry: "${userQuestion}"
 
-Provide a warm, inspiring, and easy-to-understand Sunday School explanation suitable for students and church learners.
-Use simple, clear language, tell the Bible story vividly, cite memorable Bible verses (e.g. John 3:16, Psalm 23, Proverbs 3:5-6), share a friendly everyday life lesson, and encourage the student in their faith!
-DO NOT use seminary jargon, academic exegesis, or complex linguistic terms.`;
+Provide a genuine, inspiring, and intellectually grounded response suitable for teenagers (ages 13–19).
+Speak to them with respect as emerging young adults—be authentic, relatable, direct, and firmly anchored in Scripture (citing passages like Romans 12:1-2, 1 Timothy 4:12, Philippians 4:6-8, Proverbs 3:5-6, Ephesians 6).
+Connect the biblical text to real-life high school and teenage issues (peer pressure, identity, fear of failure, mental health, standing up for truth, living out faith among friends).
+DO NOT talk down to them like young children, and DO NOT use dry academic seminary jargon.`;
 
   // 1. OpenRouter cascade
   if (openRouterKey) {
     const text = await callOpenRouter([
-      { role: 'system', content: 'You are Teacher Grace, a warm and encouraging Sunday School Bible teacher.' },
+      { role: 'system', content: 'You are Pastor Jordan, an authentic and encouraging Youth Pastor and teen mentor.' },
       { role: 'user', content: prompt },
     ], { apiKey: openRouterKey, temperature: 0.6, timeoutMs: 30000 });
 

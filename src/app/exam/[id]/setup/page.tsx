@@ -31,8 +31,8 @@ function ExamSetupContent() {
   const [loading, setLoading] = useState(true);
 
   // Form state
-  const [candidateName, setCandidateName] = useState('Samuel');
-  const [candidateEmail, setCandidateEmail] = useState('samuel@churchkids.org');
+  const [candidateName, setCandidateName] = useState('Alex Morgan');
+  const [candidateEmail, setCandidateEmail] = useState('alex.m@youthministry.org');
   const [candidatePhoto, setCandidatePhoto] = useState<string | null>(null);
 
   // Diagnostic states
@@ -392,29 +392,29 @@ function ExamSetupContent() {
             <div className="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-xs">
               3
             </div>
-            <h3 className="text-base font-bold text-white">Sunday School Quiz Focus & Honor Code</h3>
+            <h3 className="text-base font-bold text-white">Teen Challenge Integrity & Honor Code</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6 text-xs text-slate-300">
             <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800/80">
               <div className="font-bold text-amber-300 mb-1 flex items-center gap-1.5">
-                <Maximize2 className="w-3.5 h-3.5 text-amber-400" /> Focus on the Screen
+                <Maximize2 className="w-3.5 h-3.5 text-amber-400" /> Full Focus
               </div>
-              <p className="text-slate-400">Keep your full attention on the Bible quiz so you can do your very best!</p>
+              <p className="text-slate-400">Keep your focus on the test window to build discipline and give your best effort.</p>
             </div>
 
             <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800/80">
               <div className="font-bold text-amber-300 mb-1 flex items-center gap-1.5">
-                <AlertTriangle className="w-3.5 h-3.5 text-amber-400" /> Stay on the Quiz Tab
+                <AlertTriangle className="w-3.5 h-3.5 text-amber-400" /> Tab Integrity
               </div>
-              <p className="text-slate-400">Please avoid switching browser tabs during the quiz to keep your focus sharp.</p>
+              <p className="text-slate-400">Avoid switching tabs or searching external answers during timed challenges.</p>
             </div>
 
             <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800/80">
               <div className="font-bold text-emerald-300 mb-1 flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Helpful Tools
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Scripture Companion
               </div>
-              <p className="text-slate-400">Use the Bible Helper and Verse Finder on your toolbar whenever you need a hint.</p>
+              <p className="text-slate-400">Access the Youth Bible Companion and Verse Finder on your toolbar at any time.</p>
             </div>
           </div>
 

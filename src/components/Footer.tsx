@@ -9,7 +9,7 @@ export function Footer() {
           <div className="w-6 h-6 rounded-lg bg-amber-600/20 text-amber-400 flex items-center justify-center">
             <Cpu className="w-3.5 h-3.5" />
           </div>
-          <span className="font-semibold text-slate-400">Cognita Kids &bull; Sunday School</span>
+          <span className="font-semibold text-slate-400">Cognita Youth &bull; Teen Bible Challenge</span>
           <span>&bull;</span>
           <span>Bible Quiz & Learning CBT Platform</span>
         </div>

@@ -21,124 +21,118 @@ export function FormulaSheetModal({ isOpen, onClose }: FormulaSheetModalProps) {
     setTimeout(() => setCopiedKey(null), 2000);
   };
 
-  const sundaySchoolData = {
+  const teenBibleData = {
     stories: [
       {
-        name: 'David & Goliath (1 Samuel 17)',
-        ref: '1 Samuel 17:45-49',
-        summary: 'Faith in God • 5 Smooth Stones • The battle belongs to the Lord!',
-        desc: 'Young shepherd David was not afraid of the giant Goliath because he trusted God. With five smooth stones and a sling, David defeated the giant in the name of the Lord.',
+        name: 'Daniel & The Babylonian Pressure',
+        ref: 'Daniel 1:8; 6:10',
+        summary: 'Standing Firm • Counter-Cultural Faith • Unshakable Conviction',
+        desc: 'As young captives in Babylon, Daniel and his friends resolved not to defile themselves with royal food or bow to golden idols. Daniel prayed consistently despite threats, showing teens how to live out holy convictions in a secular culture.',
       },
       {
-        name: 'Noah’s Ark & The Rainbow (Genesis 6-9)',
-        ref: 'Genesis 9:12-17',
-        summary: 'Obedience • Animal Pairs • The Rainbow Promise',
-        desc: 'Noah obeyed God and built a giant ark to save his family and animals. After the flood, God put the rainbow in the sky as a promise never to flood the earth again.',
+        name: 'Shadrach, Meshach & Abednego: "Even If" Faith',
+        ref: 'Daniel 3:16-18',
+        summary: 'Courage under Fire • Defying the Golden Idol • God is With Us',
+        desc: 'Facing execution in the fiery furnace, they boldly told the king: "Our God is able to deliver us... but even if He does not, we will not serve your gods." True faith stands for righteousness regardless of social consequences.',
       },
       {
-        name: 'Daniel in the Lions’ Den (Daniel 6)',
-        ref: 'Daniel 6:16-23',
-        summary: 'Praying Daily • Angel Protected • Shut the Lions’ Mouths',
-        desc: 'Daniel refused to stop praying to God. When he was thrown into a den of hungry lions, God sent His angel to shut their mouths, keeping Daniel completely safe.',
+        name: 'Queen Esther: "For Such a Time as This"',
+        ref: 'Esther 4:14-16',
+        summary: 'Purpose • Sacred Risk • "If I Perish, I Perish"',
+        desc: 'Risking her life to approach the Persian king, Esther embraced her divine calling to protect her people. She teaches teens that God places each person in their sphere of influence for a transcendent purpose.',
       },
       {
-        name: 'Moses & The Red Sea (Exodus 14)',
-        ref: 'Exodus 14:13-22',
-        summary: 'Deliverance • Parting the Waters • Walking on Dry Ground',
-        desc: 'Trapped between Pharaoh’s army and the deep sea, God told Moses to stretch out his staff. God parted the waters so the Israelites walked safely on dry land.',
+        name: 'Joseph: Integrity in the Dark',
+        ref: 'Genesis 39:9; 50:20',
+        summary: 'Fleeing Temptation • Purity • Forgiving Past Trauma',
+        desc: 'When tempted in secret, Joseph refused, saying: "How could I do such a wicked thing and sin against God?" He fled temptation rather than flirting with it, and later recognized God’s sovereignty even over his brothers’ betrayal.',
       },
       {
-        name: 'The Good Samaritan (Luke 10)',
-        ref: 'Luke 10:25-37',
-        summary: 'Loving your Neighbor • Compassion • Helping Anyone in Need',
-        desc: 'Jesus told the story of a traveler beaten by robbers. While others walked past, a Samaritan stopped, bandaged his wounds, and paid for his care. Love your neighbor!',
+        name: 'Timothy: Young Leadership in the Church',
+        ref: '1 Timothy 4:12',
+        summary: 'Example in Youth • Speech, Conduct, Love, Faith, Purity',
+        desc: 'Paul mentored young Timothy, reminding him never to let older people disqualify him due to age. Teenagers can lead by modeling Christlike integrity, authentic love, and unwavering faith.',
       },
       {
-        name: 'The Prodigal Son (Luke 15)',
-        ref: 'Luke 15:11-32',
-        summary: 'Forgiveness • Father’s Great Hug • Lost and Found',
-        desc: 'A younger son ran away and wasted everything. When he returned expecting anger, his loving father ran, hugged, and welcomed him home with a grand celebration!',
+        name: 'Peter: Redemption After Failure',
+        ref: 'Luke 22:54-62; John 21:15-19',
+        summary: 'Grace After Denial • Restoration • "Feed My Sheep"',
+        desc: 'Peter wept bitterly after denying Jesus three times out of fear. But Jesus lovingly reinstated him on the beach, asking "Do you love me?" God’s grace is greater than our worst failures.',
       },
       {
-        name: 'Feeding the 5,000 (John 6)',
-        ref: 'John 6:1-14',
-        summary: 'A Boy’s Generosity • 5 Loaves & 2 Fish • 12 Baskets Leftover',
-        desc: 'A young boy shared his small lunch with Jesus. Jesus prayed, thanked God, and multiplied the food to feed over 5,000 people with twelve baskets full of leftovers.',
-      },
-      {
-        name: 'Jonah & The Big Fish (Jonah 1-3)',
-        ref: 'Jonah 1:17; 2:1-10',
-        summary: 'Second Chances • Big Fish • God’s Forgiving Heart',
-        desc: 'Jonah tried to run from God, but after three days inside a great fish, he prayed and obeyed God’s call to tell Nineveh about God’s love and forgiveness.',
+        name: 'Paul & Silas in Prison: Praise in Chains',
+        ref: 'Acts 16:22-34',
+        summary: 'Praise Over Anxiety • Midnight Worship • Supernatural Breakthrough',
+        desc: 'Beaten and placed in stocks in Philippi, Paul and Silas sang hymns at midnight instead of despairing. God sent an earthquake that opened doors, leading to the salvation of the jailer’s entire household.',
       },
     ],
     verses: [
       {
-        name: 'John 3:16 - God’s Great Love',
-        ref: 'John 3:16',
-        summary: '“For God so loved the world that He gave His one and only Son…”',
-        desc: 'God loves each one of us so much that He sent Jesus so whoever believes in Him will have everlasting life and be part of God’s family.',
+        name: 'Romans 12:1-2 - Non-Conformity & Mind Renewal',
+        ref: 'Romans 12:1-2',
+        summary: '“Do not conform to the pattern of this world, but be transformed by the renewing of your mind…”',
+        desc: 'The ultimate teen anchor verse: resist being squeezed into secular culture’s mold. Let God’s truth transform your thoughts, desires, and identity.',
       },
       {
-        name: 'Psalm 23:1 - The Good Shepherd',
-        ref: 'Psalm 23:1-3',
-        summary: '“The LORD is my shepherd; I shall not want…”',
-        desc: 'God takes care of us just like a kind, gentle shepherd leads and protects his sheep into green pastures and beside quiet waters.',
+        name: '1 Timothy 4:12 - Setting the Standard as a Youth',
+        ref: '1 Timothy 4:12',
+        summary: '“Don’t let anyone look down on you because you are young, but set an example…”',
+        desc: 'God calls teenagers to lead right now—in your speech, lifestyle, love, faith, and purity—not just when you become an adult.',
       },
       {
-        name: 'Philippians 4:13 - Strength in Jesus',
-        ref: 'Philippians 4:13',
-        summary: '“I can do all things through Christ who strengthens me.”',
-        desc: 'Whenever we face difficult tests, big challenges, or feel afraid, Jesus gives us courage and strength to overcome.',
+        name: 'Philippians 4:6-7 - Anxiety into Peace',
+        ref: 'Philippians 4:6-7',
+        summary: '“Do not be anxious about anything, but in every situation, by prayer and petition, present your requests to God…”',
+        desc: 'Replace panic with prayer. God’s supernatural peace, which surpasses all human understanding, will guard your heart and mind in Christ Jesus.',
       },
       {
-        name: 'Proverbs 3:5-6 - Trust in the Lord',
+        name: 'Psalm 139:13-14 - Identity & Self-Worth',
+        ref: 'Psalm 139:13-14',
+        summary: '“I praise you because I am fearfully and wonderfully made…”',
+        desc: 'In a world driven by social media filters and comparison, Psalm 139 declares that your worth was personally woven by God before you were born.',
+      },
+      {
+        name: '1 Peter 3:15 - Apologetics & Defending the Faith',
+        ref: '1 Peter 3:15',
+        summary: '“Always be prepared to give an answer to everyone who asks you for the reason for the hope you have…”',
+        desc: 'Understand what you believe and why you believe it, always communicating truth with gentleness, humility, and respect.',
+      },
+      {
+        name: 'Proverbs 3:5-6 - Guidance & Trust',
         ref: 'Proverbs 3:5-6',
         summary: '“Trust in the LORD with all your heart and lean not on your own understanding…”',
-        desc: 'In all our ways acknowledge God, and He will guide our footsteps on the right path.',
-      },
-      {
-        name: 'The Lord’s Prayer',
-        ref: 'Matthew 6:9-13',
-        summary: '“Our Father in heaven, hallowed be Your name. Your kingdom come, Your will be done…”',
-        desc: 'The prayer Jesus taught His disciples: asking God for our daily bread, forgiving others, and asking for guidance away from temptation.',
-      },
-      {
-        name: 'The Golden Rule',
-        ref: 'Luke 6:31; Matthew 7:12',
-        summary: '“Do to others as you would have them do to you.”',
-        desc: 'Treat every person with the kindness, respect, patience, and love that you want to receive.',
+        desc: 'A vital life compass for future decisions, college, relationships, and career: acknowledge God in every path, and He will direct your steps.',
       },
     ],
     commandments: [
       {
-        name: 'The 10 Commandments (Simplified for Kids)',
-        ref: 'Exodus 20:1-17',
-        summary: '1-4: Love God • 5-10: Love People',
-        desc: '1. Put God first • 2. No idols • 3. Respect God’s name • 4. Keep the Sabbath holy • 5. Honor mom & dad • 6. Do not murder/hurt • 7. Be faithful • 8. Do not steal • 9. Do not lie • 10. Do not be jealous.',
-      },
-      {
-        name: 'The 9 Fruit of the Spirit',
-        ref: 'Galatians 5:22-23',
-        summary: 'Love, Joy, Peace, Patience, Kindness, Goodness, Faithfulness, Gentleness, Self-Control',
-        desc: 'The qualities that the Holy Spirit grows in our hearts as we follow Jesus every day. Against such things there is no law!',
-      },
-      {
-        name: 'The Full Armor of God',
+        name: 'The Full Armor of God (Teen Field Guide)',
         ref: 'Ephesians 6:10-18',
         summary: 'Belt of Truth • Breastplate of Righteousness • Shoes of Peace • Shield of Faith • Helmet of Salvation • Sword of the Spirit',
-        desc: 'God’s spiritual armor that protects our minds, hearts, and steps so we can stand strong in God’s truth and love.',
+        desc: 'Spiritual warfare is real in school and culture. Truth counters cultural lies; righteousness protects your heart; faith extinguishes flaming arrows of doubt and insecurity; God’s Word is your offensive weapon.',
       },
       {
-        name: 'The Greatest Commandment',
-        ref: 'Matthew 22:37-39',
-        summary: 'Love God with all your heart, soul, and mind, and love your neighbor as yourself.',
-        desc: 'Jesus said all the Law and Prophets hang on these two great commandments.',
+        name: 'The Beatitudes: Radical Kingdom Living',
+        ref: 'Matthew 5:3-12',
+        summary: 'Poverty of Spirit • Meekness (Strength Under Control) • Peacemakers • Purity of Heart',
+        desc: 'Jesus overturns worldly values: true happiness isn’t popularity or pride, but humility, hunger for righteousness, mercy, and peacemaking.',
+      },
+      {
+        name: 'Fruit of the Spirit in Daily Relationships',
+        ref: 'Galatians 5:22-23',
+        summary: 'Love, Joy, Peace, Patience, Kindness, Goodness, Faithfulness, Gentleness, Self-Control',
+        desc: 'Authentic signs of the Holy Spirit living inside a teenager. Self-control and gentleness in a culture of impulsiveness and outrage.',
+      },
+      {
+        name: 'The Great Commission',
+        ref: 'Matthew 28:18-20',
+        summary: 'Go and make disciples of all nations, baptizing and teaching them to obey everything Christ commanded.',
+        desc: 'Every young believer is called to be an ambassador for Jesus in their school, campus, sports teams, and digital presence.',
       },
     ],
   };
 
-  const list = sundaySchoolData[activeTab].filter(
+  const list = teenBibleData[activeTab].filter(
     (item) =>
       item.name.toLowerCase().includes(search.toLowerCase()) ||
       item.summary.toLowerCase().includes(search.toLowerCase()) ||
@@ -156,8 +150,8 @@ export function FormulaSheetModal({ isOpen, onClose }: FormulaSheetModalProps) {
               <BookOpen className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white">Sunday School Bible Helper</h2>
-              <p className="text-xs text-slate-400">Memory verses, famous Bible stories, 10 Commandments & Fruit of the Spirit</p>
+              <h2 className="text-base font-bold text-white">Youth Bible Companion & Scripture Guide</h2>
+              <p className="text-xs text-slate-400">Anchor verses, key heroes & turning points, and real-life Armor of God</p>
             </div>
           </div>
           <button
@@ -174,7 +168,7 @@ export function FormulaSheetModal({ isOpen, onClose }: FormulaSheetModalProps) {
             <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
             <input
               type="text"
-              placeholder="Search stories, characters, verses (e.g. David, Noah, Love, Psalm 23)..."
+              placeholder="Search heroes, anchor verses, topics (e.g. Daniel, Romans 12, Armor of God)..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-hidden focus:border-indigo-500"
@@ -183,9 +177,9 @@ export function FormulaSheetModal({ isOpen, onClose }: FormulaSheetModalProps) {
 
           <div className="flex gap-2">
             {[
-              { id: 'stories' as const, label: 'Bible Stories & Heroes', icon: Sparkles },
-              { id: 'verses' as const, label: 'Memory Verses', icon: Heart },
-              { id: 'commandments' as const, label: 'Commandments & Fruit', icon: Shield },
+              { id: 'stories' as const, label: 'Heroes & Turning Points', icon: Sparkles },
+              { id: 'verses' as const, label: 'Anchor Life Verses', icon: Heart },
+              { id: 'commandments' as const, label: 'Armor of God & Ethics', icon: Shield },
             ].map((tab) => {
               const Icon = tab.icon;
               return (

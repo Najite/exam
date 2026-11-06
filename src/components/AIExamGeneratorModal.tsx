@@ -38,7 +38,7 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!topic.trim()) {
-      setError('Please provide a Sunday School topic or Bible story.');
+      setError('Please provide a Bible topic or youth ministry theme.');
       return;
     }
 
@@ -51,7 +51,7 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           topic,
-          category: 'Sunday School',
+          category: 'Teen Bible Challenge',
           difficulty,
           questionCount,
           durationMinutes,
@@ -64,7 +64,7 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
 
       const data = await res.json();
       if (!res.ok || !data.success) {
-        throw new Error(data.error || 'Failed to generate Sunday School quiz.');
+        throw new Error(data.error || 'Failed to generate Teen Bible Challenge.');
       }
 
       if (onExamCreated) {
@@ -90,12 +90,12 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
             </div>
             <div>
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
-                <span>Sunday School Quiz Generator</span>
+                <span>Teen Bible Challenge Generator</span>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800">
-                  AI Bible Assistant
+                  Youth Ministry AI
                 </span>
               </h2>
-              <p className="text-xs text-slate-400">Generate fun, inspiring Bible quizzes and lessons for Sunday School students</p>
+              <p className="text-xs text-slate-400">Generate scripture-grounded quizzes & life challenges for teens (ages 13–19)</p>
             </div>
           </div>
           <button
@@ -118,28 +118,47 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
           {/* Exam Topic */}
           <div>
             <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-              Bible Story / Sunday School Topic <span className="text-rose-400">*</span>
+              Scripture Theme / Youth Topic <span className="text-rose-400">*</span>
             </label>
             <input
               type="text"
               required
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
-              placeholder="e.g. David and Goliath, Noah's Ark, The Good Samaritan, The Ten Commandments, or The Miracles of Jesus"
+              placeholder="e.g. Standing Firm Under Pressure (Daniel), Identity in Christ (Ephesians), Overcoming Anxiety (Phil 4), Sermon on the Mount"
               className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-hidden focus:border-indigo-500 transition"
             />
+            {/* Quick Topic Prompts */}
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {[
+                'Standing Firm (Daniel & Babylon)',
+                'Identity & Self-Worth (Ephesians)',
+                'Overcoming Anxiety (Phil 4:6-8)',
+                'Sermon on the Mount (Matthew 5-7)',
+                'Teen Leadership (1 Tim 4:12)',
+              ].map((tag) => (
+                <button
+                  type="button"
+                  key={tag}
+                  onClick={() => setTopic(tag)}
+                  className="text-[11px] px-2 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition"
+                >
+                  + {tag}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Difficulty Level (Kids, Juniors, Teens) */}
+          {/* Difficulty Level (Junior High, High School, Senior Youth) */}
           <div>
             <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-              Age & Learning Level
+              Teen Age Bracket & Depth
             </label>
             <div className="grid grid-cols-3 gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-700 text-xs text-center font-medium">
               {[
-                { id: 'beginner' as DifficultyLevel, label: 'Primary (Kids)', desc: 'Ages 5-8' },
-                { id: 'intermediate' as DifficultyLevel, label: 'Juniors (Pre-teens)', desc: 'Ages 9-12' },
-                { id: 'advanced' as DifficultyLevel, label: 'Youth (Teens)', desc: 'Ages 13+' },
+                { id: 'beginner' as DifficultyLevel, label: 'Junior High', desc: 'Ages 13–14 (Foundations)' },
+                { id: 'intermediate' as DifficultyLevel, label: 'High School', desc: 'Ages 15–16 (Identity & Ethics)' },
+                { id: 'advanced' as DifficultyLevel, label: 'Senior Youth', desc: 'Ages 17–19 (Apologetics & Depth)' },
               ].map((item) => (
                 <button
                   type="button"
@@ -276,12 +295,12 @@ export function AIExamGeneratorModal({ isOpen, onClose, onExamCreated }: AIExamG
               {isLoading ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Preparing Sunday School Questions...</span>
+                  <span>Preparing Teen Bible Challenge...</span>
                 </>
               ) : (
                 <>
                   <Sparkles className="w-4 h-4" />
-                  <span>Generate Sunday School Quiz</span>
+                  <span>Generate Teen Bible Challenge</span>
                 </>
               )}
             </button>

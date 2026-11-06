@@ -20,7 +20,7 @@ export function AITutorModal({ isOpen, onClose, question, userAnswer }: AITutorM
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'tutor',
-      text: `Hello! I'm Teacher Grace, your Sunday School Bible Assistant. Let's look at this Bible story together: **"${question.topic}"**.\n\n${question.explanation}\n\nWhat would you like to know more about or discuss from this story?`,
+      text: `Hey! I'm Pastor Jordan, your Youth Ministry AI mentor. Let's look at this passage together: **"${question.topic}"**.\n\n${question.explanation}\n\nWhat questions do you have about this Scripture, or how to apply this to real life as a teenager?`,
     },
   ]);
   const [input, setInput] = useState('');
@@ -82,12 +82,12 @@ export function AITutorModal({ isOpen, onClose, question, userAnswer }: AITutorM
             </div>
             <div>
               <h2 className="text-base font-bold text-white flex items-center gap-2">
-                <span>Teacher Grace (Sunday School AI)</span>
+                <span>Pastor Jordan (Youth Ministry AI)</span>
                 <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-800">
                   {question.topic}
                 </span>
               </h2>
-              <p className="text-xs text-slate-400">Friendly Bible story explanation & encouraging guidance</p>
+              <p className="text-xs text-slate-400">Authentic Bible mentorship & real-life teen application</p>
             </div>
           </div>
           <button
@@ -149,31 +149,31 @@ export function AITutorModal({ isOpen, onClose, question, userAnswer }: AITutorM
         <div className="px-6 py-2 bg-slate-900 border-t border-slate-800/80 flex gap-2 overflow-x-auto text-[11px]">
           <button
             type="button"
-            onClick={() => handleQuickPrompt("Why is my answer incorrect from an exegetical perspective?")}
+            onClick={() => handleQuickPrompt("How does this apply to peer pressure and standing out at school?")}
             className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 shrink-0 transition"
           >
-            Why is my answer wrong?
+            Peer pressure & school life
           </button>
           <button
             type="button"
-            onClick={() => handleQuickPrompt("Can you provide key Scripture cross-references to substantiate this?")}
+            onClick={() => handleQuickPrompt("What does this passage reveal about my true identity in Christ?")}
             className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 shrink-0 transition"
           >
-            Scripture cross-references
+            My identity in Christ
           </button>
           <button
             type="button"
-            onClick={() => handleQuickPrompt("Explain any relevant Hebrew or Greek terms in this passage.")}
+            onClick={() => handleQuickPrompt("How can I explain this biblical truth to my friends who doubt or disagree?")}
             className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 shrink-0 transition"
           >
-            Original Greek/Hebrew terms
+            Sharing with friends / Apologetics
           </button>
           <button
             type="button"
-            onClick={() => handleQuickPrompt("How do I remember this covenant or theological principle for exams?")}
+            onClick={() => handleQuickPrompt("What key anchor scripture or memory verse should I memorize for this?")}
             className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 shrink-0 transition"
           >
-            Theological mnemonic
+            Key anchor verse
           </button>
         </div>
 
