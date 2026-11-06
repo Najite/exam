@@ -1,5 +1,314 @@
 [
   {
+    "id": "sub-1793973468014",
+    "examId": "exam-ai-1793972674157",
+    "examTitle": "Exam: The Abrahamic Covenant and Justification by Faith",
+    "candidateName": "Theodore Beza",
+    "candidateEmail": "tbeza@reformed.org",
+    "startedAt": "2026-11-06T13:40:00.000Z",
+    "submittedAt": "2026-11-06T13:57:48.014Z",
+    "timeSpentSeconds": 480,
+    "answers": {
+      "q1": "opt_b",
+      "q2": "In Genesis 15:6, Abraham believed the LORD and it was counted to him as righteousness. In Romans 4:1-5, the Apostle Paul directly cites this scripture to demonstrate that justification occurs by grace through faith apart from the works of the Mosaic law or circumcision. Therefore, the unconditional Abrahamic covenant is the foundational Old Testament prototype for New Testament justification by faith."
+    },
+    "score": 10,
+    "totalPossibleScore": 10,
+    "percentage": 100,
+    "passed": true,
+    "questionResults": [
+      {
+        "questionId": "q1",
+        "userAnswer": "opt_b",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "Genesis 15:6 states 'And he believed the LORD, and he counted it to him as righteousness.' This demonstrates that Abraham's righteousness was credited by God based on his faith in the promised seed, not on works or later law. The Hebrew term 'אָמַן' (aman) conveys belief/trust, and 'חָשׁׁׂב' (ḥashab) means 'counted' indicating imputation."
+      },
+      {
+        "questionId": "q2",
+        "userAnswer": "In Genesis 15:6, Abraham believed the LORD and it was counted to him as righteousness. In Romans 4:1-5, the Apostle Paul directly cites this scripture to demonstrate that justification occurs by grace through faith apart from the works of the Mosaic law or circumcision. Therefore, the unconditional Abrahamic covenant is the foundational Old Testament prototype for New Testament justification by faith.",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "Comprehensive scriptural exegesis and canonical alignment.",
+        "aiEvaluation": {
+          "score": 5,
+          "maxScore": 5,
+          "accuracy": "high",
+          "strengths": [
+            "Accurately cites Genesis 15:6 and Romans 4:1-5, which encompasses Romans 4:3 as required.",
+            "Clearly explains that justification occurs by grace through faith apart from works of the Mosaic law or circumcision.",
+            "Effectively links the unconditional Abrahamic covenant as the foundational prototype for New Testament justification by faith."
+          ],
+          "improvements": [],
+          "reasoning": "The student's response fully satisfies the rubric: it cites both Genesis 15:6 and Romans 4:3 (via the range 4:1-5), explains that faith is the means of receiving the covenant promise by stating justification is through faith apart from works, and directly connects this to the doctrine of justification by describing the Abrahamic covenant as the prototype. Thus, it warrants full credit."
+        }
+      }
+    ],
+    "proctorLogs": [],
+    "integrityScore": 100,
+    "integrityVerdict": "clean",
+    "aiAnalytics": {
+      "topicBreakdown": [
+        {
+          "topic": "Abrahamic Covenant",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "Justification by Faith",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        }
+      ],
+      "strengths": [
+        "Abrahamic Covenant",
+        "Justification by Faith"
+      ],
+      "weaknesses": [
+        "None identified; consistent performance across tested subtopics."
+      ],
+      "recommendations": [
+        "Demonstrated strong mastery across all tested domains. Consider advancing to expert-level modules."
+      ],
+      "summary": "Candidate passed successfully with 100% score (99th percentile estimate). Demonstrates strong grasp of core competencies.",
+      "estimatedPercentile": 99
+    }
+  },
+  {
+    "id": "sub-1793973295596",
+    "examId": "exam-ai-1793973213597",
+    "examTitle": "Biblical Foundations: The Story of Jesus",
+    "candidateName": "Alex Rivers",
+    "candidateEmail": "alex.rivers@university.edu",
+    "candidatePhoto": "data:image/jpeg;base64,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",
+    "startedAt": "2026-11-06T13:53:43.582Z",
+    "submittedAt": "2026-11-06T13:54:55.596Z",
+    "timeSpentSeconds": 56,
+    "answers": {
+      "q1": "opt_b",
+      "q2": "the revelation",
+      "q3": "opt_a",
+      "q4": [
+        "opt_c",
+        "opt_a"
+      ],
+      "q5": "love your neighour as your self"
+    },
+    "score": 5,
+    "totalPossibleScore": 25,
+    "percentage": 20,
+    "passed": false,
+    "questionResults": [
+      {
+        "questionId": "q1",
+        "userAnswer": "opt_b",
+        "isCorrect": true,
+        "scoreAwarded": 5,
+        "maxScore": 5,
+        "explanation": "The canonical order of the Gospels is Matthew, Mark, Luke, and John. This arrangement is attested in early church tradition (e.g., Irenaeus, *Against Heresies* 3.1.1) and reflects the historical priority given to Matthew as the first evangelist. The sequence is preserved in the majority of Christian Bibles and liturgical lectionaries, underscoring the unified witness of the four Gospel accounts to the life and ministry of Jesus Christ."
+      },
+      {
+        "questionId": "q2",
+        "userAnswer": "the revelation",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 5,
+        "explanation": "John 1:1 opens with *En arché Λογος*, \"In the beginning was the *Logos*.\" The Greek *logos* carries dual meaning: (1) \"Word\" as the divine expression of God’s thought and creative power (cf. Genesis 1:3, \"Let there be light”), and (2) the pre‑existent Son who is both with God and is God (John 1:1c). This language directly supports the high Christology of the Gospel, later articulated in Philippians 2:6‑07 where Christ is described as being \"in the form of God\" and \"equal with God.\" The *Logos* theology thus bridges the Old Testament’s concept of God’s spoken word (Hebrew *dabar*) and the New Testament’s revelation that Jesus is the incarnate Word, fully divine and fully human. This doctrine underpins the Christian understanding of the Trinity and the unity of divine revelation through Christ.",
+        "aiEvaluation": {
+          "score": 0,
+          "maxScore": 5,
+          "accuracy": "none",
+          "strengths": [],
+          "improvements": [
+            "The answer does not address the Greek lexical meaning of *Logos* (e.g., 'word', 'reason', 'principle').",
+            "It lacks any reference to the Old Testament background (the *dabar* concept).",
+            "No Christological implications such as pre‑existence, divinity, or incarnation are provided.",
+            "The response is a single word and therefore incomplete and irrelevant to the question."
+          ],
+          "reasoning": "The rubric awards full credit only for a comprehensive explanation covering lexical meaning, OT background, and Christological implications. The student's answer consists of the unrelated phrase 'the revelation', which provides none of the required elements. Hence it receives no credit, resulting in a score of 0 out of 5."
+        }
+      },
+      {
+        "questionId": "q3",
+        "userAnswer": "opt_a",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 5,
+        "explanation": "The statement is false. The Sermon on the Mount is found in Matthew 5–7, while Luke records a parallel sermon known as the Sermon on the Plain in Luke 6:17–20. Although both contain similar themes and sayings of Jesus, the wording, structure, and specific discourses differ. This distinction is evident in scholarly comparisons (e.g., France, *The Gospel of Matthew*, 2007). The unique presentation in Matthew underscores his emphasis on Jesus as the fulfillment of the Law, while Luke’s version highlights Jesus’ outreach to the marginalized. Thus, the sermon is not verbatim across the two Gospels."
+      },
+      {
+        "questionId": "q4",
+        "userAnswer": [
+          "opt_c",
+          "opt_a"
+        ],
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 5,
+        "explanation": "A careful survey of the four Gospels shows that the crucifixion of Jesus (e.g., Matt 27, Mark 15, Luke 23, John 19) and the baptism of Jesus (e.g., Matt 3, Mark 1, Luke 3, John 1) are the only events recorded in all four accounts. The feeding of the 5,000 appears in Matthew, Mark, and John, but not in Luke (which records the feeding of the 4,000). The resurrection of Lazarus is unique to John. This common core underscores the centrality of Jesus’ atoning death and his inaugural public ministry in the Gospel witness."
+      },
+      {
+        "questionId": "q5",
+        "userAnswer": "love your neighour as your self",
+        "isCorrect": false,
+        "scoreAwarded": 0,
+        "maxScore": 5,
+        "explanation": "In 1 Corinthians 13, *agapē* denotes selfless, unconditional love that seeks the good of the other regardless of the recipient’s worthiness or response. Unlike *philia* (friendship love) or *eros* (romantic love), *agapē* is characterized by patience, kindness, lack of envy or boasting, and it \"rejoices with the truth\" (v. 6). The passage elevates *agapē* as the supreme virtue, even surpassing prophetic and sacrificial acts when not accompanied by love (v. 3). Theologically, this redefines love as a divine attribute mirrored in humanity: believers are called to reflect God’s love (*theós agapē*; cf. John 3:16) toward all, including enemies (Matt 5:44). Thus, *agapē* underpins the ethic of radical forgiveness, hospitality, and self‑sacrificial service that defines Christian discipleship.",
+        "aiEvaluation": {
+          "score": 0,
+          "maxScore": 5,
+          "accuracy": "none",
+          "strengths": [],
+          "improvements": [
+            "Missing definition of the Greek word agapē",
+            "No contrast with other Greek love terms (e.g., philia, eros, storge)",
+            "No citation of key verses from 1 Corinthians 13",
+            "No discussion of theological implications for Christian ethics",
+            "Typographical error ('neighour') and incomplete response"
+          ],
+          "reasoning": "The student's answer is a very brief phrase that does not address any of the required components: it does not define agapē, contrast it with other Greek love terms, cite verses from 1 Corinthians 13, or discuss theological implications. According to the rubric, such an incomplete and inaccurate description receives no credit."
+        }
+      }
+    ],
+    "proctorLogs": [
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793973224698-mgva",
+        "timestamp": "2026-11-06T13:53:44.698Z",
+        "secondsIntoExam": 1
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793973230699-7p6f",
+        "timestamp": "2026-11-06T13:53:50.699Z",
+        "secondsIntoExam": 7
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793973236710-wclz",
+        "timestamp": "2026-11-06T13:53:56.710Z",
+        "secondsIntoExam": 13
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793973242727-85ul",
+        "timestamp": "2026-11-06T13:54:02.727Z",
+        "secondsIntoExam": 19
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793973248742-n0tb",
+        "timestamp": "2026-11-06T13:54:08.742Z",
+        "secondsIntoExam": 25
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793973254758-xr9d",
+        "timestamp": "2026-11-06T13:54:14.758Z",
+        "secondsIntoExam": 31
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793973260759-pyzr",
+        "timestamp": "2026-11-06T13:54:20.759Z",
+        "secondsIntoExam": 37
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793973266775-i5uz",
+        "timestamp": "2026-11-06T13:54:26.775Z",
+        "secondsIntoExam": 43
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793973272791-9dib",
+        "timestamp": "2026-11-06T13:54:32.791Z",
+        "secondsIntoExam": 49
+      },
+      {
+        "type": "face_missing",
+        "severity": "medium",
+        "description": "Vision alert: Candidate gaze deviated (RIGHT). Please face screen directly.",
+        "id": "inc-1793973278792-v0rj",
+        "timestamp": "2026-11-06T13:54:38.792Z",
+        "secondsIntoExam": 55
+      }
+    ],
+    "integrityScore": 0,
+    "integrityVerdict": "high_risk",
+    "aiAnalytics": {
+      "topicBreakdown": [
+        {
+          "topic": "Gospel Order",
+          "score": 5,
+          "total": 5,
+          "percentage": 100
+        },
+        {
+          "topic": "Christology – John 1:1",
+          "score": 0,
+          "total": 5,
+          "percentage": 0
+        },
+        {
+          "topic": "Sermon on the Mount",
+          "score": 0,
+          "total": 5,
+          "percentage": 0
+        },
+        {
+          "topic": "Gospel Harmony",
+          "score": 0,
+          "total": 5,
+          "percentage": 0
+        },
+        {
+          "topic": "Agape Love – 1 Corinthians 13",
+          "score": 0,
+          "total": 5,
+          "percentage": 0
+        }
+      ],
+      "strengths": [
+        "Gospel Order"
+      ],
+      "weaknesses": [
+        "Christology – John 1:1",
+        "Sermon on the Mount",
+        "Gospel Harmony",
+        "Agape Love – 1 Corinthians 13"
+      ],
+      "recommendations": [
+        "Prioritize targeted revision on: Christology – John 1:1, Sermon on the Mount, Gospel Harmony, Agape Love – 1 Corinthians 13.",
+        "Work through practice problem sets with step-by-step Socratic walkthroughs."
+      ],
+      "summary": "Candidate scored 20%, falling short of the 70% passing threshold. Recommended focused review on highlighted areas of improvement.",
+      "estimatedPercentile": 19
+    }
+  },
+  {
     "id": "sub-1793969522160",
     "examId": "exam-ai-1793969471173",
     "examTitle": "New Testament Gospels, Pauline Epistles & Early Church",

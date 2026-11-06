@@ -1,5 +1,143 @@
 [
   {
+    "id": "exam-ai-1793973213597",
+    "title": "Biblical Foundations: The Story of Jesus",
+    "description": "This high‑stakes CBT examines core knowledge of the Gospel narrative, key theological concepts, and exegetical skills relevant to the story of Jesus as presented in the New Testament Gospels and Epistles. Examinees will be asked to recall factual details, interpret crucial terms and passages, and apply biblical principles to theological questions. The exam targets beginner‑level proficiency and aligns with standard introductory curricula in Biblical Studies.",
+    "category": "New Testament Gospels & Epistles",
+    "difficulty": "beginner",
+    "durationMinutes": 15,
+    "passingScore": 70,
+    "totalMarks": 25,
+    "isPublished": true,
+    "createdAt": "2026-11-06T13:53:33.597Z",
+    "proctoringSettings": {
+      "enableWebcam": true,
+      "enableMic": true,
+      "enableFullscreen": true,
+      "maxTabSwitches": 3,
+      "aiFaceDetection": true,
+      "blockCopyPaste": true
+    },
+    "instructions": [
+      "Read all biblical texts and question stems carefully before answering.",
+      "Biblical reference sheet and concordance are accessible from the top toolbar.",
+      "Full‑screen lock and AI proctoring are enforced."
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "type": "mcq_single",
+        "text": "Which of the following correctly lists the four Gospels in the canonical order as they appear in most modern Bibles?",
+        "topic": "Gospel Order",
+        "bloomLevel": "knowledge",
+        "marks": 5,
+        "options": [
+          {
+            "id": "opt_a",
+            "text": "Mark, Matthew, Luke, John"
+          },
+          {
+            "id": "opt_b",
+            "text": "Matthew, Mark, Luke, John"
+          },
+          {
+            "id": "opt_c",
+            "text": "Luke, Matthew, John, Mark"
+          },
+          {
+            "id": "opt_d",
+            "text": "John, Luke, Mark, Matthew"
+          }
+        ],
+        "correctAnswer": "opt_b",
+        "explanation": "The canonical order of the Gospels is Matthew, Mark, Luke, and John. This arrangement is attested in early church tradition (e.g., Irenaeus, *Against Heresies* 3.1.1) and reflects the historical priority given to Matthew as the first evangelist. The sequence is preserved in the majority of Christian Bibles and liturgical lectionaries, underscoring the unified witness of the four Gospel accounts to the life and ministry of Jesus Christ.",
+        "evaluationRubric": "Correct identification of the canonical order (5 marks). Partial credit may be awarded for naming three of the four Gospels in correct sequence (3 marks). No credit for incorrect ordering or missing Gospels."
+      },
+      {
+        "id": "q2",
+        "type": "short_answer",
+        "text": "Explain the theological significance of the Greek term *Logos* (λόγος) as used in John 1:1 and how it informs Christological doctrine.",
+        "topic": "Christology – John 1:1",
+        "bloomLevel": "analysis",
+        "marks": 5,
+        "options": [],
+        "correctAnswer": "",
+        "explanation": "John 1:1 opens with *En arché Λογος*, \"In the beginning was the *Logos*.\" The Greek *logos* carries dual meaning: (1) \"Word\" as the divine expression of God’s thought and creative power (cf. Genesis 1:3, \"Let there be light”), and (2) the pre‑existent Son who is both with God and is God (John 1:1c). This language directly supports the high Christology of the Gospel, later articulated in Philippians 2:6‑07 where Christ is described as being \"in the form of God\" and \"equal with God.\" The *Logos* theology thus bridges the Old Testament’s concept of God’s spoken word (Hebrew *dabar*) and the New Testament’s revelation that Jesus is the incarnate Word, fully divine and fully human. This doctrine underpins the Christian understanding of the Trinity and the unity of divine revelation through Christ.",
+        "evaluationRubric": "Full credit (5 marks) for a comprehensive explanation that includes the Greek lexical meaning, its Old Testament background (*dabar*), and its Christological implications (e.g., pre‑existence, divinity, incarnation). Partial credit (3 marks) for correct mention of either the lexical meaning or the Christological connection. No credit for irrelevant or incomplete responses."
+      },
+      {
+        "id": "q3",
+        "type": "true_false",
+        "text": "The Sermon on the Mount is recorded verbatim in both Matthew (chapters 5–7) and Luke (chapters 6‐9).",
+        "topic": "Sermon on the Mount",
+        "bloomLevel": "comprehension",
+        "marks": 5,
+        "options": [
+          {
+            "id": "opt_a",
+            "text": "True"
+          },
+          {
+            "id": "opt_b",
+            "text": "False"
+          },
+          {
+            "id": "opt_c",
+            "text": "The sermon appears only in Matthew."
+          },
+          {
+            "id": "opt_d",
+            "text": "Luke records a similar but not identical sermon."
+          }
+        ],
+        "correctAnswer": "opt_b",
+        "explanation": "The statement is false. The Sermon on the Mount is found in Matthew 5–7, while Luke records a parallel sermon known as the Sermon on the Plain in Luke 6:17–20. Although both contain similar themes and sayings of Jesus, the wording, structure, and specific discourses differ. This distinction is evident in scholarly comparisons (e.g., France, *The Gospel of Matthew*, 2007). The unique presentation in Matthew underscores his emphasis on Jesus as the fulfillment of the Law, while Luke’s version highlights Jesus’ outreach to the marginalized. Thus, the sermon is not verbatim across the two Gospels.",
+        "evaluationRubric": "Correct identification of \"False\" (5 marks). Partial credit (3 marks) for indicating that the sermon appears in both Gospels but with differences. No credit for selecting \"True.\""
+      },
+      {
+        "id": "q4",
+        "type": "mcq_multiple",
+        "text": "Which of the following events are mentioned in all four Gospels? (Select all that apply.)",
+        "topic": "Gospel Harmony",
+        "bloomLevel": "application",
+        "marks": 5,
+        "options": [
+          {
+            "id": "opt_a",
+            "text": "The feeding of the 5,000"
+          },
+          {
+            "id": "opt_b",
+            "text": "The resurrection of Lazarus"
+          },
+          {
+            "id": "opt_c",
+            "text": "The crucifixion of Jesus"
+          },
+          {
+            "id": "opt_d",
+            "text": "The baptism of Jesus by John the Baptist"
+          }
+        ],
+        "correctAnswer": "opt_c,opt_d",
+        "explanation": "A careful survey of the four Gospels shows that the crucifixion of Jesus (e.g., Matt 27, Mark 15, Luke 23, John 19) and the baptism of Jesus (e.g., Matt 3, Mark 1, Luke 3, John 1) are the only events recorded in all four accounts. The feeding of the 5,000 appears in Matthew, Mark, and John, but not in Luke (which records the feeding of the 4,000). The resurrection of Lazarus is unique to John. This common core underscores the centrality of Jesus’ atoning death and his inaugural public ministry in the Gospel witness.",
+        "evaluationRubric": "Full credit (5 marks) for selecting both the crucifixion and the baptism. Partial credit (3 marks) for selecting one of the two correct events. No credit for selecting incorrect events or none."
+      },
+      {
+        "id": "q5",
+        "type": "short_answer",
+        "text": "Discuss the meaning of the Greek word *agapē* (ἀγάπη) as used in 1 Corinthians 13 and its theological implications for Christian love.",
+        "topic": "Agape Love – 1 Corinthians 13",
+        "bloomLevel": "evaluation",
+        "marks": 5,
+        "options": [],
+        "correctAnswer": "",
+        "explanation": "In 1 Corinthians 13, *agapē* denotes selfless, unconditional love that seeks the good of the other regardless of the recipient’s worthiness or response. Unlike *philia* (friendship love) or *eros* (romantic love), *agapē* is characterized by patience, kindness, lack of envy or boasting, and it \"rejoices with the truth\" (v. 6). The passage elevates *agapē* as the supreme virtue, even surpassing prophetic and sacrificial acts when not accompanied by love (v. 3). Theologically, this redefines love as a divine attribute mirrored in humanity: believers are called to reflect God’s love (*theós agapē*; cf. John 3:16) toward all, including enemies (Matt 5:44). Thus, *agapē* underpins the ethic of radical forgiveness, hospitality, and self‑sacrificial service that defines Christian discipleship.",
+        "evaluationRubric": "Full credit (5 marks) for a thorough definition of *agapē*, contrast with other Greek love terms, citation of key verses from 1 Corinthians 13, and theological implications for Christian ethics. Partial credit (3 marks) for correct definition and at least one theological implication. No credit for incomplete or inaccurate descriptions."
+      }
+    ]
+  },
+  {
     "id": "exam-ai-1793972674157",
     "title": "Exam: The Abrahamic Covenant and Justification by Faith",
     "description": "This exam assesses knowledge of the Abrahamic Covenant in the Old Testament and its theological connection to justification by faith in the New Testament, requiring scriptural citation and exegesis.",
